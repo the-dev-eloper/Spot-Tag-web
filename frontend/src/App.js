@@ -1,4 +1,5 @@
 import React from 'react'
+import Language from './components/Language';
 import data from './data'
 
 function App() {
@@ -20,18 +21,7 @@ function App() {
           <div class="row center">
 
             {data.languages.map((language) => (
-              <div key={language._id} className="card">
-
-                <a href={`/language/${language.name}`}>
-                  <img class="medium" src={language.image} alt="language" />
-                </a>
-
-                <div class="card-body">
-                  <a href={`/language/${language.name}`}>
-                    <h2>{language.name}</h2>
-                  </a>
-                </div>
-              </div>
+              <Language key={language._id} language={language} />
             ))}
           </div>
         </div>
