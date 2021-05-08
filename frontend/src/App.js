@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Language from './components/Language';
 import data from './data'
 import HomeScreen from './screens/HomeScreen';
+import LanguageScreen from './screens/LanguageScreen';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
         </header>
 
         <main>
-          {/* <Route path="/language/:id" component={ProductScreen}></Route> */}
+          <Route path="/language/:id" component={LanguageScreen}></Route>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
 
