@@ -7,7 +7,7 @@ export default function Language(props) {
     return (
         <div key={language._id} className="card">
 
-            <a href={`/language/${language.name}`}>
+            <a href={`/language/${language._id}`}>
                 <img class="medium" src={language.image} alt="language" />
             </a>
 

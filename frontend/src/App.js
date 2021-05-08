@@ -1,34 +1,33 @@
 import React from 'react'
+import { BrowserRouter, Route } from 'react-router-dom';
 import Language from './components/Language';
 import data from './data'
+import HomeScreen from './screens/HomeScreen';
 
 function App() {
   return (
-    <div class="grid-container">
+    <BrowserRouter>
 
-      <header class="row">
-        <div>
-          <a class="brand" href="index.html">Spot Tag</a>
-        </div>
+      <div class="grid-container">
 
-        <div>
-          <a href="signin.html">Sign In</a>
-        </div>
-      </header>
-
-      <main>
-        <div>
-          <div class="row center">
-
-            {data.languages.map((language) => (
-              <Language key={language._id} language={language} />
-            ))}
+        <header class="row">
+          <div>
+            <a class="brand" href="/">Spot Tag</a>
           </div>
-        </div>
-      </main>
 
-      <footer class="row center">All right reserved</footer>
-    </div>
+          <div>
+            <a href="/signin">Sign In</a>
+          </div>
+        </header>
+
+        <main>
+          {/* <Route path="/language/:id" component={ProductScreen}></Route> */}
+          <Route path="/" component={HomeScreen} exact></Route>
+        </main>
+
+        <footer class="row center">All right reserved</footer>
+      </div>
+    </BrowserRouter>
   );
 }
 
