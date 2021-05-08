@@ -1,48 +1,44 @@
-import { BrowserRouter, Link, Route, } from 'react-router-dom';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import data from './data'
 
 function App() {
   return (
-    <BrowserRouter>
-      <header className="row">
+    <div class="grid-container">
+
+      <header class="row">
         <div>
-          <Link to="/" className="brand">
-            Spot - Tag
-          </Link>
+          <a class="brand" href="index.html">Spot Tag</a>
         </div>
 
         <div>
-          <ul className="dropdown-content">
-            <li>
-              <Link to="/profile">User Profile</Link>
-            </li>
-
-            <li>
-              <Link to="#signout">
-                Sign Out
-              </Link>
-            </li>
-          </ul>
+          <a href="signin.html">Sign In</a>
         </div>
-
-        <Link to="/signin">Sign In</Link>
       </header>
 
       <main>
-        {/* <Route path="/language/:id" component={LanguageScreen} /> */}
-        {/* <Route path="/signin" component={SigninScreen} /> */}
-        {/* <Route path="/register" component={RegisterScreen} /> */}
-        {/* <Route path="/addbug" component={AddBugScreen} /> */}
-        {/* <Route path="/editbug" component={EditBugScreen} /> */}
-        {/* <Route path="/profile" component={ProfileScreen}></Route> */}
-        <Route path="/" component={HomeScreen} exact />
-    </main>
+        <div>
+          <div class="row center">
 
-    <footer className="row center">
-      All Rights Reserved
-    </footer>
-   </BrowserRouter>
+            {data.languages.map((language) => (
+              <div key={language._id} className="card">
+
+                <a href={`/language/${language.name}`}>
+                  <img class="medium" src={language.image} alt="language" />
+                </a>
+
+                <div class="card-body">
+                  <a href={`/language/${language.name}`}>
+                    <h2>{language.name}</h2>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </main>
+
+      <footer class="row center">All right reserved</footer>
+    </div>
   );
 }
 
