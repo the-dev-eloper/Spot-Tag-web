@@ -7,6 +7,17 @@ app.get('/api/languages', (req, res) => {
     res.send(data.languages);
 });
 
+app.get('/api/languages/:id', (req, res) => {
+
+    const language = data.languages.find((x) => x._id === req.params.id);
+
+    if (language) {
+        res.send(language);
+    } else {
+        res.status(404).send({ message: 'Language Not Found' });
+    }
+});
+
 app.get('/', (req, res) => {
     res.send('Server is ready');
 });

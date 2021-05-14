@@ -1,7 +1,5 @@
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom';
-import Language from './components/Language';
-import data from './data'
 import HomeScreen from './screens/HomeScreen';
 import LanguageScreen from './screens/LanguageScreen';
 
