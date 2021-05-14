@@ -1,31 +1,21 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import Language from '../components/Language'
 import data from '../data'
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import { listLanguages } from '../actions/languageActions';
 
 export default function HomeScreen() {
 
-    const [languages, setLanguages] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+    const dispatch = useDispatch();
+    const languageList = useSelector((state) => state.languageList);
+    const { languages, loading, error } = languageList;
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setLoading(true);
-                const { data } = await axios.get('/api/languages');
-                setLoading(false);
-                setLanguages(data);
-            } catch (error) {
-                setError(error);
-                setLoading(false);
-            }
-        };
-        
-        fetchData();
-    }, [])
+        dispatch(listLanguages());
+    }, [dispatch]);
 
     return (
         <div>
