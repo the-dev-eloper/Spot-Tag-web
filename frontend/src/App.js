@@ -5,6 +5,7 @@ import { signout } from './actions/userActions';
 import HomeScreen from './screens/HomeScreen';
 import LanguageScreen from './screens/LanguageScreen';
 import SigninScreen from './screens/SigninScreen';
+import RegisterScreen from './screens/RegisterScreen';
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
 
         <main>
           <Route path="/signin" component={SigninScreen}></Route>
+          <Route path="/register" component={RegisterScreen}></Route>
           <Route path="/language/:id" component={LanguageScreen}></Route>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
