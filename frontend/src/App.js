@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
 import LanguageScreen from './screens/LanguageScreen';
+import SigninScreen from './screens/SigninScreen';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         </header>
 
         <main>
+          <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/language/:id" component={LanguageScreen}></Route>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
