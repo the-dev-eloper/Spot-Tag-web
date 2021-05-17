@@ -1,10 +1,21 @@
 import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Link, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { signout } from './actions/userActions';
 import HomeScreen from './screens/HomeScreen';
 import LanguageScreen from './screens/LanguageScreen';
 import SigninScreen from './screens/SigninScreen';
 
 function App() {
+
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+  const dispatch = useDispatch();
+
+  const signoutHandler = () => {
+    dispatch(signout());
+  };
+
   return (
     <BrowserRouter>
 
@@ -12,11 +23,26 @@ function App() {
 
         <header class="row">
           <div>
-            <a class="brand" href="/">Spot Tag</a>
+            <Link to="/" className="brand">Spot Tag</Link>
           </div>
 
           <div>
-            <a href="/signin">Sign In</a>
+            {userInfo ? (
+              <div className="dropdown">
+                <Link to="#">
+                  {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="#signout" onClick={signoutHandler}>
+                      Sign Out
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Link to="/signin">Sign In</Link>
+            )}
           </div>
         </header>
 
