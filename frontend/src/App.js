@@ -7,6 +7,7 @@ import LanguageScreen from './screens/LanguageScreen';
 import SigninScreen from './screens/SigninScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
 
@@ -52,8 +53,11 @@ function App() {
         </header>
 
         <main>
+          <PrivateRoute
+            path="/profile"
+            component={ProfileScreen}
+          ></PrivateRoute>
           <Route path="/signin" component={SigninScreen}></Route>
-          <Route path="/profile" component={ProfileScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>
           <Route path="/language/:id" component={LanguageScreen}></Route>
           <Route path="/" component={HomeScreen} exact></Route>
