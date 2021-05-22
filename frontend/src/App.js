@@ -6,6 +6,7 @@ import HomeScreen from './screens/HomeScreen';
 import LanguageScreen from './screens/LanguageScreen';
 import SigninScreen from './screens/SigninScreen';
 import RegisterScreen from './screens/RegisterScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 function App() {
 
@@ -35,6 +36,9 @@ function App() {
                 </Link>
                 <ul className="dropdown-content">
                   <li>
+                    <Link to="/profile">User Profile</Link>
+                  </li>
+                  <li>
                     <Link to="#signout" onClick={signoutHandler}>
                       Sign Out
                     </Link>
@@ -49,6 +53,7 @@ function App() {
 
         <main>
           <Route path="/signin" component={SigninScreen}></Route>
+          <Route path="/profile" component={ProfileScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>
           <Route path="/language/:id" component={LanguageScreen}></Route>
           <Route path="/" component={HomeScreen} exact></Route>

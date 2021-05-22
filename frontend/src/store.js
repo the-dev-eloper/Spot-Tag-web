@@ -1,7 +1,7 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { languageDetailsReducer, languageListReducer } from './reducers/languageReducer';
-import { userRegisterReducer, userSigninReducer } from './reducers/userReducer';
+import { userDetailsReducer, userRegisterReducer, userSigninReducer } from './reducers/userReducer';
 
 
 const initialState = {
@@ -16,7 +16,8 @@ const reducer = combineReducers({
     languageList: languageListReducer,
     languageDetails: languageDetailsReducer,
     userSignin: userSigninReducer,
-    userRegister: userRegisterReducer
+    userRegister: userRegisterReducer,
+    userDetails: userDetailsReducer
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
