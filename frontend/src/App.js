@@ -8,6 +8,8 @@ import SigninScreen from './screens/SigninScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import PrivateRoute from './components/PrivateRoute';
+import BugListScreen from './screens/BugListScreen';
+import AdminRoute from './components/AdminRoute';
 
 function App() {
 
@@ -76,6 +78,10 @@ function App() {
             path="/profile"
             component={ProfileScreen}
           ></PrivateRoute>
+          <AdminRoute
+            path="/buglist"
+            component={BugListScreen}
+          ></AdminRoute>
           <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>
           <Route path="/language/:id" component={LanguageScreen}></Route>

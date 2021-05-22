@@ -45,7 +45,6 @@ export default function LanguageScreen(props) {
                                     <th>Solution</th>
                                     <th>Ref Link</th>
                                     <th>Added By</th>
-                                    <th>Options</th>
                                 </tr>
                             </thead>
 
@@ -60,11 +59,7 @@ export default function LanguageScreen(props) {
                                         <td>{bug.solution}</td>
                                         <td>{bug.refLink}</td>
                                         <td>{bug.addedBy}</td>
-                                        <td>
-                                            <a href="/editBug" class="button">Edit</a>
-                                            <a href="/" class="button">Delete</a>
-                                        </td>
-                                    </tr>                            
+                                    </tr>      
                                 ))}
                             </tbody>
                         </table>
