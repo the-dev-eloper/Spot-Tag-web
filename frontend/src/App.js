@@ -10,6 +10,7 @@ import ProfileScreen from './screens/ProfileScreen';
 import PrivateRoute from './components/PrivateRoute';
 import BugListScreen from './screens/BugListScreen';
 import AdminRoute from './components/AdminRoute';
+import LanguageListScreen from './screens/LanguageListScreen';
 
 function App() {
 
@@ -62,7 +63,7 @@ function App() {
                     <Link to="/dashboard">Dashboard</Link>
                   </li>
                   <li>
-                    <Link to="/buglist">Bugs</Link>
+                    <Link to="/languagelist">Languages</Link>
                   </li>
                   <li>
                     <Link to="/userlist">Users</Link>
@@ -81,6 +82,10 @@ function App() {
           <AdminRoute
             path="/buglist"
             component={BugListScreen}
+          ></AdminRoute>
+          <AdminRoute
+            path="/languagelist"
+            component={LanguageListScreen}
           ></AdminRoute>
           <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>

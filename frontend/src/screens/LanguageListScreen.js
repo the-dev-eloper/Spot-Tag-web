@@ -4,7 +4,7 @@ import { listLanguages } from '../actions/languageActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
-export default function BugListScreen(props) {
+export default function LanguageListScreen(props) {
 
     const languageList = useSelector((state) => state.languageList);
     const { loading, error, languages } = languageList;
@@ -21,6 +21,7 @@ export default function BugListScreen(props) {
 
     return (
         <div>
+
             <h1>Langages</h1>
 
             {loading ? (
@@ -31,33 +32,22 @@ export default function BugListScreen(props) {
                 <table className="table">
                     <thead>
                         <th>Name</th>
-                        <th>Category</th>
-                        <th>Language</th>
-                        <th>reason</th>
-                        <th>Testing Tool</th>
-                        <th>Solution</th>
-                        <th>Ref Link</th>
-                        <th>Added By</th>
+                        <th>Image</th>
                         <th>Options</th>
                     </thead>
 
                     <tbody>
-                        {languages.bugList.map((bug) => (
-                            <tr key={bug._id}>
-                                <td>{bug.name}</td>
-                                <td>{bug.category}</td>
-                                <td>{bug.language}</td>
-                                <td>{bug.reason}</td>
-                                <td>{bug.testingTool}</td>
-                                <td>{bug.solution}</td>
-                                <td>{bug.refLink}</td>
-                                <td>{bug.addedBy}</td>
+                        {languages.map((language) => (
+                            <tr key={language._id}>
+                                <td>{language.name}</td>
+                                <td>{language.image}</td>
+
                                 <td>
                                     <button
                                         type="button"
                                         className="small"
                                         onClick={() =>
-                                            props.history.push(`/bug/${bug._id}/edit`)
+                                            props.history.push(`/language/${language._id}/edit`)
                                         }
                                     >
                                         Edit
@@ -66,7 +56,7 @@ export default function BugListScreen(props) {
                                     <button
                                         type="button"
                                         className="small"
-                                        onClick={() => deleteHandler(bug)}
+                                        onClick={() => deleteHandler(language)}
                                     >
                                         Delete
                                     </button>
