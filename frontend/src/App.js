@@ -11,6 +11,7 @@ import PrivateRoute from './components/PrivateRoute';
 import BugListScreen from './screens/BugListScreen';
 import AdminRoute from './components/AdminRoute';
 import LanguageListScreen from './screens/LanguageListScreen';
+import LanguageEditScreen from './screens/LanguageEditScreen';
 
 function App() {
 
@@ -90,6 +91,7 @@ function App() {
           <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>
           <Route path="/language/:id" component={LanguageScreen}></Route>
+          <Route path="/language/:id/edit" component={LanguageEditScreen}></Route>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
 

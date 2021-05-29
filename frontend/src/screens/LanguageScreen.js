@@ -1,11 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { detailsLanguage } from '../actions/languageActions';
+import { detailsUser } from '../actions/userActions';
 
 export default function LanguageScreen(props) {
+
+    const [isAdmin, setIsAdmin] = useState(false);
+    const userId = props.match.params.id;
 
     const dispatch = useDispatch();
     const languageId = props.match.params.id;
@@ -13,8 +17,13 @@ export default function LanguageScreen(props) {
     const languageDetails = useSelector((state) => state.languageDetails);
     const { loading, error, language } = languageDetails;
 
+    const userDetails = useSelector((state) => state.userDetails);
+    const { user } = userDetails;
+
     useEffect(() => {
         dispatch(detailsLanguage(languageId));
+
+        console.log(user);
     }, [dispatch, languageId]);
 
     return (
@@ -45,6 +54,14 @@ export default function LanguageScreen(props) {
                                     <th>Solution</th>
                                     <th>Ref Link</th>
                                     <th>Added By</th>
+
+                                    {
+                                        isAdmin ? (
+                                            <th>abc</th>
+                                        ) : (
+                                            <th>sss</th>
+                                        )
+                                    }
                                 </tr>
                             </thead>
 

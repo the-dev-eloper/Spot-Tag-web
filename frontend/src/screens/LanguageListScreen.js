@@ -9,6 +9,9 @@ export default function LanguageListScreen(props) {
     const languageList = useSelector((state) => state.languageList);
     const { loading, error, languages } = languageList;
 
+    const userDetails = useSelector((state) => state.userDetails);
+    const { user } = userDetails;
+
     const dispatch = useDispatch();
 
     useEffect(() => {
