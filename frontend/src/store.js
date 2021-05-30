@@ -1,6 +1,6 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import { languageDetailsReducer, languageListReducer } from './reducers/languageReducer';
+import { languageCreateReducer, languageDetailsReducer, languageListReducer } from './reducers/languageReducer';
 import { userDetailsReducer, userRegisterReducer, userSigninReducer, userUpdateProfileReducer } from './reducers/userReducer';
 
 
@@ -15,6 +15,7 @@ const initialState = {
 const reducer = combineReducers({
     languageList: languageListReducer,
     languageDetails: languageDetailsReducer,
+    languageCreate: languageCreateReducer,
     userSignin: userSigninReducer,
     userRegister: userRegisterReducer,
     userDetails: userDetailsReducer,
