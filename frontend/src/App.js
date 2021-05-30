@@ -80,7 +80,7 @@ function App() {
           <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>
           <Route path="/language/:id" component={LanguageScreen} exact></Route>
-          {/* <Route path="/language/:id/edit" component={LanguageEditScreen}></Route> */}
+          <Route path="/language/:id/edit" component={LanguageEditScreen}></Route>
           <PrivateRoute
             path="/profile"
             component={ProfileScreen}

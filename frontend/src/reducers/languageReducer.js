@@ -17,7 +17,7 @@ export const languageListReducer = (
 };
 
 export const languageDetailsReducer = (
-    state = { loading: true, language: {} },
+    state = { loading: true },
     action
 ) => {
     switch (action.type) {
