@@ -31,6 +31,10 @@ export default function LanguageEditScreen(props) {
         // TODO: dispatch update product
     };
 
+    const deleteHandler = () => {
+        // TODO: dispatch delete action
+    };
+
     return (
         <div>
 
@@ -69,8 +73,75 @@ export default function LanguageEditScreen(props) {
                         </div>
 
                         <div>
-                            <label htmlFor="bugList">BugList</label>
-                            <input
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Language</th>
+                                        <th>reason</th>
+                                        <th>Testing Tool</th>
+                                        <th>Solution</th>
+                                        <th>Ref Link</th>
+                                        <th>Added By</th>
+                                        <th>Options</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    {
+                                        bugList.map((bug) => (
+                                            <tr key={bug._id}>
+
+                                                <td>{bug.name}</td>
+                                                <td>{bug.category}</td>
+                                                <td>{bug.language}</td>
+                                                <td>{bug.reason}</td>
+                                                <td>{bug.testingTool}</td>
+                                                <td>{bug.solution}</td>
+                                                <td>{bug.refLink}</td>
+                                                <td>{bug.addedBy}</td>
+
+                                                <td>
+                                                    <button
+                                                        type="button"
+                                                        className="small"
+                                                        onClick={() =>
+                                                            props.history.push(`/bug/${bug._id}/edit`)
+                                                        }
+                                                    >
+                                                        Edit
+                                                    </button>
+
+                                                    <button
+                                                        type="button"
+                                                        className="small"
+                                                        onClick={() => deleteHandler(language)}
+                                                    >
+                                                        Delete
+                                                    </button>
+                                                </td>
+                                            </tr>      
+                                        ))
+                                    }
+                                </tbody>
+                            </table>
+ 
+                            {/* {
+                                bugList.map((bug) => (
+                                    <label htmlFor="bugList">{bug.name}</label>
+                                ))
+                                    // <input
+                                    //     id="bugList"
+                                    //     type="text"
+                                    //     placeholder="Enter Bug Name"
+                                    //     value={bug.name}
+                                    //     onChange={(e) => setBugList(e.target.value)}
+                                    // ></input>
+                                // ))
+                            } */}
+                            {/* <input
                                 id="bugList"
                                 type="text"
                                 placeholder="Enter Bug Name"
@@ -78,7 +149,7 @@ export default function LanguageEditScreen(props) {
                                     bug.name
                                 ))}
                                 onChange={(e) => setBugList(e.target.value)}
-                            ></input>
+                            ></input> */}
                             {/* <button
                                 type="button"
                                 className="small"
