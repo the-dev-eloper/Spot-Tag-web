@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv';
 import languageRouter from './routers/languageRouter.js';
 import userRouter from './routers/userRouter.js';
+import uploadRouter from './routers/uploadRouter.js';
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/spottag-web', {
     useCreateIndex: true,
 });
 
+app.use('/api/uploads', uploadRouter);
 app.use('/api/users', userRouter);
 app.use('/api/languages', languageRouter);
 

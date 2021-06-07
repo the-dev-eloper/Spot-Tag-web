@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { detailsLanguage, updateLanguage } from '../actions/languageActions';
 import LoadingBox from '../components/LoadingBox';
@@ -12,6 +13,9 @@ export default function LanguageEditScreen(props) {
     const [name, setName] = useState('');
     const [image, setImage] = useState('');
     const [bugList, setBugList] = useState([]);
+
+    const [loadingUpload, setLoadingUpload] = useState(false);
+    const [errorUpload, setErrorUpload] = useState('');
 
     const languageDetails = useSelector((state) => state.languageDetails);
     const { loading, error, language } = languageDetails;
@@ -38,6 +42,31 @@ export default function LanguageEditScreen(props) {
             setBugList(language.bugList);
         }
     }, [language, languageId, dispatch, successUpdate, props.history]);
+
+    const userSignin = useSelector((state) => state.userSignin);
+    const { userInfo } = userSignin;
+
+    const uploadFileHandler = async (e) => {
+
+        const file = e.target.files[0];
+        const bodyFormData = new FormData();
+        bodyFormData.append('image', file);
+        setLoadingUpload(true);
+
+        try {
+            const { data } = await Axios.post('/api/uploads', bodyFormData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    Authorization: `Bearer ${userInfo.token}`,
+                },
+            });
+            setImage(data);
+            setLoadingUpload(false);
+        } catch (error) {
+            setErrorUpload(error.message);
+            setLoadingUpload(false);
+        }
+    };
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -94,6 +123,21 @@ export default function LanguageEditScreen(props) {
                                 value={image}
                                 onChange={(e) => setImage(e.target.value)}
                             ></input>
+                        </div>
+
+                        <div>
+                            <label htmlFor="imageFile">Image File</label>
+                            <input
+                                type="file"
+                                id="imageFile"
+                                label="Choose Image"
+                                onChange={uploadFileHandler}
+                            ></input>
+
+                            {loadingUpload && <LoadingBox></LoadingBox>}
+                            {errorUpload && (
+                                <MessageBox variant="danger">{errorUpload}</MessageBox>
+                            )}
                         </div>
 
                         <div>
