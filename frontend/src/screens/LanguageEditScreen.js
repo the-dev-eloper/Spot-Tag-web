@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { detailsLanguage } from '../actions/languageActions';
+import { detailsLanguage, updateLanguage } from '../actions/languageActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import { LANGUAGE_UPDATE_RESET } from '../constants/languageConstants';
 
 export default function LanguageEditScreen(props) {
 
@@ -16,19 +17,39 @@ export default function LanguageEditScreen(props) {
     const { loading, error, language } = languageDetails;
     const dispatch = useDispatch();
 
+    const languageUpdate = useSelector((state) => state.languageUpdate);
+    const {
+        loading: loadingUpdate,
+        error: errorUpdate,
+        success: successUpdate,
+    } = languageUpdate;
+
     useEffect(() => {
-        if (!language || language._id !== languageId) {
+        if (successUpdate) {
+            props.history.push('/languagelist');
+        }
+
+        if (!language || language._id !== languageId || successUpdate) {
+            dispatch({ type: LANGUAGE_UPDATE_RESET });
             dispatch(detailsLanguage(languageId));
         } else {
             setName(language.name);
             setImage(language.image);
             setBugList(language.bugList);
         }
-    }, [language, languageId, dispatch]);
+    }, [language, languageId, dispatch, successUpdate, props.history]);
 
     const submitHandler = (e) => {
         e.preventDefault();
         // TODO: dispatch update product
+        dispatch(
+            updateLanguage({
+                _id: languageId,
+                name,
+                image,
+                bugList,
+            })
+        )
     };
 
     const deleteHandler = () => {
@@ -43,6 +64,9 @@ export default function LanguageEditScreen(props) {
                 <div>
                     <h1>Edit Language {languageId}</h1>
                 </div>
+
+                {loadingUpdate && <LoadingBox></LoadingBox>}
+                {errorUpdate && <MessageBox variant="danger">{errorUpdate}</MessageBox>}
 
                 {loading ? (
                     <LoadingBox></LoadingBox>

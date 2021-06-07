@@ -8,7 +8,10 @@ import {
     LANGUAGE_DETAIL_SUCCESS,
     LANGUAGE_LIST_FAIL,
     LANGUAGE_LIST_REQUEST,
-    LANGUAGE_LIST_SUCCESS 
+    LANGUAGE_LIST_SUCCESS, 
+    LANGUAGE_UPDATE_FAIL, 
+    LANGUAGE_UPDATE_REQUEST,
+    LANGUAGE_UPDATE_SUCCESS
 } from '../constants/languageConstants';
 
 export const listLanguages = () => async (dispatch) => {
@@ -65,5 +68,29 @@ export const createLanguage = () => async (dispatch, getState) => {
         const message = error.response && error.response.data.message ? error.response.data.message : error.message;
 
         dispatch({ type: LANGUAGE_CREATE_FAIL, payload: message });
+    }
+};
+
+export const updateLanguage = (language) => async (dispatch, getState) => {
+
+    dispatch({ type: LANGUAGE_UPDATE_REQUEST, payload: language });
+    const {
+        userSignin: { userInfo },
+    } = getState();
+
+    try {
+        const { data } = await Axios.put(
+            `/api/languages/${language._id}`,
+            language,
+            {
+                headers: { Authorization: `Bearer ${userInfo.token}` },
+            }
+        );
+
+        dispatch({ type: LANGUAGE_UPDATE_SUCCESS, payload: data });
+    } catch (error) {
+        const message = error.response && error.response.data.message ? error.response.data.message : error.message;
+
+        dispatch({ type: LANGUAGE_UPDATE_FAIL, payload: message });
     }
 };

@@ -52,4 +52,26 @@ languageRouter.post(
     })
 );
 
+languageRouter.put(
+    '/:id',
+    isAuth,
+    isAdmin,
+    expressAsyncHandler(async (req, res) => {
+
+        const languageId = req.params.id;
+        const language = await Language.findById(languageId);
+
+        if(language) {
+            language.name = req.body.name;
+            language.image = req.body.image;
+            language.bugList = req.body.bugList;
+
+            const updatedLanguage = await language.save();
+            res.send({ message: 'Language Updated', language: updatedLanguage });
+        } else {
+            res.status(404).send({ message: 'Language Not Found' });
+        }
+    })
+);
+
 export default languageRouter;
