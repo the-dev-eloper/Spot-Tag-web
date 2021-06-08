@@ -1,6 +1,6 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import { languageCreateReducer, languageDetailsReducer, languageListReducer, languageUpdateReducer } from './reducers/languageReducer';
+import { languageCreateReducer, languageDeleteReducer, languageDetailsReducer, languageListReducer, languageUpdateReducer } from './reducers/languageReducer';
 import { userDetailsReducer, userRegisterReducer, userSigninReducer, userUpdateProfileReducer } from './reducers/userReducer';
 
 
@@ -17,6 +17,7 @@ const reducer = combineReducers({
     languageDetails: languageDetailsReducer,
     languageCreate: languageCreateReducer,
     languageUpdate: languageUpdateReducer,
+    languageDelete: languageDeleteReducer,
     userSignin: userSigninReducer,
     userRegister: userRegisterReducer,
     userDetails: userDetailsReducer,

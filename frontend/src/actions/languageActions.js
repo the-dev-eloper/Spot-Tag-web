@@ -3,6 +3,9 @@ import {
     LANGUAGE_CREATE_FAIL,
     LANGUAGE_CREATE_REQUEST,
     LANGUAGE_CREATE_SUCCESS,
+    LANGUAGE_DELETE_FAIL,
+    LANGUAGE_DELETE_REQUEST,
+    LANGUAGE_DELETE_SUCCESS,
     LANGUAGE_DETAIL_FAIL,
     LANGUAGE_DETAIL_REQUEST,
     LANGUAGE_DETAIL_SUCCESS,
@@ -92,5 +95,24 @@ export const updateLanguage = (language) => async (dispatch, getState) => {
         const message = error.response && error.response.data.message ? error.response.data.message : error.message;
 
         dispatch({ type: LANGUAGE_UPDATE_FAIL, payload: message });
+    }
+};
+
+export const deleteLanguage = (languageId) => async (dispatch, getState) => {
+
+    dispatch({ type: LANGUAGE_DELETE_REQUEST, payload: languageId });
+    const {
+        userSignin: { userInfo },
+    } = getState();
+
+    try {
+        const { data } = await Axios.delete(`/api/languages/${languageId}`, {
+            headers: { Authorization: `Bearer ${userInfo.token}` },
+        });
+
+        dispatch({ type: LANGUAGE_DELETE_SUCCESS, payload: data });
+    } catch (error) {
+        const message = error.response && error.response.data.message ? error.response.data.message : error.message;
+        dispatch({ type: LANGUAGE_DELETE_FAIL, payload: message });
     }
 };

@@ -74,4 +74,22 @@ languageRouter.put(
     })
 );
 
+languageRouter.delete(
+    '/:id',
+    isAuth,
+    isAdmin,
+    expressAsyncHandler(async (req, res) => {
+
+        const languageId = req.params.id;
+        const language = await Language.findById(languageId);
+
+        if(language) {
+            const deletedLanguage = await language.remove();
+            res.send({ message: 'Language Deleted', language: deletedLanguage });
+        } else {
+            res.status(404).send({ message: 'Language Not Found' });
+        }
+    })
+)
+
 export default languageRouter;

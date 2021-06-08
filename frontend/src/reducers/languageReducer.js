@@ -3,6 +3,10 @@ import {
     LANGUAGE_CREATE_REQUEST,
     LANGUAGE_CREATE_RESET,
     LANGUAGE_CREATE_SUCCESS,
+    LANGUAGE_DELETE_FAIL,
+    LANGUAGE_DELETE_REQUEST,
+    LANGUAGE_DELETE_RESET,
+    LANGUAGE_DELETE_SUCCESS,
     LANGUAGE_DETAIL_FAIL,
     LANGUAGE_DETAIL_REQUEST,
     LANGUAGE_DETAIL_SUCCESS, 
@@ -71,6 +75,21 @@ export const languageUpdateReducer = (state = {}, action) => {
         case LANGUAGE_UPDATE_FAIL:
             return { loading: false, error: action.payload };
         case LANGUAGE_UPDATE_RESET:
+            return {};
+        default:
+            return state;
+    }
+};
+
+export const languageDeleteReducer = (state = {}, action) => {
+    switch (action.type) {
+        case LANGUAGE_DELETE_REQUEST:
+            return { loading: true };
+        case LANGUAGE_DELETE_SUCCESS:
+            return { loading: false, success: true };
+        case LANGUAGE_DELETE_FAIL:
+            return { loading: false, error: action.payload };
+        case LANGUAGE_DELETE_RESET:
             return {};
         default:
             return state;

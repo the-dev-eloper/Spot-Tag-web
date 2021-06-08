@@ -1,9 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createLanguage, listLanguages } from '../actions/languageActions';
+import {
+    createLanguage,
+    deleteLanguage,
+    listLanguages
+} from '../actions/languageActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { LANGUAGE_CREATE_RESET } from '../constants/languageConstants';
+import {
+    LANGUAGE_CREATE_RESET,
+    LANGUAGE_DELETE_RESET 
+} from '../constants/languageConstants';
 
 export default function LanguageListScreen(props) {
 
@@ -18,6 +25,13 @@ export default function LanguageListScreen(props) {
         language: createdLanguage
     } = languageCreate;
 
+    const languageDelete = useSelector((state) => state.languageDelete);
+    const {
+        loading: loadingDelete,
+        error: errorDelete,
+        success: successDelete,
+    } = languageDelete;
+
     const userDetails = useSelector((state) => state.userDetails);
     const { user } = userDetails;
 
@@ -28,15 +42,20 @@ export default function LanguageListScreen(props) {
             dispatch({ type: LANGUAGE_CREATE_RESET });
             props.history.push(`/language/${createdLanguage._id}/edit`);
         }
+        if (successDelete) {
+            dispatch({ type: LANGUAGE_DELETE_RESET });
+        }
         dispatch(listLanguages());
-    }, [createdLanguage, dispatch, props.history, successCreate]);
+    }, [createdLanguage, dispatch, props.history, successCreate, successDelete]);
 
     const createHandler = () => {
         dispatch(createLanguage());
     }
 
-    const deleteHandler = () => {
-        // TODO: dispatch delete action
+    const deleteHandler = (language) => {
+        if (window.confirm('Are you sure to delete?')) {
+            dispatch(deleteLanguage(language._id));
+        }
     };
 
     return (
@@ -49,6 +68,9 @@ export default function LanguageListScreen(props) {
                     Create New Language
                 </button>
             </div>
+
+            {loadingDelete && <LoadingBox></LoadingBox>}
+            {errorDelete && <MessageBox variant="danger">{errorDelete}</MessageBox>}
 
             {loadingCreate && <LoadingBox></LoadingBox>}
             {errorCreate && <MessageBox variant="danger">{errorCreate}</MessageBox>}
