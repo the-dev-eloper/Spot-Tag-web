@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv';
 import path from 'path';
 import languageRouter from './routers/languageRouter.js';
+import bugRouter from './routers/bugRouter.js';
 import userRouter from './routers/userRouter.js';
 import uploadRouter from './routers/uploadRouter.js';
 
@@ -21,6 +22,7 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/spottag-web', {
 app.use('/api/uploads', uploadRouter);
 app.use('/api/users', userRouter);
 app.use('/api/languages', languageRouter);
+app.use('/api/bugs', bugRouter);
 
 const __dirname = path.resolve();
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
