@@ -43,7 +43,7 @@ const data = {
                     testingTool: 'Safari Developer Console',
                     solution: 'adding an event listener',
                     refLink: 'https://stackoverflow.com/questions/14207922/javascript-error-null-is-not-an-object',
-                    addedBy: 'ddd',
+                    addedBy: 'Admin',
                 }
             ]
         },
@@ -120,7 +120,7 @@ const data = {
             testingTool: 'Safari Developer Console',
             solution: 'adding an event listener',
             refLink: 'https://stackoverflow.com/questions/14207922/javascript-error-null-is-not-an-object',
-            addedBy: 'ddd',
+            addedBy: 'Admin',
         }
     ]
 }

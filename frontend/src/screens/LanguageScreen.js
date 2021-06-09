@@ -54,14 +54,6 @@ export default function LanguageScreen(props) {
                                     <th>Solution</th>
                                     <th>Ref Link</th>
                                     <th>Added By</th>
-
-                                    {
-                                        isAdmin ? (
-                                            <th>abc</th>
-                                        ) : (
-                                            <th>sss</th>
-                                        )
-                                    }
                                 </tr>
                             </thead>
 
