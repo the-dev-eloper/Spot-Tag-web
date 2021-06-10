@@ -16,7 +16,7 @@ export default function HomeScreen(props) {
     }, [dispatch]);
 
     const gotoBugs = () => {
-        props.history.push(`/buglist`);
+        props.history.push(`/bugs`);
     }
 
     return (

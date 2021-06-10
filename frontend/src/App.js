@@ -13,6 +13,7 @@ import AdminRoute from './components/AdminRoute';
 import LanguageListScreen from './screens/LanguageListScreen';
 import LanguageEditScreen from './screens/LanguageEditScreen';
 import BugEditScreen from './screens/BugEditScreen';
+import BugScreen from './screens/BugScreen';
 
 function App() {
 
@@ -83,7 +84,7 @@ function App() {
           <Route path="/language/:id" component={LanguageScreen} exact></Route>
           <Route path="/language/:id/edit" component={LanguageEditScreen}></Route>
           <Route path="/bug/:id/edit" component={BugEditScreen}></Route>
-          <Route path="/buglist" component={BugListScreen}></Route>
+          <Route path="/bugs" component={BugScreen}></Route>
           <PrivateRoute
             path="/profile"
             component={ProfileScreen}
