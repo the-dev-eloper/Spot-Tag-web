@@ -93,6 +93,7 @@ const data = {
 
     bugs: [
         {
+            _id: 'b1',
             name: 'Null is not an object',
             category: 'TypeError',
             language: 'JavaScript',
@@ -103,6 +104,7 @@ const data = {
             addedBy: 'Admin',
         },
         {
+            _id: 'b2',
             name: 'Indentation',
             category: 'non-typo error',
             language: 'Python',
@@ -113,6 +115,7 @@ const data = {
             addedBy: 'Admin',
         },
         {
+            _id: 'b3',
             name: 'Null is not an object',
             category: 'TypeError Adv',
             language: 'JavaScript',
