@@ -26,12 +26,14 @@ export default function BugScreen() {
                     {
                         data.bugs.map((bug) => (
                             <tr key={bug._id}>
+
                                 <td>{bug.name}</td>
                                 <td>{bug.category}</td>
                                 <td>{bug.language}</td>
                                 <td>{bug.reason}</td>
                                 <td>{bug.testingTool}</td>
                                 <td>{bug.solution}</td>
+
                                 <td>
                                     <a href={bug.refLink}>
                                         {bug.refLink}
