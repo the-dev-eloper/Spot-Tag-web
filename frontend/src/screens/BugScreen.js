@@ -1,30 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Axios from 'axios';
 import data from '../data';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import { listBugs } from '../actions/bugActions';
 
 export default function BugScreen() {
 
-    const [bugs, setBugs] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+    const dispatch = useDispatch();
+
+    const bugList = useSelector((state) => state.bugList);
+    const { loading, error, bugs } = bugList;
 
     useEffect(() => {
-        const fetchData = async () => {
-
-            try {
-                setLoading(true);
-                const { data } = await Axios.get('/api/bugs');
-                setLoading(false);
-                setBugs(data);
-            } catch (error) {
-                setError(error);
-                setLoading(false);
-            }
-        };
-
-        fetchData();
+       dispatch(listBugs());
     }, [])
 
     return (

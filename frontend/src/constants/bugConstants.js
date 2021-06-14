@@ -1,0 +1,3 @@
+export const BUG_LIST_REQUEST = 'BUG_LIST_REQUEST'
+export const BUG_LIST_SUCCESS = 'BUG_LIST_SUCCESS'
+export const BUG_LIST_FAIL = 'BUG_LIST_FAIL'
