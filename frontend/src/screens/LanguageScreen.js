@@ -5,6 +5,7 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { detailsLanguage } from '../actions/languageActions';
 import { detailsUser } from '../actions/userActions';
+import { listBugs } from '../actions/bugActions';
 
 export default function LanguageScreen(props) {
 
@@ -20,14 +21,19 @@ export default function LanguageScreen(props) {
     const userDetails = useSelector((state) => state.userDetails);
     const { user } = userDetails;
 
+    const bugList = useSelector((state) => state.bugList);
+    const { loadingBugs, errorBugs, bugs } = bugList;
+
     useEffect(() => {
         dispatch(detailsLanguage(languageId));
-
-        console.log(user);
+        dispatch(listBugs());
     }, [dispatch, languageId]);
 
     return (
         <div>
+
+            {loadingBugs && <LoadingBox></LoadingBox>}
+            {errorBugs && <MessageBox variant="danger">{errorBugs}</MessageBox>}
 
             {loading ? (
                 <LoadingBox></LoadingBox>
@@ -58,18 +64,31 @@ export default function LanguageScreen(props) {
                             </thead>
 
                             <tbody>
-                                {language.bugList.map((bug) => (
-                                    <tr key={bug._id}>
-                                        <td>{bug.name}</td>
-                                        <td>{bug.category}</td>
-                                        <td>{bug.language}</td>
-                                        <td>{bug.reason}</td>
-                                        <td>{bug.testingTool}</td>
-                                        <td>{bug.solution}</td>
-                                        <td>{bug.refLink}</td>
-                                        <td>{bug.addedBy}</td>
-                                    </tr>      
-                                ))}
+                                {
+                                    bugs.map((bug) => (
+                                        bug.language == language.name ? (
+                                            <tr key={bug._id}>
+
+                                                <td>{bug.name}</td>
+                                                <td>{bug.category}</td>
+                                                <td>{bug.language}</td>
+                                                <td>{bug.reason}</td>
+                                                <td>{bug.testingTool}</td>
+                                                <td>{bug.solution}</td>
+
+                                                <td>
+                                                    <a href={bug.refLink}>
+                                                        click here
+                                                    </a>
+                                                </td>
+
+                                                <td>{bug.addedBy}</td>
+                                            </tr>
+                                        ) : (
+                                            <tr></tr>
+                                        )
+                                    ))
+                                }
                             </tbody>
                         </table>
                     </div>
