@@ -118,12 +118,7 @@ export default function LanguageListScreen(props) {
                             ))}
                         </tbody>
                     </table>
-
-                    <div>
-                        
-                    </div>
                 </div>
-                
             )}
         </div>
     );

@@ -69,6 +69,9 @@ function App() {
                     <Link to="/languagelist">Languages</Link>
                   </li>
                   <li>
+                    <Link to="/buglist">Bugs</Link>
+                  </li>
+                  <li>
                     <Link to="/userlist">Users</Link>
                   </li>
                 </ul>
@@ -92,6 +95,10 @@ function App() {
           <AdminRoute
             path="/languagelist"
             component={LanguageListScreen}
+          ></AdminRoute>
+          <AdminRoute
+            path="/buglist"
+            component={BugListScreen}
           ></AdminRoute>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
