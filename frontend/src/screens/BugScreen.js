@@ -56,9 +56,10 @@ export default function BugScreen() {
 
                                         <td>
                                             <a href={bug.refLink}>
-                                                {bug.refLink}
+                                                click here
                                             </a>
                                         </td>
+
                                         <td>{bug.addedBy}</td>
                                     </tr>
                                 ))
