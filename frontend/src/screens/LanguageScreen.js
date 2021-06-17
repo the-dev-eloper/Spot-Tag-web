@@ -65,29 +65,33 @@ export default function LanguageScreen(props) {
 
                             <tbody>
                                 {
-                                    bugs.map((bug) => (
-                                        bug.language == language.name ? (
-                                            <tr key={bug._id}>
-
-                                                <td>{bug.name}</td>
-                                                <td>{bug.category}</td>
-                                                <td>{bug.language}</td>
-                                                <td>{bug.reason}</td>
-                                                <td>{bug.testingTool}</td>
-                                                <td>{bug.solution}</td>
-
-                                                <td>
-                                                    <a href={bug.refLink}>
-                                                        click here
-                                                    </a>
-                                                </td>
-
-                                                <td>{bug.addedBy}</td>
-                                            </tr>
-                                        ) : (
-                                            <tr></tr>
-                                        )
-                                    ))
+                                    bugs ? (
+                                        bugs.map((bug) => (
+                                            bug.language == language.name ? (
+                                                <tr key={bug._id}>
+    
+                                                    <td>{bug.name}</td>
+                                                    <td>{bug.category}</td>
+                                                    <td>{bug.language}</td>
+                                                    <td>{bug.reason}</td>
+                                                    <td>{bug.testingTool}</td>
+                                                    <td>{bug.solution}</td>
+    
+                                                    <td>
+                                                        <a href={bug.refLink}>
+                                                            click here
+                                                        </a>
+                                                    </td>
+    
+                                                    <td>{bug.addedBy}</td>
+                                                </tr>
+                                            ) : (
+                                                <tr></tr>
+                                            )
+                                        ))
+                                    ) : (
+                                        <tr></tr>
+                                    )
                                 }
                             </tbody>
                         </table>
