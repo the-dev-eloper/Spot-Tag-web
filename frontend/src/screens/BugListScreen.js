@@ -1,22 +1,35 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { listBugs } from '../actions/bugActions';
+import { createBug, listBugs } from '../actions/bugActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import { BUG_CREATE_RESET } from '../constants/bugConstants';
 
 export default function BugListScreen(props) {
 
     const bugList = useSelector((state) => state.bugList);
     const { loading, error, bugs } = bugList;
 
+    const bugCreate = useSelector((state) => state.bugCreate);
+    const {
+        loading: loadingCreate,
+        success: successCreate,
+        error: errorCreate,
+        bug: createdBug
+    } = bugCreate;
+
     const dispatch = useDispatch();
 
     useEffect(() => {
+        if (successCreate) {
+            dispatch({ type: BUG_CREATE_RESET });
+            props.history.push(`/bug/${createdBug._id}/edit`);
+        }
        dispatch(listBugs());
-    }, [dispatch]);
+    }, [createdBug, dispatch, props.history, successCreate]);
 
     const createHandler = () => {
-        
+        dispatch(createBug());
     }
 
     const deleteHandler = () => {
@@ -33,6 +46,9 @@ export default function BugListScreen(props) {
                     Create New Bug
                 </button>
             </div>
+
+            {loadingCreate && <LoadingBox></LoadingBox>}
+            {errorCreate && <MessageBox variant="danger">{errorCreate}</MessageBox>}
 
             {
                 loading ? (
@@ -103,7 +119,6 @@ export default function BugListScreen(props) {
  
                 )
             }
-
-                   </div>
+        </div>
     );
 }

@@ -1,6 +1,6 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import { bugListReducer } from './reducers/bugReducer';
+import { bugCreateReducer, bugListReducer } from './reducers/bugReducer';
 import { languageCreateReducer, languageDeleteReducer, languageDetailsReducer, languageListReducer, languageUpdateReducer } from './reducers/languageReducer';
 import { userDetailsReducer, userRegisterReducer, userSigninReducer, userUpdateProfileReducer } from './reducers/userReducer';
 
@@ -20,6 +20,7 @@ const reducer = combineReducers({
     languageUpdate: languageUpdateReducer,
     languageDelete: languageDeleteReducer,
     bugList: bugListReducer,
+    bugCreate: bugCreateReducer,
     userSignin: userSigninReducer,
     userRegister: userRegisterReducer,
     userDetails: userDetailsReducer,
