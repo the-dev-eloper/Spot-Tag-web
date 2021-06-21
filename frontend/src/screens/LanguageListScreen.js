@@ -32,9 +32,6 @@ export default function LanguageListScreen(props) {
         success: successDelete,
     } = languageDelete;
 
-    const userDetails = useSelector((state) => state.userDetails);
-    const { user } = userDetails;
-
     const dispatch = useDispatch();
 
     useEffect(() => {

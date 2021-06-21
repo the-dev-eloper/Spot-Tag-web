@@ -81,10 +81,6 @@ export default function LanguageEditScreen(props) {
         )
     };
 
-    const deleteHandler = () => {
-        // TODO: dispatch delete action
-    };
-
     return (
         <div>
 
