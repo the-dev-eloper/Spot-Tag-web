@@ -86,4 +86,4 @@ export const updateBug = (bug) => async (dispatch, getState) => {
 
         dispatch({ type: BUG_UPDATE_FAIL, payload: message });
     }
-}
+};

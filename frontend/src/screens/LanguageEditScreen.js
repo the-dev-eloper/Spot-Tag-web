@@ -70,7 +70,6 @@ export default function LanguageEditScreen(props) {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        // TODO: dispatch update product
         dispatch(
             updateLanguage({
                 _id: languageId,

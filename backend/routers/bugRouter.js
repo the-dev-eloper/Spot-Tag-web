@@ -77,6 +77,8 @@ bugRouter.put(
 
             const updatedBug = await bug.save();
             res.send({ message: 'Bug Updated', bug: updatedBug });
+        } else {
+            res.status(404).send({ message: 'Bug Not Found' });
         }
     })
 );

@@ -1,37 +1,70 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { detailsLanguage } from '../actions/languageActions';
+import { detailsBug, updateBug } from '../actions/bugActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import { BUG_UPDATE_RESET } from '../constants/bugConstants';
+
 export default function BugEditScreen(props) {
 
     const bugId = props.match.params.id;
 
     const [bugName, setBugName] = useState('');
     const [bugCategory, setBugCategory] = useState('');
+    const [bugLanguage, setBugLanguage] = useState('');
     const [bugReason, setBugReason] = useState('');
     const [bugTestingTool, setBugTestingTool] = useState('');
     const [bugSolution, setBugSolution] = useState('');
     const [bugRefLink, setBugRefLink] = useState('');
     const [bugAddedBy, setBugAddedBy] = useState('');
 
-    const languageDetails = useSelector((state) => state.languageDetails);
-    const { loading, error, language } = languageDetails;
+    const bugDetails = useSelector((state) => state.bugDetails);
+    const { loading, error, bug } = bugDetails;
+
+    const bugUpdate = useSelector((state) => state.bugUpdate);
+    const {
+        loading: loadingUpdate,
+        error: errorUpdate,
+        success: successUpdate,
+    } = bugUpdate;
+
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     if (!language || language._id !== languageId) {
-    //         dispatch(detailsLanguage(languageId));
-    //     } else {
-    //         setName(language.name);
-    //         setImage(language.image);
-    //         setBugList(language.bugList);
-    //     }
-    // }, [language, languageId, dispatch]);
+    useEffect(() => {
+        if(successUpdate) {
+            props.history.push('/buglist');
+        }
+
+        if (!bug || bug._id !== bugId || successUpdate) {
+            dispatch({ type: BUG_UPDATE_RESET });
+            dispatch(detailsBug(bugId));
+        } else {
+            setBugName(bug.name);
+            setBugCategory(bug.category);
+            setBugLanguage(bug.language)
+            setBugReason(bug.reason);
+            setBugTestingTool(bug.testingTool);
+            setBugSolution(bug.solution);
+            setBugRefLink(bug.refLink)
+            setBugAddedBy(bug.addedBy)
+        }
+    }, [bug, bugId, dispatch, successUpdate, props.history]);
 
     const submitHandler = (e) => {
         e.preventDefault();
-        // TODO: dispatch update product
+        dispatch(
+            updateBug({
+                _id: bugId,
+                bugName,
+                bugCategory,
+                bugLanguage,
+                bugReason,
+                bugTestingTool,
+                bugSolution,
+                bugRefLink,
+                bugAddedBy
+            })
+        )
     };
 
     return (
@@ -42,6 +75,9 @@ export default function BugEditScreen(props) {
                 <div>
                     <h1>Edit Bug {bugId}</h1>
                 </div>
+
+                {loadingUpdate && <LoadingBox></LoadingBox>}
+                {errorUpdate && <MessageBox variant="danger">{errorUpdate}</MessageBox>}
 
                 {loading ? (
                     <LoadingBox></LoadingBox>
@@ -68,6 +104,17 @@ export default function BugEditScreen(props) {
                                 placeholder="Enter category"
                                 value={bugCategory}
                                 onChange={(e) => setBugCategory(e.target.value)}
+                            ></input>
+                        </div>
+
+                        <div>
+                            <label htmlFor="language">Language</label>
+                            <input
+                                id="language"
+                                type="text"
+                                placeholder="Enter language"
+                                value={bugLanguage}
+                                onChange={(e) => setBugLanguage(e.target.value)}
                             ></input>
                         </div>
 
@@ -136,5 +183,5 @@ export default function BugEditScreen(props) {
                 )}
             </form>
         </div>
-    )
+    );
 }
