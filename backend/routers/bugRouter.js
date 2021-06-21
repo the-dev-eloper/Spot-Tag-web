@@ -52,7 +52,7 @@ bugRouter.post(
         });
 
         const createdBug = await bug.save();
-        res.send({ message: 'Language Bug', language: createdBug });
+        res.send({ message: 'Bug Created', bug: createdBug });
     })
 );
 
