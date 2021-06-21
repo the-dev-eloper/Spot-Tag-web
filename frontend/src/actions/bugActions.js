@@ -5,7 +5,10 @@ import {
     BUG_CREATE_SUCCESS,
     BUG_LIST_FAIL,
     BUG_LIST_REQUEST,
-    BUG_LIST_SUCCESS
+    BUG_LIST_SUCCESS,
+    BUG_UPDATE_FAIL,
+    BUG_UPDATE_REQUEST,
+    BUG_UPDATE_SUCCESS
 } from "../constants/bugConstants";
 
 export const listBugs = () => async (dispatch) => {
@@ -41,3 +44,27 @@ export const createBug = () => async (dispatch, getState) => {
         dispatch({ type: BUG_CREATE_FAIL, payload: message });
     }
 };
+
+export const updateBug = (bug) => async (dispatch, getState) => {
+
+    dispatch({ type: BUG_UPDATE_REQUEST, payload: bug });
+    const {
+        userSignin: { userInfo },
+    } = getState();
+
+    try {
+        const { data } = await Axios.put(
+            `/api/bugs/${bug._id}`,
+            bug,
+            {
+                headers: { Authorization: `Bearer ${userInfo.token}` },
+            }
+        );
+
+        dispatch({ type: BUG_UPDATE_SUCCESS, payload: data });
+    } catch (error) {
+        const message = error.response && error.response.data.message ? error.response.data.message : error.message;
+
+        dispatch({ type: BUG_UPDATE_FAIL, payload: message });
+    }
+}

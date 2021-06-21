@@ -56,4 +56,29 @@ bugRouter.post(
     })
 );
 
+bugRouter.put(
+    '/:id',
+    isAuth,
+    isAdmin,
+    expressAsyncHandler(async (req, res) => {
+
+        const bugId = req.params.id;
+        const bug = await Bug.findById(bugId);
+
+        if(bug) {
+            bug.name = req.params.name;
+            bug.category = req.params.category;
+            bug.language = req.params.language;
+            bug.reason = req.params.reason;
+            bug.testingTool = req.params.testingTool;
+            bug.solution = req.params.solution;
+            bug.refLink = req.params.refLink;
+            bug.addedBy = req.params.addedBy;
+
+            const updatedBug = await bug.save();
+            res.send({ message: 'Bug Updated', bug: updatedBug });
+        }
+    })
+);
+
 export default bugRouter;

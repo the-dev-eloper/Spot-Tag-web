@@ -6,7 +6,11 @@ import {
     BUG_CREATE_SUCCESS,
     BUG_LIST_FAIL,
     BUG_LIST_REQUEST,
-    BUG_LIST_SUCCESS
+    BUG_LIST_SUCCESS,
+    BUG_UPDATE_FAIL,
+    BUG_UPDATE_REQUEST,
+    BUG_UPDATE_RESET,
+    BUG_UPDATE_SUCCESS
 } from "../constants/bugConstants";
 
 export const bugListReducer = (
@@ -35,6 +39,21 @@ export const bugCreateReducer = (state = {}, action) => {
         case BUG_CREATE_FAIL:
             return { loading: false, error: action.payload };
         case BUG_CREATE_RESET:
+            return {};
+        default:
+            return state;
+    }
+};
+
+export const bugUpdateReducer = (state = {}, action) => {
+    switch (action.type) {
+        case BUG_UPDATE_REQUEST:
+            return { loading: true };
+        case BUG_UPDATE_SUCCESS:
+            return { loading: false, success: true };
+        case BUG_UPDATE_FAIL:
+            return { loading: false, error: action.payload };
+        case BUG_UPDATE_RESET:
             return {};
         default:
             return state;
