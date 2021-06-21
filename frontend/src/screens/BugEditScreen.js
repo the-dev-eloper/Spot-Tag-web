@@ -31,6 +31,7 @@ export default function BugEditScreen(props) {
     const dispatch = useDispatch();
 
     useEffect(() => {
+
         if(successUpdate) {
             props.history.push('/buglist');
         }

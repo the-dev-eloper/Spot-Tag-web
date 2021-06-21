@@ -48,7 +48,7 @@ bugRouter.post(
             testingTool: 'sample testingTool',
             solution: 'sample solution',
             refLink: 'sample refLink',
-            addedBy: 'Admin'
+            addedBy: 'sample addedBy'
         });
 
         const createdBug = await bug.save();

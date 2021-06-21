@@ -1,9 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createBug, deleteBug, listBugs } from '../actions/bugActions';
+import {
+    createBug,
+    deleteBug,
+    listBugs
+} from '../actions/bugActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { BUG_CREATE_RESET, BUG_DELETE_RESET } from '../constants/bugConstants';
+import {
+    BUG_CREATE_RESET,
+    BUG_DELETE_RESET
+} from '../constants/bugConstants';
 
 export default function BugListScreen(props) {
 
@@ -13,8 +20,8 @@ export default function BugListScreen(props) {
     const bugCreate = useSelector((state) => state.bugCreate);
     const {
         loading: loadingCreate,
-        success: successCreate,
         error: errorCreate,
+        success: successCreate,
         bug: createdBug
     } = bugCreate;
 
@@ -91,50 +98,49 @@ export default function BugListScreen(props) {
                                 </tr>
                             </thead>
 
-                        <tbody>
-                            {bugs.map((bug) => (
-                                <tr key={bug._id}>
+                            <tbody>
+                                {bugs.map((bug) => (
+                                    <tr key={bug._id}>
 
-                                    <td>{bug.name}</td>
-                                    <td>{bug.category}</td>
-                                    <td>{bug.language}</td>
-                                    <td>{bug.reason}</td>
-                                    <td>{bug.testingTool}</td>
-                                    <td>{bug.solution}</td>
+                                        <td>{bug.name}</td>
+                                        <td>{bug.category}</td>
+                                        <td>{bug.language}</td>
+                                        <td>{bug.reason}</td>
+                                        <td>{bug.testingTool}</td>
+                                        <td>{bug.solution}</td>
 
-                                    <td>
-                                        <a href={bug.refLink}>
-                                            click here
-                                        </a>
-                                    </td>
+                                        <td>
+                                            <a href={bug.refLink}>
+                                                click here
+                                            </a>
+                                        </td>
 
-                                    <td>{bug.addedBy}</td>
+                                        <td>{bug.addedBy}</td>
 
-                                    <td>
-                                        <button
-                                            type="button"
-                                            className="small"
-                                            onClick={() =>
-                                                props.history.push(`/bug/${bug._id}/edit`)
-                                            }
-                                        >
-                                            Edit
-                                        </button>
+                                        <td>
+                                            <button
+                                                type="button"
+                                                className="small"
+                                                onClick={() =>
+                                                    props.history.push(`/bug/${bug._id}/edit`)
+                                                }
+                                            >
+                                                Edit
+                                            </button>
 
-                                        <button
-                                            type="button"
-                                            className="small"
-                                            onClick={() => deleteHandler(bug)}
-                                        >
-                                            Delete
-                                        </button>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>       
- 
+                                            <button
+                                                type="button"
+                                                className="small"
+                                                onClick={() => deleteHandler(bug)}
+                                            >
+                                                Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 )
             }
         </div>
