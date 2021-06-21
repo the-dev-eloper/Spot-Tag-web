@@ -89,6 +89,7 @@ function App() {
           <Route path="/language/:id/edit" component={LanguageEditScreen}></Route>
           <Route path="/bug/:id/edit" component={BugEditScreen}></Route>
           <Route path="/bugs" component={AllBugsScreen} exact></Route>
+          <Route path="/bug/:id" component={BugScreen} exact></Route>
           <PrivateRoute
             path="/profile"
             component={ProfileScreen}

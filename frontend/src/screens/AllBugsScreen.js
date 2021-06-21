@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { listBugs } from '../actions/bugActions';
@@ -45,7 +46,12 @@ export default function AllBugsScreen() {
                                 bugs.map((bug) => (
                                     <tr key={bug._id}>
 
-                                        <td>{bug.name}</td>
+                                        <td>
+                                            <Link to={`/bug/${bug._id}`}>
+                                                {bug.name}
+                                            </Link>
+                                        </td>
+
                                         <td>{bug.category}</td>
                                         <td>{bug.language}</td>
                                         <td>{bug.reason}</td>
