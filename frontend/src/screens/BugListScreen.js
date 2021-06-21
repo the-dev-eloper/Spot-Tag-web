@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createBug, listBugs } from '../actions/bugActions';
+import { createBug, deleteBug, listBugs } from '../actions/bugActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { BUG_CREATE_RESET } from '../constants/bugConstants';
+import { BUG_CREATE_RESET, BUG_DELETE_RESET } from '../constants/bugConstants';
 
 export default function BugListScreen(props) {
 
@@ -18,22 +18,37 @@ export default function BugListScreen(props) {
         bug: createdBug
     } = bugCreate;
 
+    const bugDelete = useSelector((state) => state.bugDelete);
+    const {
+        loading: loadingDelete,
+        success: successDelete,
+        error: errorDelete,
+    } = bugDelete;
+
     const dispatch = useDispatch();
 
     useEffect(() => {
+
         if (successCreate) {
             dispatch({ type: BUG_CREATE_RESET });
             props.history.push(`/bug/${createdBug._id}/edit`);
         }
-       dispatch(listBugs());
-    }, [createdBug, dispatch, props.history, successCreate]);
+
+        if (successDelete) {
+            dispatch({ type: BUG_DELETE_RESET });
+        }
+
+        dispatch(listBugs());
+    }, [createdBug, dispatch, props.history, successCreate, successDelete]);
 
     const createHandler = () => {
         dispatch(createBug());
-    }
+    };
 
-    const deleteHandler = () => {
-        
+    const deleteHandler = (bug) => {
+        if (window.confirm('Are you sure to delete?')) {
+            dispatch(deleteBug(bug._id));
+        }
     };
 
     return (
@@ -49,6 +64,9 @@ export default function BugListScreen(props) {
 
             {loadingCreate && <LoadingBox></LoadingBox>}
             {errorCreate && <MessageBox variant="danger">{errorCreate}</MessageBox>}
+
+            {loadingDelete && <LoadingBox></LoadingBox>}
+            {errorDelete && <MessageBox variant="danger">{errorDelete}</MessageBox>}
 
             {
                 loading ? (

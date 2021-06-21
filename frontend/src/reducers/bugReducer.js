@@ -4,6 +4,10 @@ import {
     BUG_CREATE_REQUEST,
     BUG_CREATE_RESET,
     BUG_CREATE_SUCCESS,
+    BUG_DELETE_FAIL,
+    BUG_DELETE_REQUEST,
+    BUG_DELETE_RESET,
+    BUG_DELETE_SUCCESS,
     BUG_DETAIL_FAIL,
     BUG_DETAIL_REQUEST,
     BUG_DETAIL_SUCCESS,
@@ -73,6 +77,21 @@ export const bugUpdateReducer = (state = {}, action) => {
         case BUG_UPDATE_FAIL:
             return { loading: false, error: action.payload };
         case BUG_UPDATE_RESET:
+            return {};
+        default:
+            return state;
+    }
+};
+
+export const bugDeleteReducer = (state = {}, action) => {
+    switch (action.type) {
+        case BUG_DELETE_REQUEST:
+            return { loading: true };
+        case BUG_DELETE_SUCCESS:
+            return { loading: false, success: true };
+        case BUG_DELETE_FAIL:
+            return { loading: false, error: action.payload };
+        case BUG_DELETE_RESET:
             return {};
         default:
             return state;

@@ -3,6 +3,9 @@ import {
     BUG_CREATE_FAIL,
     BUG_CREATE_REQUEST,
     BUG_CREATE_SUCCESS,
+    BUG_DELETE_FAIL,
+    BUG_DELETE_REQUEST,
+    BUG_DELETE_SUCCESS,
     BUG_DETAIL_FAIL,
     BUG_DETAIL_REQUEST,
     BUG_DETAIL_SUCCESS,
@@ -85,5 +88,24 @@ export const updateBug = (bug) => async (dispatch, getState) => {
         const message = error.response && error.response.data.message ? error.response.data.message : error.message;
 
         dispatch({ type: BUG_UPDATE_FAIL, payload: message });
+    }
+};
+
+export const deleteBug = (bugId) => async (dispatch, getState) => {
+
+    dispatch({ type: BUG_DELETE_REQUEST, payload: bugId });
+    const {
+        userSignin: { userInfo },
+    } = getState();
+
+    try {
+        const { data } = await Axios.delete(`/api/bugs/${bugId}`, {
+            headers: { Authorization: `Bearer ${userInfo.token}` },
+        });
+
+        dispatch({ type: BUG_DELETE_SUCCESS, payload: data });
+    } catch (error) {
+        const message = error.response && error.response.data.message ? error.response.data.message : error.message;
+        dispatch({ type: BUG_DELETE_FAIL, payload: message });
     }
 };

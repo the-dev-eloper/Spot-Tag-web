@@ -83,4 +83,22 @@ bugRouter.put(
     })
 );
 
+bugRouter.delete(
+    '/:id',
+    isAuth,
+    isAdmin,
+    expressAsyncHandler(async (req, res) => {
+
+        const bugId = req.params.id;
+        const bug = await Bug.findById(bugId);
+
+        if(bug) {
+            const deletedBug = await bug.remove();
+            res.send({ message: 'Bug Deleted', bug: deletedBug });
+        } else {
+            res.status(404).send({ message: 'Bug Not Found' });
+        }
+    })
+);
+
 export default bugRouter;
