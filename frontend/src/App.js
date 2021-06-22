@@ -86,9 +86,9 @@ function App() {
           <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>
           <Route path="/language/:id" component={LanguageScreen} exact></Route>
-          <Route path="/language/:id/edit" component={LanguageEditScreen}></Route>
+          <Route path="/language/:id/edit" component={LanguageEditScreen} exact></Route>
           <Route path="/bug/:id" component={BugScreen} exact></Route>
-          <Route path="/bug/:id/edit" component={BugEditScreen}></Route>
+          <Route path="/bug/:id/edit" component={BugEditScreen} exact></Route>
           <Route path="/bugs" component={AllBugsScreen} exact></Route>
           <PrivateRoute
             path="/profile"

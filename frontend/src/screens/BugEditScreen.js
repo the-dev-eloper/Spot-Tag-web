@@ -9,63 +9,63 @@ export default function BugEditScreen(props) {
 
     const bugId = props.match.params.id;
 
-    const [bugName, setBugName] = useState('');
-    const [bugCategory, setBugCategory] = useState('');
-    const [bugLanguage, setBugLanguage] = useState('');
-    const [bugReason, setBugReason] = useState('');
-    const [bugTestingTool, setBugTestingTool] = useState('');
-    const [bugSolution, setBugSolution] = useState('');
-    const [bugRefLink, setBugRefLink] = useState('');
-    const [bugAddedBy, setBugAddedBy] = useState('');
+    const [name, setName] = useState('');
+    const [category, setCategory] = useState('');
+    const [language, setLanguage] = useState('');
+    const [reason, setReason] = useState('');
+    const [testingTool, setTestingTool] = useState('');
+    const [solution, setSolution] = useState('');
+    const [refLink, setRefLink] = useState('');
+    const [addedBy, setAddedBy] = useState('');
 
     const bugDetails = useSelector((state) => state.bugDetails);
     const { loading, error, bug } = bugDetails;
 
-    const bugUpdate = useSelector((state) => state.bugUpdate);
-    const {
-        loading: loadingUpdate,
-        error: errorUpdate,
-        success: successUpdate,
-    } = bugUpdate;
+    // const bugUpdate = useSelector((state) => state.bugUpdate);
+    // const {
+    //     loading: loadingUpdate,
+    //     error: errorUpdate,
+    //     success: successUpdate,
+    // } = bugUpdate;
 
     const dispatch = useDispatch();
 
     useEffect(() => {
 
-        if(successUpdate) {
-            props.history.push('/buglist');
-        }
+        // if(successUpdate) {
+        //     props.history.push('/buglist');
+        // }
 
-        if (!bug || bug._id !== bugId || successUpdate) {
-            dispatch({ type: BUG_UPDATE_RESET });
+        if (!bug || bug._id !== bugId) {
+            // dispatch({ type: BUG_UPDATE_RESET });
             dispatch(detailsBug(bugId));
         } else {
-            setBugName(bug.name);
-            setBugCategory(bug.category);
-            setBugLanguage(bug.language)
-            setBugReason(bug.reason);
-            setBugTestingTool(bug.testingTool);
-            setBugSolution(bug.solution);
-            setBugRefLink(bug.refLink)
-            setBugAddedBy(bug.addedBy)
+            setName(bug.name);
+            setCategory(bug.category);
+            setLanguage(bug.language)
+            setReason(bug.reason);
+            setTestingTool(bug.testingTool);
+            setSolution(bug.solution);
+            setRefLink(bug.refLink)
+            setAddedBy(bug.addedBy)
         }
-    }, [bug, bugId, dispatch, successUpdate, props.history]);
+    }, [bug, bugId, dispatch]);
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(
-            updateBug({
-                _id: bugId,
-                bugName,
-                bugCategory,
-                bugLanguage,
-                bugReason,
-                bugTestingTool,
-                bugSolution,
-                bugRefLink,
-                bugAddedBy
-            })
-        )
+        // dispatch(
+        //     updateBug({
+        //         _id: bugId,
+        //         bugName,
+        //         bugCategory,
+        //         bugLanguage,
+        //         bugReason,
+        //         bugTestingTool,
+        //         bugSolution,
+        //         bugRefLink,
+        //         bugAddedBy
+        //     })
+        // )
     };
 
     return (
@@ -77,8 +77,8 @@ export default function BugEditScreen(props) {
                     <h1>Edit Bug {bugId}</h1>
                 </div>
 
-                {loadingUpdate && <LoadingBox></LoadingBox>}
-                {errorUpdate && <MessageBox variant="danger">{errorUpdate}</MessageBox>}
+                {/* {loadingUpdate && <LoadingBox></LoadingBox>}
+                {errorUpdate && <MessageBox variant="danger">{errorUpdate}</MessageBox>} */}
 
                 {loading ? (
                     <LoadingBox></LoadingBox>
@@ -92,8 +92,8 @@ export default function BugEditScreen(props) {
                                 id="name"
                                 type="text"
                                 placeholder="Enter name"
-                                value={bugName}
-                                onChange={(e) => setBugName(e.target.value)}
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
                             ></input>
                         </div>
 
@@ -103,8 +103,8 @@ export default function BugEditScreen(props) {
                                 id="category"
                                 type="text"
                                 placeholder="Enter category"
-                                value={bugCategory}
-                                onChange={(e) => setBugCategory(e.target.value)}
+                                value={category}
+                                onChange={(e) => setCategory(e.target.value)}
                             ></input>
                         </div>
 
@@ -114,8 +114,8 @@ export default function BugEditScreen(props) {
                                 id="language"
                                 type="text"
                                 placeholder="Enter language"
-                                value={bugLanguage}
-                                onChange={(e) => setBugLanguage(e.target.value)}
+                                value={language}
+                                onChange={(e) => setLanguage(e.target.value)}
                             ></input>
                         </div>
 
@@ -125,8 +125,8 @@ export default function BugEditScreen(props) {
                                 id="reason"
                                 type="text"
                                 placeholder="Enter reason"
-                                value={bugReason}
-                                onChange={(e) => setBugReason(e.target.value)}
+                                value={reason}
+                                onChange={(e) => setReason(e.target.value)}
                             ></input>
                         </div>
 
@@ -136,8 +136,8 @@ export default function BugEditScreen(props) {
                                 id="testingTool"
                                 type="text"
                                 placeholder="Enter Testing Tool"
-                                value={bugTestingTool}
-                                onChange={(e) => setBugTestingTool(e.target.value)}
+                                value={testingTool}
+                                onChange={(e) => setTestingTool(e.target.value)}
                             ></input>
                         </div>
 
@@ -147,8 +147,8 @@ export default function BugEditScreen(props) {
                                 id="solution"
                                 type="text"
                                 placeholder="Enter Solution"
-                                value={bugSolution}
-                                onChange={(e) => setBugSolution(e.target.value)}
+                                value={solution}
+                                onChange={(e) => setSolution(e.target.value)}
                             ></input>
                         </div>
 
@@ -158,8 +158,8 @@ export default function BugEditScreen(props) {
                                 id="refLink"
                                 type="text"
                                 placeholder="Enter refLink"
-                                value={bugRefLink}
-                                onChange={(e) => setBugRefLink(e.target.value)}
+                                value={refLink}
+                                onChange={(e) => setRefLink(e.target.value)}
                             ></input>
                         </div>
 
@@ -169,8 +169,8 @@ export default function BugEditScreen(props) {
                                 id="addedBy"
                                 type="text"
                                 placeholder="Enter Added By"
-                                value={bugAddedBy}
-                                onChange={(e) => setBugAddedBy(e.target.value)}
+                                value={addedBy}
+                                onChange={(e) => setAddedBy(e.target.value)}
                             ></input>
                         </div>
 
