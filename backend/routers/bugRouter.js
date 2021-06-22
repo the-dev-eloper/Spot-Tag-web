@@ -66,14 +66,14 @@ bugRouter.put(
         const bug = await Bug.findById(bugId);
 
         if(bug) {
-            bug.name = req.params.name;
-            bug.category = req.params.category;
-            bug.language = req.params.language;
-            bug.reason = req.params.reason;
-            bug.testingTool = req.params.testingTool;
-            bug.solution = req.params.solution;
-            bug.refLink = req.params.refLink;
-            bug.addedBy = req.params.addedBy;
+            bug.name = req.body.name;
+            bug.category = req.body.category;
+            bug.language = req.body.language;
+            bug.reason = req.body.reason;
+            bug.testingTool = req.body.testingTool;
+            bug.solution = req.body.solution;
+            bug.refLink = req.body.refLink;
+            bug.addedBy = req.body.addedBy;
 
             const updatedBug = await bug.save();
             res.send({ message: 'Bug Updated', bug: updatedBug });

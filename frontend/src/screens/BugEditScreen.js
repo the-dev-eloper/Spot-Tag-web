@@ -21,23 +21,23 @@ export default function BugEditScreen(props) {
     const bugDetails = useSelector((state) => state.bugDetails);
     const { loading, error, bug } = bugDetails;
 
-    // const bugUpdate = useSelector((state) => state.bugUpdate);
-    // const {
-    //     loading: loadingUpdate,
-    //     error: errorUpdate,
-    //     success: successUpdate,
-    // } = bugUpdate;
+    const bugUpdate = useSelector((state) => state.bugUpdate);
+    const {
+        loading: loadingUpdate,
+        error: errorUpdate,
+        success: successUpdate,
+    } = bugUpdate;
 
     const dispatch = useDispatch();
 
     useEffect(() => {
 
-        // if(successUpdate) {
-        //     props.history.push('/buglist');
-        // }
+        if(successUpdate) {
+            props.history.push('/buglist');
+        }
 
-        if (!bug || bug._id !== bugId) {
-            // dispatch({ type: BUG_UPDATE_RESET });
+        if (!bug || bug._id !== bugId || successUpdate) {
+            dispatch({ type: BUG_UPDATE_RESET });
             dispatch(detailsBug(bugId));
         } else {
             setName(bug.name);
@@ -49,23 +49,23 @@ export default function BugEditScreen(props) {
             setRefLink(bug.refLink)
             setAddedBy(bug.addedBy)
         }
-    }, [bug, bugId, dispatch]);
+    }, [bug, bugId, dispatch, successUpdate, props.history]);
 
     const submitHandler = (e) => {
         e.preventDefault();
-        // dispatch(
-        //     updateBug({
-        //         _id: bugId,
-        //         bugName,
-        //         bugCategory,
-        //         bugLanguage,
-        //         bugReason,
-        //         bugTestingTool,
-        //         bugSolution,
-        //         bugRefLink,
-        //         bugAddedBy
-        //     })
-        // )
+        dispatch(
+            updateBug({
+                _id: bugId,
+                name,
+                category,
+                language,
+                reason,
+                testingTool,
+                solution,
+                refLink,
+                addedBy
+            })
+        );
     };
 
     return (
@@ -77,8 +77,8 @@ export default function BugEditScreen(props) {
                     <h1>Edit Bug {bugId}</h1>
                 </div>
 
-                {/* {loadingUpdate && <LoadingBox></LoadingBox>}
-                {errorUpdate && <MessageBox variant="danger">{errorUpdate}</MessageBox>} */}
+                {loadingUpdate && <LoadingBox></LoadingBox>}
+                {errorUpdate && <MessageBox variant="danger">{errorUpdate}</MessageBox>}
 
                 {loading ? (
                     <LoadingBox></LoadingBox>

@@ -75,13 +75,9 @@ export const updateBug = (bug) => async (dispatch, getState) => {
     } = getState();
 
     try {
-        const { data } = await Axios.put(
-            `/api/bugs/${bug._id}`,
-            bug,
-            {
-                headers: { Authorization: `Bearer ${userInfo.token}` },
-            }
-        );
+        const { data } = await Axios.put(`/api/bugs/${bug._id}`, bug, {
+            headers: { Authorization: `Bearer ${userInfo.token}` },
+        });
 
         dispatch({ type: BUG_UPDATE_SUCCESS, payload: data });
     } catch (error) {
