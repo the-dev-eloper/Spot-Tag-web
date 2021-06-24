@@ -15,6 +15,7 @@ import LanguageEditScreen from './screens/LanguageEditScreen';
 import BugEditScreen from './screens/BugEditScreen';
 import BugScreen from './screens/BugScreen';
 import AllBugsScreen from './screens/AllBugsScreen';
+import UserListScreen from './screens/UserListScreen';
 
 function App() {
 
@@ -90,18 +91,27 @@ function App() {
           <Route path="/bug/:id" component={BugScreen} exact></Route>
           <Route path="/bug/:id/edit" component={BugEditScreen} exact></Route>
           <Route path="/bugs" component={AllBugsScreen} exact></Route>
+
           <PrivateRoute
             path="/profile"
             component={ProfileScreen}
           ></PrivateRoute>
+
           <AdminRoute
             path="/languagelist"
             component={LanguageListScreen}
           ></AdminRoute>
+
           <AdminRoute
             path="/buglist"
             component={BugListScreen}
           ></AdminRoute>
+
+          <AdminRoute
+            path="/userlist"
+            component={UserListScreen}
+          ></AdminRoute>
+
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
 
