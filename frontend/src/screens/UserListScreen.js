@@ -13,7 +13,6 @@ export default function UserListScreen() {
 
     useEffect(() => {
         dispatch(listUsers());
-        // console.log(users);
     }, [dispatch])
 
     return (
@@ -24,35 +23,49 @@ export default function UserListScreen() {
                 ) : error ? (
                     <MessageBox>{error}</MessageBox>
                 ) : (
-
                     <div>
                         <table className="table">
+
                             <thead>
+                                <th>ID</th>
                                 <th>name</th>
                                 <th>email</th>
                                 <th>isAdmin</th>
+                                <th>Created</th>
+                                <th>Last Updated</th>
                             </thead>
 
                             <tbody>
                                 {
-                                    users.map((user) => (
-                                        <tr key={user._id}>
-                                            <td>{users[0].name}</td>
-                                            <td>{users[0].email}</td>
-                                            <td>{users[0].isAdmin}</td>
-                                        </tr>
-                                    ))
+                                    Array.isArray(users) ? (
+                                        users.map((user) => (
+                                            <tr key={user._id}>
+                                                <td>{user._id}</td>
+                                                <td>{user.name}</td>
+                                                <td>{user.email}</td>
+
+                                                {
+                                                    user.isAdmin ? (
+                                                        <td>True</td>
+                                                    ) : (
+                                                        <td>False</td>
+                                                    )
+                                                }
+
+                                                <td>{user.createdAt}</td>
+                                                <td>{user.updatedAt}</td>
+                                            </tr>
+                                        ))
+                                    ) : (
+                                        <tr></tr>
+                                    )
                                 }
-                                
                             </tbody>
                         </table>
 
                     </div>
-                    // console.table(users)
-
-                    // <h1>SD</h1>
                 )
             }
         </div>
-    )
+    );
 }
