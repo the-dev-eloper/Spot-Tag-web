@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteUser, listUsers } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { LANGUAGE_DELETE_RESET } from '../constants/languageConstants';
+import { USER_DELETE_RESET } from '../constants/userConstants';
 
-export default function UserListScreen() {
+export default function UserListScreen(props) {
 
     const userList = useSelector((state) => state.userList);
     const { loading, error, users } = userList;
@@ -21,9 +21,9 @@ export default function UserListScreen() {
 
     useEffect(() => {
 
-        if (successDelete) {
-            dispatch({ type: LANGUAGE_DELETE_RESET });
-        }
+        // if (successDelete) {
+        //     dispatch({ type: USER_DELETE_RESET });
+        // }
 
         dispatch(listUsers());
     }, [dispatch, successDelete])
@@ -80,15 +80,15 @@ export default function UserListScreen() {
                                                 <td>{user.updatedAt}</td>
 
                                                 <td>
-                                                    {/* <button
+                                                    <button
                                                         type="button"
                                                         className="small"
                                                         onClick={() =>
-                                                            props.history.push(`/language/${language._id}/edit`)
+                                                            props.history.push(`/user/${user._id}/edit`)
                                                         }
                                                     >
                                                         Edit
-                                                    </button> */}
+                                                    </button>
 
                                                     <button
                                                         type="button"

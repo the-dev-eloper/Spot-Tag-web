@@ -2,7 +2,7 @@ import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { bugCreateReducer, bugDeleteReducer, bugDetailsReducer, bugListReducer, bugUpdateReducer } from './reducers/bugReducer';
 import { languageCreateReducer, languageDeleteReducer, languageDetailsReducer, languageListReducer, languageUpdateReducer } from './reducers/languageReducer';
-import { userDeleteReducer, userDetailsReducer, userListReducer, userRegisterReducer, userSigninReducer, userUpdateProfileReducer } from './reducers/userReducer';
+import { userDeleteReducer, userDetailsReducer, userListReducer, userRegisterReducer, userSigninReducer, userUpdateProfileReducer, userUpdateReducer } from './reducers/userReducer';
 
 const initialState = {
     userSignin: {
@@ -25,9 +25,10 @@ const reducer = combineReducers({
     bugDelete: bugDeleteReducer,
     userSignin: userSigninReducer,
     userRegister: userRegisterReducer,
-    userDetails: userDetailsReducer,
     userUpdateProfile: userUpdateProfileReducer,
     userList: userListReducer,
+    userDetails: userDetailsReducer,
+    userUpdate: userUpdateReducer,
     userDelete: userDeleteReducer,
 });
 
