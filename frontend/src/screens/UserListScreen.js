@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteUser, listUsers } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { USER_DELETE_RESET } from '../constants/userConstants';
+import { USER_DETAILS_RESET } from '../constants/userConstants';
 
 export default function UserListScreen(props) {
 
@@ -20,19 +20,17 @@ export default function UserListScreen(props) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-
-        // if (successDelete) {
-        //     dispatch({ type: USER_DELETE_RESET });
-        // }
-
         dispatch(listUsers());
-    }, [dispatch, successDelete])
+        dispatch({
+            type: USER_DETAILS_RESET,
+        });
+    }, [dispatch, successDelete]);
 
     const deleteHandler = (user) => {
-        if(window.confirm('Are you sure to delete?')) {
+        if (window.confirm('Are you sure?')) {
             dispatch(deleteUser(user._id));
         }
-    }
+    };
 
     return (
         <div>
@@ -42,17 +40,15 @@ export default function UserListScreen(props) {
             {loadingDelete && <LoadingBox></LoadingBox>}
             {errorDelete && <MessageBox variant="danger">{errorDelete}</MessageBox>}
 
-            {
-                successDelete && (
-                    <MessageBox variant="success">User Deleted Successfully</MessageBox>
-                )
-            }
+            {successDelete && (
+                <MessageBox variant="success">User Deleted Successfully</MessageBox>
+            )}
 
             {
                 loading ? (
                     <LoadingBox></LoadingBox>
                 ) : error ? (
-                    <MessageBox>{error}</MessageBox>
+                    <MessageBox variant="danger">{error}</MessageBox>
                 ) : (
                     <div>
                         <table className="table">
