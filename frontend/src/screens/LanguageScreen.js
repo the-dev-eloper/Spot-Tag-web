@@ -1,25 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { detailsLanguage } from '../actions/languageActions';
-import { detailsUser } from '../actions/userActions';
 import { listBugs } from '../actions/bugActions';
 
 export default function LanguageScreen(props) {
-
-    const [isAdmin, setIsAdmin] = useState(false);
-    const userId = props.match.params.id;
 
     const dispatch = useDispatch();
     const languageId = props.match.params.id;
 
     const languageDetails = useSelector((state) => state.languageDetails);
     const { loading, error, language } = languageDetails;
-
-    const userDetails = useSelector((state) => state.userDetails);
-    const { user } = userDetails;
 
     const bugList = useSelector((state) => state.bugList);
     const { loadingBugs, errorBugs, bugs } = bugList;
@@ -67,7 +60,7 @@ export default function LanguageScreen(props) {
                                 {
                                     bugs ? (
                                         bugs.map((bug) => (
-                                            bug.language == language.name ? (
+                                            bug.language === language.name ? (
                                                 <tr key={bug._id}>
     
                                                     <td>{bug.name}</td>
