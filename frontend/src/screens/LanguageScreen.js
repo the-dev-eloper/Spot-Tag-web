@@ -63,7 +63,11 @@ export default function LanguageScreen(props) {
                                             bug.language === language.name ? (
                                                 <tr key={bug._id}>
     
-                                                    <td>{bug.name}</td>
+                                                    <td>
+                                                        <Link to={`/bug/${bug._id}`}>
+                                                            {bug.name}
+                                                        </Link>
+                                                    </td>
                                                     <td>{bug.category}</td>
                                                     <td>{bug.language}</td>
                                                     <td>{bug.reason}</td>
