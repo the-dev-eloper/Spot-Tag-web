@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
     createLanguage,
     deleteLanguage,
@@ -89,7 +90,13 @@ export default function LanguageListScreen(props) {
                         <tbody>
                             {languages.map((language) => (
                                 <tr key={language._id}>
-                                    <td>{language.name}</td>
+
+                                    <td>
+                                        <Link to={`/language/${language._id}`}>
+                                            {language.name}
+                                        </Link>
+                                    </td>
+
                                     <td>{language.image}</td>
 
                                     <td>
