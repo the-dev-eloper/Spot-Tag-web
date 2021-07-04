@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
     createBug,
     deleteBug,
@@ -102,7 +103,12 @@ export default function BugListScreen(props) {
                                 {bugs.map((bug) => (
                                     <tr key={bug._id}>
 
-                                        <td>{bug.name}</td>
+                                        <td>
+                                            <Link to={`/bug/${bug._id}`}>
+                                                {bug.name}
+                                            </Link>
+                                        </td>
+
                                         <td>{bug.category}</td>
                                         <td>{bug.language}</td>
                                         <td>{bug.reason}</td>
