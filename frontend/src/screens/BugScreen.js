@@ -79,7 +79,10 @@ export default function BugScreen(props) {
                                         <b>
                                             Ref Link:
                                         </b>
-                                        {bug.refLink}
+
+                                        <a href={bug.refLink}>
+                                            Click here
+                                        </a>
                                     </li>
 
                                     <li>
