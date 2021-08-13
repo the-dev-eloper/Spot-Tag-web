@@ -43,6 +43,9 @@ languageRouter.post(
     expressAsyncHandler(async (req, res) => {
         const language = new Language({
             name: 'sample name' + Date.now(),
+            developer: 'sample developer',
+            stableRelease: 'sample stable release',
+            firstAppeared: 'sample data',
             image: '/images/l1.png',
             bugList: [],
         });

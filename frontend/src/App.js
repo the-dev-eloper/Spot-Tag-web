@@ -117,7 +117,7 @@ function App() {
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
 
-        <footer class="row center">All right reserved</footer>
+        {/* <footer class="row center">All right reserved</footer> */}
       </div>
     </BrowserRouter>
   );

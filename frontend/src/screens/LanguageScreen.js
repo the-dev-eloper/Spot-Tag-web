@@ -42,6 +42,12 @@ export default function LanguageScreen(props) {
                             {language.name}
                         </h1>
 
+                        <div>
+                            <h3>First Appeared: {language.firstAppeared}</h3>
+                            <h3>Developer: {language.developer}</h3>
+                            <h3>Stable Release: {language.stableRelease}</h3>
+                        </div>
+
                         <table class="table">
                             <thead>
                                 <tr>
