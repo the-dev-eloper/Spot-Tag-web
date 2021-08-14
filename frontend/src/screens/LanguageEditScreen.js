@@ -12,6 +12,9 @@ export default function LanguageEditScreen(props) {
 
     const [name, setName] = useState('');
     const [image, setImage] = useState('');
+    const [developer, setDeveloper] = useState([]);
+    const [stableRelease, setStableRelease] = useState([]);
+    const [firstAppeared, setFirstAppeared] = useState([]);
     const [bugList, setBugList] = useState([]);
 
     const [loadingUpload, setLoadingUpload] = useState(false);
@@ -39,6 +42,9 @@ export default function LanguageEditScreen(props) {
         } else {
             setName(language.name);
             setImage(language.image);
+            setDeveloper(language.developer);
+            setStableRelease(language.stableRelease);
+            setFirstAppeared(language.firstAppeared);
             setBugList(language.bugList);
         }
     }, [language, languageId, dispatch, successUpdate, props.history]);
@@ -75,6 +81,9 @@ export default function LanguageEditScreen(props) {
                 _id: languageId,
                 name,
                 image,
+                developer,
+                stableRelease,
+                firstAppeared,
                 bugList,
             })
         )
@@ -134,7 +143,39 @@ export default function LanguageEditScreen(props) {
                                 <MessageBox variant="danger">{errorUpload}</MessageBox>
                             )}
                         </div>
-                        
+
+                        <div>
+                            <label htmlFor="developer">Developer</label>
+                            <input
+                                id="developer"
+                                type="text"
+                                placeholder="Enter Developer"
+                                value={developer}
+                                onChange={(e) => setDeveloper(e.target.value)}
+                            ></input>
+                        </div>
+
+                        <div>
+                            <label htmlFor="stableRelease">Stable Release</label>
+                            <input
+                                id="stableRelease"
+                                type="text"
+                                placeholder="Enter Stable Release"
+                                value={stableRelease}
+                                onChange={(e) => setStableRelease(e.target.value)}
+                            ></input>
+                        </div>
+                        <div>
+                            <label htmlFor="firstAppeared">First Appeared</label>
+                            <input
+                                id="firstAppeared"
+                                type="text"
+                                placeholder="Enter First Appeared"
+                                value={firstAppeared}
+                                onChange={(e) => setFirstAppeared(e.target.value)}
+                            ></input>
+                        </div>
+
                         <div>
                             <label></label>
                             <button className="primary" type="submit">

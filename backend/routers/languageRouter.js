@@ -67,6 +67,9 @@ languageRouter.put(
         if(language) {
             language.name = req.body.name;
             language.image = req.body.image;
+            language.developer = req.body.developer;
+            language.stableRelease = req.body.stableRelease;
+            language.firstAppeared = req.body.firstAppeared;
             language.bugList = req.body.bugList;
 
             const updatedLanguage = await language.save();
