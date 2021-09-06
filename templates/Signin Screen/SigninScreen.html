@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="SigninScreen.css" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
 
-        <title>Spot tag</title>
+        <title>Spot Tag</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="SigninScreen.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
 
     <body>
@@ -17,28 +21,60 @@
 
                 <div class="row">
 
-                    <div class="column_1" >
-
-                        <img src="images/login.png" alt="Login"  width="50%">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <img
+                            src="./images/login.png"
+                            alt="Login"
+                            title="Login"
+                            class="img-responsive center-block imageField"
+                        />
                     </div>
 
-                    <div class="column_2" >
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                         <div class="headText">
                             <h1>
                                 Hello World,
                             </h1>
-    
+
                             <h1>
                                 Welcome back..
                             </h1>
                         </div>
 
-                        
+                        <div class="formField">
+                            <form action="/action_page.php">
+
+                                <input type="text" placeholder="Enter Email" name="email" required>
+
+                                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                                <br />
+
+                                <label>
+                                    <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                                </label>
+
+                                <label>
+                                    <p style="padding-left: 80px;">
+                                        Forgot Password?
+                                    </p>
+                                </label>
+
+                                <div class="clearfix">
+                                    <button type="submit" class="signupbtn">Sign Up</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="registerPage">
+                            <p>
+                                Don't have an account? <a href="">Click me</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </body>
 </html>

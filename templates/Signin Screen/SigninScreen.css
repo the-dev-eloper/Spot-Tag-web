@@ -28,50 +28,62 @@ body {
     margin-top: 3%;
 
     border-radius: 25px;
-
-    /* border: 3px solid #73AD21;
-    padding: 10px 10px 10px 10px; */
 }
 
-.column_1 {
-    padding: 10px;
-    height: 300px; 
-}
-
-.column_2 {
-    position: absolute;
-    /* float: right; */
-    /* align-items: center; */
-    /* justify-content: center; */
-}
-
-/* * {
-    box-sizing: border-box;
-} */
-
-.column {
-    float: left;
-  
-}
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
+.imageField {
+    padding: 30px;
+    margin-top: 120px;
 }
 
 .headText {
-    padding-left: 590px;
+    padding: 80px;
+    margin-top: 40px;
 }
 
-.contentBody {
+.headText h1 {
+    font-weight: bold;
+}
 
-    width: 90%;
-    height: 90%;
+.formField {
+    padding: 15px;
+    margin-top: -60px;
+}
 
-    margin: 0 auto;
-    position: relative;
-    margin-top: 3%;
+input[type=text], input[type=password] {
+    width: 80%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
 
-    align-items: center;
-    justify-content: center;
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+button:hover {
+    opacity:1;
+}
+
+.signupbtn {
+    float: left;
+    width: 50%;
+}
+
+.registerPage {
+    padding: 20px;
+    font-weight: bold;
 }
