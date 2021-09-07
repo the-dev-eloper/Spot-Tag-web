@@ -30,57 +30,94 @@ export default function SigninScreen(props) {
     }, [props.history, redirect, userInfo]);
 
     return (
+        <div className="grid-container-signin">
 
-        <div>
-            <form className="form" onSubmit={submitHandler}>
+            <div className="page-grid">
 
-                <div>
-                    <h1>Sign In</h1>
-                </div>
+                <div className="row">
 
-                {loading && <LoadingBox></LoadingBox>}
-                {error && <MessageBox variant="danger">{error}</MessageBox>}
+                    <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <img
+                            src="./images/login.png"
+                            alt="Login"
+                            title="Login"
+                            className="img-responsive center-block imageField"
+                        />
+                    </div>
 
-                <div>
-                    <label htmlFor="email">Email address</label>
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="Enter email"
-                        required
-                        onChange={(e) => setEmail(e.target.value)}
-                    ></input>
-                </div>
+                    <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        placeholder="Enter password"
-                        required
-                        onChange={(e) => setPassword(e.target.value)}
-                    ></input>
-                </div>
+                        <div className="headText">
+                            <h1>
+                                Hello World,
+                            </h1>
 
-                <div>
-                    <label />
-                    <button className="primary" type="submit">
-                        Sign In
-                    </button>
-                </div>
+                            <h1>
+                                Welcome to Spot-Tag..
+                            </h1>
+                        </div>
 
-                <div>
-                    <label />
-                    <div>
-                        New customer?{' '}
+                        <div className="formField">
+                            <form className="form" onSubmit={submitHandler}>
 
-                        <Link to={`/register?redirect=${redirect}`}>
-                            Create your account
-                        </Link>
+                                {loading && <LoadingBox></LoadingBox>}
+                                {error && <MessageBox variant="danger">{error}</MessageBox>}
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    placeholder="Enter email"
+                                    required
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+
+                                <input
+                                    type="password"
+                                    id="password"
+                                    placeholder="Enter password"
+                                    required
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+
+                                <br />
+
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        id="remember" 
+                                        checked="checked"
+                                        // style={margin-bottom:15px}
+                                    /> Remember me
+                                </label>
+
+                                <label>
+                                    <p className="">
+                                        Forgot Password?
+                                    </p>
+                                </label>
+
+                                <div className="clearfix">
+                                    <button
+                                        type="submit"
+                                        className="signupbtn"
+                                    >
+                                        Sign In
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div className="registerPage">
+
+                            Don't have an account ? {' '}
+
+                            <Link to={`/register?redirect=${redirect}`}>
+                                Click me
+                            </Link>
+                        </div>
                     </div>
                 </div>
-            </form>
-        </div>
+            </div>
+        </div>   
     );
 }
