@@ -4,75 +4,59 @@
 
         <title>Spot Tag</title>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <link rel="stylesheet" href="SigninScreen.css" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
     <body>
-        <div class="grid-container">
+        <div id="main">
 
-            <div class="page-grid">
+            <div class="box">
 
-                <div class="row">
+                <div class="col-div-6">
 
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <img
-                            src="./images/login.png"
-                            alt="Login"
-                            title="Login"
-                            class="img-responsive center-block imageField"
-                        />
+                    <img
+                        src="./images/Login_image.png"
+                        alt="Login"
+                        title="Login"
+                    />
+                </div>
+
+                <div class="col-div-6">
+
+                    <div class="headText">
+                        <p class="logo">Welcome to Spot-<span>Tag</span></p>
                     </div>
 
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="formField">
+                        <form action="/action_page.php">
 
-                        <div class="headText">
-                            <h1>
-                                Hello World,
-                            </h1>
+                            <input type="text" placeholder="Enter Email" name="email" required>
 
-                            <h1>
-                                Welcome back..
-                            </h1>
-                        </div>
+                            <input type="password" placeholder="Enter Password" name="psw" required>
 
-                        <div class="formField">
-                            <form action="/action_page.php">
+                            <br />
 
-                                <input type="text" placeholder="Enter Email" name="email" required>
+                            <label>
+                                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                            </label>
 
-                                <input type="password" placeholder="Enter Password" name="psw" required>
+                            <div class="clearfix"></div>
+                            <br />
 
-                                <br />
-
-                                <label>
-                                    <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                                </label>
-
-                                <label>
-                                    <p style="padding-left: 80px;">
-                                        Forgot Password?
-                                    </p>
-                                </label>
-
-                                <div class="clearfix">
-                                    <button type="submit" class="signupbtn">Sign Up</button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="registerPage">
-                            <p>
-                                Don't have an account? <a href="">Click me</a>
-                            </p>
-                        </div>
+                            <div class="btn-section">
+                                <button type="submit" class="signupbtn">Login</button>
+                                <a href="#" class="fp">Forgot Password?</a>
+                            </div>
+                        </form>
                     </div>
+
+                    <div class="clearfix"></div>
+                    <br />
+
+                    <p class="noaccount">
+                        New to Spot-Tag? <a href="#">Create an account</a>
+                    </p>
                 </div>
             </div>
         </div>
