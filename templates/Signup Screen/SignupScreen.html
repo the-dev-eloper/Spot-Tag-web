@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Spot-Tag</title>
+
+        <link rel="stylesheet" href="./SignupScreen.css" />
+    </head>
+
+    <body>
+
+        <div id="main">
+            <div class="box">
+
+                <div class="col-div-6">
+
+                    <img
+                        src="./images/Login_image.png"
+                        alt="Signup"
+                        title="Signup"
+                    />
+                </div>
+
+                <div class="col-div-6">
+
+                    <div class="headText">
+                        <p>Hello World, Welcome to Spot-<span>Tag</span>..</p>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <br />
+
+                    <div class="formField">
+                        <form action="/action_page.php">
+
+                            <div class="col-div-3">
+                                <label for="name" class="formLabel">First Name*</label> <br/>
+                                <input type="text" placeholder="Name" name="fname" required />
+                            </div>
+
+                            <div class="col-div-3">
+                                <label for="email" class="formLabel">Email*</label> <br/>
+                                <input type="text" placeholder="Email" name="email" required />
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="col-div-3">
+                                <label for="mobile" class="formLabel">Mobile*</label> <br/>
+                                <input type="number" placeholder="Mobile" name="mobile" required />
+                            </div>
+
+                            <div class="col-div-3">
+                                <label for="country" class="formLabel">Country*</label> <br/>
+                                <input type="text" placeholder="Country" name="country" required />
+                            </div>
+
+                            <div class="clearfix"></div>
+                            
+                            <div class="col-div-3">
+                                <label for="psw" class="formLabel">New Password*</label> <br/>
+                                <input type="password" placeholder="New Password" name="psw" required />
+                            </div>
+
+                            <div class="col-div-3">
+                                <label for="npsw" class="formLabel">Confirm Password*</label> <br/>
+                                <input type="password" placeholder="Confirm Password" name="npsw" required />
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <br />
+
+                            <label>
+                                <input type="checkbox" name="tnc" style="margin-bottom:15px"> I agree to all the Terms and Conditions
+                            </label>
+
+                            <div class="clearfix"></div>
+                            <br />
+
+                            <div class="btn-section">
+                                <button type="submit" class="signupbtn">Sign up</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <br />
+
+                    <p class="accounted">
+                        Already have an account? <a href="#">Log in</a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
