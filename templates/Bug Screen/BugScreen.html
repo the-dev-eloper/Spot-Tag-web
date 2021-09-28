@@ -1,49 +1,72 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="BugScreen.css" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
 
         <title>Spot tag</title>
+
+        <link rel="stylesheet" href="BugScreen.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     </head>
 
     <body>
-        <div class="grid-container">
 
-            <header class="row">
+        <div id="mySidenav" class="sidenav">
 
-                <div>
-                    <a class="brand" href="index.html">Spot Tag</a>
+            <p class="logo">Spot-<span>Tag</span></p>
+
+            <a href="#" class="icon-a">
+                <i class="fa fa-tasks icons"></i>
+                &nbsp;&nbsp;Languages
+            </a>
+
+            <a href="#" class="icon-a">
+                <i class="fa fa-bug"></i>
+                &nbsp;&nbsp;Bugs
+            </a>
+        </div>
+
+        <div id="main">
+
+            <div class="head">
+
+                <div class="col-div-6">
+                    <span style="color: white; font-size: 30px; cursor: pointer;" class="nav">Bugs</span>
                 </div>
 
-                <div>
-                    <a href="signin.html">Sign In</a>
+                <div class="col-div-6">
+                    <div class="profile">
+                        <img src="./images/user.png" class="pro-img" />
+                        <p>User Name <span>Designation</span></p>
+                    </div>
                 </div>
-            </header>
 
-            <main>
-                <div>
+                <div class="clearfix"></div>
+            </div>
 
-                    <h1>All Bugs</h1>
+            <div class="clearfix"></div>
+            <br /><br />
 
-                    <table class="table">
-                        <thead>
+            <div class="col-div-12">
+
+                <div class="box-12">
+                    <div class="content-box">
+
+                        <p>Bugs and Solutions</p>
+
+                        <br/>
+
+                        <table class="table">
                             <tr>
                                 <th>Name</th>
                                 <th>Category</th>
                                 <th>Language</th>
-                                <th>reason</th>
+                                <th>Reason</th>
                                 <th>Testing Tool</th>
                                 <th>Solution</th>
                                 <th>Ref Link</th>
                                 <th>Added By</th>
                             </tr>
-                        </thead>
 
-                        <tbody>
                             <tr>
                                 <td>{bug.name}</td>
                                 <td>{bug.category}</td>
@@ -54,6 +77,7 @@
                                 <td>{bug.refLink}</td>
                                 <td>{bug.addedBy}</td>
                             </tr>
+
                             <tr>
                                 <td>{bug.name}</td>
                                 <td>{bug.category}</td>
@@ -64,14 +88,10 @@
                                 <td>{bug.refLink}</td>
                                 <td>{bug.addedBy}</td>
                             </tr>
-                        </tbody> 
-                    </table>
+                        </table>
+                    </div>
                 </div>
-            </main>
-
-            <footer class="row center">
-                All right reserved
-            </footer>
+            </div>
         </div>
     </body>
 </html>
