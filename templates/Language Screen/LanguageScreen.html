@@ -2,83 +2,138 @@
 <html>
     <head>
 
-        <link rel="stylesheet" href="LanguageScreen.css" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
-
         <title>Spot tag</title>
+
+        <link rel="stylesheet" href="LanguageScreen.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     </head>
 
     <body>
-        <div class="grid-container">
-            <header class="row">
 
-                <div>
-                    <a class="brand" href="index.html">Spot Tag</a>
+        <div id="mySidenav" class="sidenav">
+
+            <p class="logo">Spot-<span>Tag</span></p>
+
+            <a href="#" class="icon-a">
+                <i class="fa fa-tasks icons"></i>
+                &nbsp;&nbsp;Languages
+            </a>
+
+            <a href="#" class="icon-a">
+                <i class="fa fa-bug"></i>
+                &nbsp;&nbsp;Bugs
+            </a>
+        </div>
+
+        <div id="main">
+
+            <div class="head">
+
+                <div class="col-div-6">
+
+                    <div class="name">
+                        <img src="./images/Py_main.png" class="name-img"/>
+                        <p>Language_Name</p>
+                    </div>
                 </div>
 
-                <div>
-                    <a href="signin.html">Sign In</a>
+                <div class="col-div-6">
+
+                    <div class="profile">
+                        <img src="./images/user.png" class="pro-img" />
+                        <p>User Name <span>Designation</span></p>
+                    </div>
                 </div>
-            </header>
+            </div>
 
-            <main>
-                <div>
+            <div class="clearfix"></div>
+            <br /><br />
 
-                    <h1>Languages</h1>
+            <div class="col-div-4">
 
-                    <table class="table">
-                        <thead>
+                <div class="box">
+                    <p>
+                        Developer
+                        <br />
+                        <span>
+                            developer
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-div-4">
+                <div class="box">
+
+                    <p>
+                        Stable Release
+                        <br/>
+                        <span>
+                            stableRelease
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-div-4">
+                <div class="box">
+                    <p>
+                        First Appeared
+                        <br />
+                        <span>
+                            firstAppeared
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+            <br /><br />
+
+            <div class="col-div-12">
+
+                <div class="box-12">
+                    <div class="content-box">
+
+                        <p>Bugs and Solutions</p>
+
+                        <br/>
+
+                        <table>
+
                             <tr>
                                 <th>Name</th>
                                 <th>Category</th>
-                                <th>Language</th>
-                                <th>reason</th>
+                                <th>Reason</th>
                                 <th>Testing Tool</th>
                                 <th>Solution</th>
                                 <th>Ref Link</th>
                                 <th>Added By</th>
-                                <th>Options</th>
                             </tr>
-                        </thead>
 
-                        <tbody>
                             <tr>
                                 <td>{bug.name}</td>
                                 <td>{bug.category}</td>
-                                <td>{bug.language}</td>
                                 <td>{bug.reason}</td>
                                 <td>{bug.testingTool}</td>
                                 <td>{bug.solution}</td>
                                 <td>{bug.refLink}</td>
                                 <td>{bug.addedBy}</td>
-                                <td>
-                                    <a href="#" class="button">Edit</a>
-                                    <a href="#" class="button">Delete</a>
-                                </td>
                             </tr>
+
                             <tr>
                                 <td>{bug.name}</td>
                                 <td>{bug.category}</td>
-                                <td>{bug.language}</td>
                                 <td>{bug.reason}</td>
                                 <td>{bug.testingTool}</td>
                                 <td>{bug.solution}</td>
                                 <td>{bug.refLink}</td>
                                 <td>{bug.addedBy}</td>
-                                <td>
-                                    <a href="#" class="button">Edit</a>
-                                    <a href="#" class="button">Delete</a>
-                                </td>
                             </tr>
-                        </tbody> 
-                    </table>
+                        </table>
+                    </div>
                 </div>
-            </main>
-
-            <footer class="row center">All right reserved</footer>
+            </div>
         </div>
     </body>
 </html>
