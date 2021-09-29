@@ -110,3 +110,65 @@ button:hover {
 .noaccount-login a {
   text-decoration: none;
 }
+
+.headText-signup {
+  font-size: 30px;
+  padding-top: 10px;
+  padding-left: 10%;
+  font-weight: bold;
+}
+
+.headText-signup span {
+  color: #f7403b;
+}
+
+.col-div-3-signup {
+  width: 50%;
+  float: left;
+}
+
+.formField-signup{
+  font-size: 10px;
+  font-weight: lighter;
+  color: gray;
+}
+
+.formField-signup input[type=text],
+.formField-signup input[type=password],
+.formField-signup [type=number],
+.formField-signup input[type=email] {
+  width: 80%;
+  background: #f1f1f1;
+  border: none;
+  display: inline-block;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+}
+
+.formField-signup input[type=text]:focus,
+.formField-signup input[type=password]:focus,
+.formField-signup [type=number]:focus,
+.formField-signup input[type=email]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+#tnc {
+  margin-bottom:15px;
+  font-size: 40px;
+}
+
+.signupbtn-signup {
+  width: 60%;
+  color: white;
+  background-color: #0000ff;
+  border: none;
+  padding: 15px;
+  margin: 0 0 0 20%;
+}
+
+.accounted-signup {   
+  padding: 10px;
+  font-weight: bold;
+  text-decoration: none;
+}

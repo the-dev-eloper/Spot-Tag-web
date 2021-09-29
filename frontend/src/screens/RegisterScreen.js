@@ -5,12 +5,16 @@ import { register } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
+import data from '../data';
+
 export default function RegisterScreen(props) {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [mobile, setMobile] = useState(0);
+    const [designation, setDesignation] = useState('');
 
     const redirect = props.location.search ? props.location.search.split('=')[1] : '/';
 
@@ -36,76 +40,132 @@ export default function RegisterScreen(props) {
     }, [props.history, redirect, userInfo]);
 
     return (
-        <div>
-            <form className="form" onSubmit={submitHandler}>
+        <div className="body-login">
+            <div className="box-login">
 
-                <div>
-                    <h1>Create Account</h1>
+                <div className="col-div-6-login">
+
+                    <img
+                        src={data.loginImage}
+                        alt="Login"
+                        title="Login"
+                    />
                 </div>
 
-                {loading && <LoadingBox></LoadingBox>}
-                {error && <MessageBox variant="danger">{error}</MessageBox>}
+                <div className="col-div-6-login">
 
-                <div>
-                    <label htmlFor="name">Name</label>
-                    <input
-                        type="text"
-                        id="name"
-                        placeholder="Enter name"
-                        required
-                        onChange={(e) => setName(e.target.value)}
-                    ></input>
-                </div>
-
-                <div>
-                    <label htmlFor="email">Email address</label>
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="Enter email"
-                        required
-                        onChange={(e) => setEmail(e.target.value)}
-                    ></input>
-                </div>
-
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        placeholder="Enter password"
-                        required
-                        onChange={(e) => setPassword(e.target.value)}
-                    ></input>
-                </div>
-
-                <div>
-                    <label htmlFor="confirmPassword">Confirm Password</label>
-                    <input
-                        type="password"
-                        id="confirmPassword"
-                        placeholder="Enter confirm password"
-                        required
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                    ></input>
-                </div>
-
-                <div>
-                    <label />
-                    <button className="primary" type="submit">
-                        Register
-                    </button>
-                </div>
-
-                <div>
-                    <label />
-                    <div>
-                        Already have an account?{' '}
-                        <Link to={`/login?redirect=${redirect}`}>Sign-In</Link>
+                    <div className="headText-signup">
+                        <p>Hello World, Welcome to Spot-<span>Tag</span>..</p>
                     </div>
+
+                    <div className="clearfix"></div>
+                    <br />
+
+                    <div className="formField-signup">
+                        <form className="form-signup" onSubmit={submitHandler}>
+
+                            {loading && <LoadingBox></LoadingBox>}
+                            {error && <MessageBox variant="danger">{error}</MessageBox>}
+
+                            <div className="col-div-3-signup">
+                                <label htmlFor="name" className="formLabel">First Name*</label> <br/>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    placeholder="Name"
+                                    required
+                                    onChange={(e) => setName(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="col-div-3-signup">
+                                <label htmlFor="email" className="formLabel">Email*</label> <br/>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    placeholder="Email"
+                                    required
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="clearfix"></div>
+
+                            <div className="col-div-3-signup">
+                                <label htmlFor="mobile" className="formLabel">Mobile*</label> <br/>
+                                <input
+                                    type="number"
+                                    id="mobile"
+                                    placeholder="Mobile"
+                                    required
+                                    onChange={(e) => setMobile(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="col-div-3-signup">
+                                <label htmlFor="designation" className="formLabel">Country*</label> <br/>
+                                <input
+                                    type="text"
+                                    id="designation"
+                                    placeholder="Designation"
+                                    required
+                                    onChange={(e) => setDesignation(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="clearfix"></div>
+
+                            <div className="col-div-3-signup">
+                                <label htmlFor="password" className="formLabel">New Password*</label> <br/>
+                                <input
+                                    type="password"
+                                    id="password"
+                                    placeholder="Password"
+                                    required
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="col-div-3-signup">
+                                <label htmlFor="confirmPassword" className="formLabel">Confirm Password*</label> <br/>
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    placeholder="Confirm Password"
+                                    required
+                                    onChange={(e) => setConfirmPassword(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="clearfix"></div>
+                            <br />
+
+                            <label className="tnc-signup">
+                                <input
+                                    type="checkbox"
+                                    id="tnc"
+                                    required
+                                /> I agree to all the Terms and Conditions
+                            </label>
+
+                            <div className="clearfix"></div>
+                            <br />
+
+                            <div className="btn-section-signup">
+                                <button type="submit" className="signupbtn-signup">Sign up</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div className="clearfix"></div>
+                    <br />
+
+                    <p className="accounted-signup">
+                        Already have an account?{' '}
+                        <Link to={`/login?redirect=${redirect}`}>Log in</Link>
+                    </p>
                 </div>
-            </form>
+            </div>
         </div>
     );
 }
-
