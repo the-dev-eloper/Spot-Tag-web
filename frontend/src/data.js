@@ -1,5 +1,7 @@
 const data = {
 
+    loginImage: '/images/Login_image.png',
+
     languages: [
         {
             _id: '1',
