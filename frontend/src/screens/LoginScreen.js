@@ -98,7 +98,7 @@ export default function LoginScreen(props) {
                     <br />
 
                     <p className="noaccount-login">
-                        New to Spot-Tag? <Link to={`/register?redirect=${redirect}`}>
+                        New to Spot-Tag? <Link to={`/signup?redirect=${redirect}`}>
                             Click me
                         </Link>
                     </p>

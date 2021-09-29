@@ -5,7 +5,6 @@ import { signout } from './actions/userActions';
 import HomeScreen from './screens/HomeScreen';
 import LanguageScreen from './screens/LanguageScreen';
 import LoginScreen from './screens/LoginScreen';
-import RegisterScreen from './screens/RegisterScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import PrivateRoute from './components/PrivateRoute';
 import BugListScreen from './screens/BugListScreen';
@@ -17,6 +16,7 @@ import BugScreen from './screens/BugScreen';
 import AllBugsScreen from './screens/AllBugsScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
+import SignupScreen from './screens/SignupScreen';
 
 function App() {
 
@@ -33,7 +33,7 @@ function App() {
       <div className="app">
 
         <Route path="/login" component={LoginScreen}></Route>
-        <Route path="/register" component={RegisterScreen}></Route>
+        <Route path="/signup" component={SignupScreen}></Route>
         <Route path="/language/:id" component={LanguageScreen} exact></Route>
         <Route path="/language/:id/edit" component={LanguageEditScreen} exact></Route>
         <Route path="/bug/:id" component={BugScreen} exact></Route>

@@ -7,7 +7,7 @@ import MessageBox from '../components/MessageBox';
 
 import data from '../data';
 
-export default function RegisterScreen(props) {
+export default function SignupScreen(props) {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
