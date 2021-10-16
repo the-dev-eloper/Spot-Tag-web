@@ -3,18 +3,21 @@
     <head>
 
         <title>Spot Tag</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="UTF-8">
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="Pragma" content="no-cache" />
 
         <link rel="stylesheet" href="LoginScreen.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
     <body>
-        <div id="main">
+        <section class="loginPage">
 
             <div class="box">
-
-                <div class="col-div-6">
-
+    
+                <div class="image_section">
                     <img
                         src="./images/Login_image.png"
                         alt="Login"
@@ -22,43 +25,46 @@
                     />
                 </div>
 
-                <div class="col-div-6">
+                <div class="content_section">
 
-                    <div class="headText">
-                        <p class="logo">Welcome to Spot-<span>Tag</span>..</p>
+                    <div class="header">
+                        <h3>
+                            Welcome to Spot-<span>Tag</span>..</p>
+                        </h3>
                     </div>
 
-                    <div class="formField">
-                        <form action="/action_page.php">
-
-                            <input type="text" placeholder="Enter Email" name="email" required>
-
-                            <input type="password" placeholder="Enter Password" name="psw" required>
-
-                            <br />
-
-                            <label>
-                                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                            </label>
-
-                            <div class="clearfix"></div>
-                            <br />
-
-                            <div class="btn-section">
-                                <button type="submit" class="signupbtn">Login</button>
-                                <a href="#" class="fp">Forgot Password?</a>
-                            </div>
-                        </form>
+                    <div class="input_field">
+                        <h5>Email</h5>
+                        <input type="text" placeholder="Enter Email" name="email" required>
                     </div>
 
-                    <div class="clearfix"></div>
-                    <br />
+                    <div class="input_field">
+                        <h5>Password</h5>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+                    </div>
 
-                    <p class="noaccount">
-                        New to Spot-Tag? <a href="#">Create an account</a>
-                    </p>
+                    <div class="check_field">
+                        <div class="ip_checkbox">
+                            <input type="checkbox" id="template" name="Checkbox" />
+                            <label for="template">Remember me</label>
+                        </div>
+                    </div>
+
+                    <div class="btn-section">
+                        <button type="submit" class="signupbtn">Login</button>
+                        <a href="#" class="fp">Forgot Password?</a>
+                    </div>
+
+                    <div class="noaccount">
+                        <p>
+                            New to Spot-Tag? <a href="#">Create an account</a>
+                        </p>
+                    </div>
+
+                   
                 </div>
             </div>
-        </div>
+        </section>
+
     </body>
 </html>
