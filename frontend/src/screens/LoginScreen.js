@@ -25,6 +25,12 @@ export default function LoginScreen(props) {
         dispatch(signin(email, password));
     };
 
+    const fp_handler = () => {}
+
+    const goToSignup = () => {
+        props.history.push('/register');
+    }
+
     useEffect(() => {
         if (userInfo) {
           props.history.push(redirect);
@@ -32,78 +38,73 @@ export default function LoginScreen(props) {
     }, [props.history, redirect, userInfo]);
 
     return (
-
         <div className="body-login">
 
-            <div className="box-login">
+            <div class="login__box">
 
-                <div className="col-div-6-login">
-
+                <div class="col-div-6">
                     <img
-                        src={data.loginImage}
+                        src="./images/Login_image.png"
                         alt="Login"
                         title="Login"
                     />
                 </div>
 
-                <div className="col-div-6-login">
+                <div class="col-div-6">
+                    <section class="login__content--wrap">
 
-                    <div className="headText-login">
-                        <p className="logo-login">Welcome to Spot-<span>Tag</span>..</p>
-                    </div>
+                        <div class="login__content--heading">
+                            <p>
+                                Welcome to Spot -
+                                <span>Tag..</span>
+                            </p>
+                        </div>
 
-                    <div className="formField-login">
-                        <form className="form-login" onSubmit={submitHandler}>
+                        <div class="login__form">
+                            <form className="form-login" onSubmit={submitHandler}>
 
-                            {loading && <LoadingBox></LoadingBox>}
-                            {error && <MessageBox variant="danger">{error}</MessageBox>}
+                                {loading && <LoadingBox></LoadingBox>}
+                                {error && <MessageBox variant="danger">{error}</MessageBox>}
 
-                            <input
-                                type="email"
-                                id="email"
-                                placeholder="Enter email"
-                                required
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
+                                <div class="login__input--Wrap">
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        placeholder="Enter email"
+                                        required
+                                        onChange={(e) => setEmail(e.target.value)}
+                                    />
+                                </div>
 
-                            <input
-                                type="password"
-                                id="password"
-                                placeholder="Enter password"
-                                required
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
+                                <div class="login__input--Wrap">
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        placeholder="Enter password"
+                                        required
+                                        onChange={(e) => setPassword(e.target.value)}
+                                    />
+                                </div>
 
-                            <br />
+                                <div class="login__input--Checkbox">
+                                    <input type="checkbox" id="remenber_user" name="remember" checked />
+                                    <label for="remenber_user">Remember me</label>
+                                </div>
 
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    id="remember"
-                                    checked="checked"
-                                /> Remember me
-                            </label>
+                                <div class="login__input--buttons">
+                                    <button type="submit" class="login__btn">Login</button>
+                                    <button class="fp__btn" onClick={() => fp_handler()}>Forgot Password?</button>
+                                </div>
+                            </form>
 
-                            <div className="clearfix"></div>
-                            <br />
-
-                            <div className="btn-section-login">
-                                <button type="submit" className="signupbtn-login">Login</button>
-                                <Link to="#" className="fp-login">Forgot Password?</Link>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div className="clearfix"></div>
-                    <br />
-
-                    <p className="noaccount-login">
-                        New to Spot-Tag? <Link to={`/signup?redirect=${redirect}`}>
-                            Click me
-                        </Link>
-                    </p>
+                            <div class="login__input--newUser">
+                                <h5>New to Spot-Tag?</h5>
+                                <button onClick={() => goToSignup()}>Create an account</button>
+                            </div>                
+                        </div>
+                    </section>
                 </div>
-            </div> 
+            </div>
         </div>
     );
 }
