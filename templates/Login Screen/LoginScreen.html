@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-
         <title>Spot Tag</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charset="UTF-8">
@@ -9,62 +8,58 @@
         <meta http-equiv="Pragma" content="no-cache" />
 
         <link rel="stylesheet" href="LoginScreen.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
     <body>
-        <section class="loginPage">
+        <div class="login__box">
 
-            <div class="box">
-    
-                <div class="image_section">
-                    <img
-                        src="./images/Login_image.png"
-                        alt="Login"
-                        title="Login"
-                    />
-                </div>
+            <div class="col-div-6">
+                <img
+                    src="./images/Login_image.png"
+                    alt="Login"
+                    title="Login"
+                />
+            </div>
 
-                <div class="content_section">
+            <div class="col-div-6">
+                <section class="login__content--wrap">
 
-                    <div class="header">
-                        <h3>
-                            Welcome to Spot-<span>Tag</span>..</p>
-                        </h3>
-                    </div>
-
-                    <div class="input_field">
-                        <h5>Email</h5>
-                        <input type="text" placeholder="Enter Email" name="email" required>
-                    </div>
-
-                    <div class="input_field">
-                        <h5>Password</h5>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
-                    </div>
-
-                    <div class="check_field">
-                        <div class="ip_checkbox">
-                            <input type="checkbox" id="template" name="Checkbox" />
-                            <label for="template">Remember me</label>
-                        </div>
-                    </div>
-
-                    <div class="btn-section">
-                        <button type="submit" class="signupbtn">Login</button>
-                        <a href="#" class="fp">Forgot Password?</a>
-                    </div>
-
-                    <div class="noaccount">
+                    <div class="login__content--heading">
                         <p>
-                            New to Spot-Tag? <a href="#">Create an account</a>
+                            Welcome to Spot -
+                            <span>Tag..</span>
                         </p>
                     </div>
 
-                   
-                </div>
-            </div>
-        </section>
+                    <div class="login__form">
+                        <form action="/action_page.php">
 
+                            <div class="login__input--Wrap">
+                                <input type="text" placeholder="Enter Email" name="email" required>
+                            </div>
+
+                            <div class="login__input--Wrap">
+                                <input type="password" placeholder="Enter Password" name="psw" required>
+                            </div>
+
+                            <div class="login__input--Checkbox">
+                                <input type="checkbox" id="remenber_user" name="remember" checked />
+                                <label for="remenber_user">Remember me</label>
+                            </div>
+
+                            <div class="login__input--buttons">
+                                <button type="submit" class="login__btn">Login</button>
+                                <button class="fp__btn">Forgot Password?</button>
+                            </div>
+                        </form>
+
+                        <div class="login__input--newUser">
+                            <h5>New to Spot-Tag?</h5>
+                            <button>Create an account</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
     </body>
 </html>

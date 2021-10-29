@@ -5,8 +5,10 @@ html,body {
     width: 100%;
     height: 100%;
     margin: 0;
+    padding: 30px;
     font-family: 'Montserrat', sans-serif;
     background-color: #0000ff;
+    overflow: hidden;
 }
 
 h1, h2, h3, h4, h5, h6, html, p {
@@ -14,15 +16,15 @@ h1, h2, h3, h4, h5, h6, html, p {
 }
 
 a {
-    text-decoration:none !important;
-    cursor:pointer
+    text-decoration: none !important;
+    cursor: pointer
 } 
 
 html {
-    -webkit-text-size-adjust:100%;
-    -ms-text-size-adjust:100%;
-    -moz-osx-font-smoothing:grayscale;
-    -webkit-font-smoothing:antialiased
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased
 }
 
 button:focus:not(:focus-visible) {
@@ -31,71 +33,77 @@ button:focus:not(:focus-visible) {
 
 /* Page starts */
 
-section.loginPage {
-    padding: 25px 40px;
+.clearfix{
+	clear: both;
 }
 
-.box {
+.login__box {
     background-color: #ffffff;
     border-radius: 25px;
 
+    width: 90%;
+    height: 700px;
+
     display: flex;
 }
 
-.content_section {
-    padding: 60px 0 0 14%;
-    /* padding-top: 60px;
-    padding-right: 0px;
-    padding-left: 14%; */
+.col-div-6 {
+    width: 50%;
 }
 
-.header {
+section.login__content--wrap {
+    padding: 20px;
+}
+
+.login__content--heading {
+    margin-top: 30px;
+
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
-.header h3 {
+.login__content--heading p {
     font-size: 30px;
     font-weight: 800;
-
-    margin-bottom: 30px;
 }
 
-.header h3 span {
-    color: #f7403b;
+.login__content--heading p span{
+	color: #f7403b;
 }
 
-.input_field {
-    margin-bottom: 22px;
+.login__form {
+    margin-left: -40px;
+    margin-top: 30px;
 }
 
-.input_field h5 {
-    color: #000000;
-    font-weight: 800;
-    letter-spacing: -0.14px;
-    text-align: left;
-    opacity: 1;
+.login__input--Wrap {
+    display: flex;
+    justify-content: center;
 
-    margin-bottom: 6px;
+    margin-bottom: 20px;
 }
 
-input[type=text], input[type=password] {
+.login__form input[type=text], input[type=password] {
+    background: #f1f1f1;
+
+    border: none;
+    outline: none;
+
     width: 100%;
     padding: 15px;
-    border: none;
-    background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+.login__form input[type=text]:focus, input[type=password]:focus {
     background-color: #ddd;
     outline: none;
 }
 
-.check_field {
-    margin-top: 40px;
+.login__input--Checkbox {
+    margin-top: 30px;
 }
 
-.ip_checkbox  input {
+.login__input--Checkbox input {
     padding: 0;
     height: initial;
     width: initial;
@@ -104,16 +112,17 @@ input[type=text]:focus, input[type=password]:focus {
     cursor: pointer;
 }
 
-.ip_checkbox label {
-    font-size: 14px;
+.login__input--Checkbox label {
     color: #140F26;
-    letter-spacing: -0.14px;
+    font-size: 14px;
     font-weight: 500;
+    letter-spacing: -0.14px;
+
     position: relative;
     cursor: pointer;
 }
 
-.ip_checkbox  label:before {
+.login__input--Checkbox label:before {
     content:'';
     -webkit-appearance: none;
     background-color: #D0D2D1;
@@ -128,12 +137,12 @@ input[type=text]:focus, input[type=password]:focus {
     margin-top: -2px;
 }
 
-.ip_checkbox  input:checked + label:before {
+.login__input--Checkbox input:checked + label:before {
     background-color: #0000ff;
     border: 2px solid #0000ff;
 }
 
-.ip_checkbox  input:checked + label:after {
+.login__input--Checkbox input:checked + label:after {
     content: '';
     display: block;
     position: absolute;
@@ -146,31 +155,59 @@ input[type=text]:focus, input[type=password]:focus {
     transform: rotate(45deg);
 }
 
-.btn-section {
-    margin-top: 40px;
+.login__input--buttons {
+    margin-top: 30px;
 
     display: flex;
-    justify-content: space-around;
+    align-items: flex-start;
+    justify-content: center;
 }
 
-.btn-section button {
-    width: 60%;
-    margin-right: 10px;
-    background-color: #0000ff;
-    color: white;
-    padding: 14px 20px;
-    /* margin: 8px 0; */
+.login__input--buttons button {
     border: none;
     cursor: pointer;
-    opacity: 0.9;
+
+    padding: 14px 20px;
+    width: 100%;
+    opacity: 0.7;
 }
 
-.btn-section button:hover {
+.login__btn {
+    background-color: #0000ff;
+    color: white;
+}
+
+.fp__btn {
+    background-color: transparent;
+    color: #0000ff;
+}
+
+.login__btn:hover,
+.fp__btn:hover {
     opacity:1;
 }
 
-.noaccount {
-    padding-top: 40px;
-    /* padding-left: 24%; */
+.login__input--newUser {
+   margin-top: 48px;
+
+   display: flex;
+   align-items: baseline;
+   justify-content: center;
+}
+
+.login__input--newUser h5 {
+    color: #140F26;;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.login__input--newUser button {
+    background-color: transparent;
+    color: #0000ff;
+
+    border: none;
+    cursor: pointer;
+
+    font-size: 17px;
     font-weight: 800;
 }
