@@ -1,65 +1,68 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Spot Tag</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta charset="UTF-8">
-        <meta http-equiv="cache-control" content="no-cache" />
-        <meta http-equiv="Pragma" content="no-cache" />
 
-        <link rel="stylesheet" href="LoginScreen.css" />
-    </head>
+<head>
+    <title>Spot Tag</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
 
-    <body>
-        <div class="login__box">
+    <link rel="stylesheet" href="LoginScreen.css" />
+</head>
 
-            <div class="col-div-6">
-                <img
-                    src="./images/Login_image.png"
-                    alt="Login"
-                    title="Login"
-                />
-            </div>
+<body>
+    <section class="loginPage">
 
-            <div class="col-div-6">
-                <section class="login__content--wrap">
+        <div class="centered--loginBox">
 
-                    <div class="login__content--heading">
-                        <p>
-                            Welcome to Spot -
-                            <span>Tag..</span>
-                        </p>
-                    </div>
+            <img src="./images/Login_image.png" alt="Login" title="Login" />
 
-                    <div class="login__form">
-                        <form action="/action_page.php">
+            <section class="login__content--wrap">
 
-                            <div class="login__input--Wrap">
-                                <input type="text" placeholder="Enter Email" name="email" required>
-                            </div>
+                <div class="login__content--heading">
+                    <h2>
+                        Welcome to Spot -
+                        <span>Tag..</span>
+                    </h2>
+                </div>
 
-                            <div class="login__input--Wrap">
-                                <input type="password" placeholder="Enter Password" name="psw" required>
-                            </div>
+                <div class="login__content--form">
+                    <form>
 
-                            <div class="login__input--Checkbox">
-                                <input type="checkbox" id="remenber_user" name="remember" checked />
-                                <label for="remenber_user">Remember me</label>
-                            </div>
-
-                            <div class="login__input--buttons">
-                                <button type="submit" class="login__btn">Login</button>
-                                <button class="fp__btn">Forgot Password?</button>
-                            </div>
-                        </form>
-
-                        <div class="login__input--newUser">
-                            <h5>New to Spot-Tag?</h5>
-                            <button>Create an account</button>
+                        <div class="login__form--inputWrap">
+                            <input type="text" placeholder="Enter Email" name="email" required>
                         </div>
-                    </div>
-                </section>
-            </div>
+
+                        <div class="login__form--inputWrap">
+                            <input type="password" placeholder="Enter Password" name="psw" required>
+                        </div>
+
+                        <div class="login__form--cbInputWrap">
+
+                            <div class="checkboxWrap">
+                                <input type="checkbox" />
+                                <span>Remember Me</span>
+                            </div>
+
+                            <div class="fpWrap">
+                                <a>Forgot Password</a>
+                            </div>
+                        </div>
+
+                        <div class="login__form--buttonSection">
+                            <button>Login</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="login__form--newUser">
+                    <h5>New to Spot-Tag?</h5>
+                    <button>Create an account</button>
+                </div>
+            </section>
         </div>
-    </body>
+    </section>
+</body>
+
 </html>
