@@ -1,7 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Link, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { signout } from './actions/userActions';
+
 import HomeScreen from './screens/HomeScreen';
 import LanguageScreen from './screens/LanguageScreen';
 import LoginScreen from './screens/LoginScreen';
@@ -30,93 +32,97 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div class="grid-container">
+      <div>
 
-<header class="row">
-  <div>
-    <Link to="/" className="brand">Spot Tag</Link>
-  </div>
+        {
+          userInfo ? (
+            <header class="row">
+              <div>
+                <Link to="/" className="brand">Spot Tag</Link>
+              </div>
 
-  <div>
-    {userInfo ? (
-      <div className="dropdown">
-        <Link to="#">
-          {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
-        </Link>
-        <ul className="dropdown-content">
-          <li>
-            <Link to="/profile">User Profile</Link>
-          </li>
-          <li>
-            <Link to="#signout" onClick={signoutHandler}>
-              Sign Out
-            </Link>
-          </li>
-        </ul>
-      </div>
-    ) : (
-      <Link to="/signin">Sign In</Link>
-    )}
+              <div>
+                {userInfo ? (
+                  <div className="dropdown">
+                    <Link to="#">
+                      {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
+                    </Link>
+                    <ul className="dropdown-content">
+                      <li>
+                        <Link to="/profile">User Profile</Link>
+                      </li>
+                      <li>
+                        <Link to="#signout" onClick={signoutHandler}>
+                          Sign Out
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                ) : (
+                  <Link to="/signin">Sign In</Link>
+                )}
 
-    {userInfo && userInfo.isAdmin && (
-      <div className="dropdown">
-        <Link to="#admin">
-          Admin <i className="fa fa-caret-down"></i>
-        </Link>
-        <ul className="dropdown-content">
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-          <li>
-            <Link to="/languagelist">Languages</Link>
-          </li>
-          <li>
-            <Link to="/buglist">Bugs</Link>
-          </li>
-          <li>
-            <Link to="/userlist">Users</Link>
-          </li>
-        </ul>
-      </div>
-    )}
-  </div>
-</header>
+                {userInfo && userInfo.isAdmin && (
+                  <div className="dropdown">
+                    <Link to="#admin">
+                      Admin <i className="fa fa-caret-down"></i>
+                    </Link>
+                    <ul className="dropdown-content">
+                      <li>
+                        <Link to="/dashboard">Dashboard</Link>
+                      </li>
+                      <li>
+                        <Link to="/languagelist">Languages</Link>
+                      </li>
+                      <li>
+                        <Link to="/buglist">Bugs</Link>
+                      </li>
+                      <li>
+                        <Link to="/userlist">Users</Link>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </header>
+          ) : (
+            <header></header>
+          )
+        }
 
-<main>
+        <main>
 
-  <Route path="/signin" component={LoginScreen}></Route>
-  <Route path="/register" component={SignupScreen}></Route>
-  <Route path="/language/:id" component={LanguageScreen} exact></Route>
-  <Route path="/language/:id/edit" component={LanguageEditScreen} exact></Route>
-  <Route path="/bug/:id" component={BugScreen} exact></Route>
-  <Route path="/bug/:id/edit" component={BugEditScreen} exact></Route>
-  <Route path="/user/:id/edit" component={UserEditScreen} exact></Route>
-  <Route path="/bugs" component={AllBugsScreen} exact></Route>
+          <Route path="/signin" component={LoginScreen}></Route>
+          <Route path="/register" component={SignupScreen}></Route>
+          <Route path="/language/:id" component={LanguageScreen} exact></Route>
+          <Route path="/language/:id/edit" component={LanguageEditScreen} exact></Route>
+          <Route path="/bug/:id" component={BugScreen} exact></Route>
+          <Route path="/bug/:id/edit" component={BugEditScreen} exact></Route>
+          <Route path="/user/:id/edit" component={UserEditScreen} exact></Route>
+          <Route path="/bugs" component={AllBugsScreen} exact></Route>
 
-  <PrivateRoute
-    path="/profile"
-    component={ProfileScreen}
-  ></PrivateRoute>
+          <PrivateRoute
+            path="/profile"
+            component={ProfileScreen}
+          ></PrivateRoute>
 
-  <AdminRoute
-    path="/languagelist"
-    component={LanguageListScreen}
-  ></AdminRoute>
+          <AdminRoute
+            path="/languagelist"
+            component={LanguageListScreen}
+          ></AdminRoute>
 
-  <AdminRoute
-    path="/buglist"
-    component={BugListScreen}
-  ></AdminRoute>
+          <AdminRoute
+            path="/buglist"
+            component={BugListScreen}
+          ></AdminRoute>
 
-  <AdminRoute
-    path="/userlist"
-    component={UserListScreen}
-  ></AdminRoute>
+          <AdminRoute
+            path="/userlist"
+            component={UserListScreen}
+          ></AdminRoute>
 
-  <Route path="/" component={HomeScreen} exact></Route>
-</main>
-
-{/* <footer class="row center">All right reserved</footer> */}
+          <Route path="/" component={HomeScreen} exact></Route>
+        </main>
       </div>
     </BrowserRouter>
   );

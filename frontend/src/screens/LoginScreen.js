@@ -1,11 +1,10 @@
+
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+
 import { signin } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-
-import data from '../data';
 
 export default function LoginScreen(props) {
 
@@ -25,7 +24,7 @@ export default function LoginScreen(props) {
         dispatch(signin(email, password));
     };
 
-    const fp_handler = () => {}
+    const fp_handler = () => { }
 
     const goToSignup = () => {
         props.history.push('/register');
@@ -33,40 +32,39 @@ export default function LoginScreen(props) {
 
     useEffect(() => {
         if (userInfo) {
-          props.history.push(redirect);
+            props.history.push(redirect);
         }
     }, [props.history, redirect, userInfo]);
 
     return (
         <div className="body-login">
 
-            <div class="login__box">
+            <section class="loginPage">
 
-                <div class="col-div-6">
+                <div class="centered--loginBox">
+
                     <img
                         src="./images/Login_image.png"
                         alt="Login"
                         title="Login"
                     />
-                </div>
 
-                <div class="col-div-6">
                     <section class="login__content--wrap">
 
                         <div class="login__content--heading">
-                            <p>
+                            <h2>
                                 Welcome to Spot -
                                 <span>Tag..</span>
-                            </p>
+                            </h2>
                         </div>
 
-                        <div class="login__form">
+                        <div class="login__content--form">
                             <form className="form-login" onSubmit={submitHandler}>
 
                                 {loading && <LoadingBox></LoadingBox>}
                                 {error && <MessageBox variant="danger">{error}</MessageBox>}
 
-                                <div class="login__input--Wrap">
+                                <div class="login__form--inputWrap">
                                     <input
                                         type="email"
                                         id="email"
@@ -76,7 +74,7 @@ export default function LoginScreen(props) {
                                     />
                                 </div>
 
-                                <div class="login__input--Wrap">
+                                <div class="login__form--inputWrap">
                                     <input
                                         type="password"
                                         id="password"
@@ -86,25 +84,32 @@ export default function LoginScreen(props) {
                                     />
                                 </div>
 
-                                <div class="login__input--Checkbox">
-                                    <input type="checkbox" id="remenber_user" name="remember" checked />
-                                    <label for="remenber_user">Remember me</label>
+                                <div class="login__form--cbInputWrap">
+
+                                    <div class="checkboxWrap">
+                                        <input type="checkbox" id="remenber_user" name="remember" checked />
+                                        {/* <span>Remember Me</span> */}
+                                        <label for="remenber_user">Remember me</label>
+                                    </div>
+
+                                    <div class="fpWrap">
+                                        <a onClick={() => fp_handler()}>Forgot Password</a>
+                                    </div>
                                 </div>
 
-                                <div class="login__input--buttons">
+                                <div class="login__form--buttonSection">
                                     <button type="submit" class="login__btn">Login</button>
-                                    <button class="fp__btn" onClick={() => fp_handler()}>Forgot Password?</button>
                                 </div>
                             </form>
 
-                            <div class="login__input--newUser">
+                            <div class="login__form--newUser">
                                 <h5>New to Spot-Tag?</h5>
                                 <button onClick={() => goToSignup()}>Create an account</button>
-                            </div>                
+                            </div>
                         </div>
                     </section>
                 </div>
-            </div>
+            </section>
         </div>
     );
 }
