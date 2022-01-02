@@ -1,96 +1,93 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Spot-Tag</title>
 
-        <link rel="stylesheet" href="./SignupScreen.css" />
-    </head>
+<head>
+    <title>Spot Tag</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
 
-    <body>
+    <link rel="stylesheet" href="./SignupScreen.css" />
+</head>
 
-        <div id="main">
-            <div class="box">
+<body>
 
-                <div class="col-div-6">
+    <section class="signupPage">
+        <div class="centered--signupBox">
 
-                    <img
-                        src="./images/Login_image.png"
-                        alt="Signup"
-                        title="Signup"
-                    />
+            <img src="./images/Login_image.png" alt="Signup" title="Signup" />
+
+            <section class="signup__content--wrap">
+
+                <div class="signup__content--header">
+                    <h2>
+                        Hello World,<br />
+                        Welcome to Spot -
+                        <span>Tag!</span>
+                    </h2>
                 </div>
 
-                <div class="col-div-6">
+                <div class="signup__content--form">
+                    <form>
 
-                    <div class="headText">
-                        <p>Hello World, Welcome to Spot-<span>Tag</span>..</p>
-                    </div>
+                        <div class="signup__form--inputSection">
 
-                    <div class="clearfix"></div>
-                    <br />
+                            <div class="signup__form--row">
+                                <div class="signupForm--inputWrap">
+                                    <label for="name" class="formLabel">First Name*</label> <br />
+                                    <input type="text" placeholder="Name" name="fname" required />
+                                </div>
 
-                    <div class="formField">
-                        <form action="/action_page.php">
-
-                            <div class="col-div-3">
-                                <label for="name" class="formLabel">First Name*</label> <br/>
-                                <input type="text" placeholder="Name" name="fname" required />
+                                <div class="signupForm--inputWrap">
+                                    <label for="email" class="formLabel">Email*</label> <br />
+                                    <input type="text" placeholder="Email" name="email" required />
+                                </div>
                             </div>
 
-                            <div class="col-div-3">
-                                <label for="email" class="formLabel">Email*</label> <br/>
-                                <input type="text" placeholder="Email" name="email" required />
+                            <div class="signup__form--row">
+                                <div class="signupForm--inputWrap">
+                                    <label for="mobile" class="formLabel">Mobile*</label> <br />
+                                    <input type="number" placeholder="Mobile" name="mobile" required />
+                                </div>
+
+                                <div class="signupForm--inputWrap">
+                                    <label for="country" class="formLabel">Country*</label> <br />
+                                    <input type="text" placeholder="Country" name="country" required />
+                                </div>
                             </div>
 
-                            <div class="clearfix"></div>
+                            <div class="signup__form--row">
+                                <div class="signupForm--inputWrap">
+                                    <label for="psw" class="formLabel">New Password*</label> <br />
+                                    <input type="password" placeholder="New Password" name="psw" required />
+                                </div>
 
-                            <div class="col-div-3">
-                                <label for="mobile" class="formLabel">Mobile*</label> <br/>
-                                <input type="number" placeholder="Mobile" name="mobile" required />
+                                <div class="signupForm--inputWrap">
+                                    <label for="npsw" class="formLabel">Confirm Password*</label> <br />
+                                    <input type="password" placeholder="Confirm Password" name="npsw" required />
+                                </div>
                             </div>
+                        </div>
 
-                            <div class="col-div-3">
-                                <label for="country" class="formLabel">Country*</label> <br/>
-                                <input type="text" placeholder="Country" name="country" required />
-                            </div>
+                        <div class="signup__form--cbInputWrap">
+                            <input type="checkbox" />
+                            <span>I agree to all the Terms and Conditions</span>
+                        </div>
 
-                            <div class="clearfix"></div>
-                            
-                            <div class="col-div-3">
-                                <label for="psw" class="formLabel">New Password*</label> <br/>
-                                <input type="password" placeholder="New Password" name="psw" required />
-                            </div>
-
-                            <div class="col-div-3">
-                                <label for="npsw" class="formLabel">Confirm Password*</label> <br/>
-                                <input type="password" placeholder="Confirm Password" name="npsw" required />
-                            </div>
-
-                            <div class="clearfix"></div>
-                            <br />
-
-                            <label>
-                                <input type="checkbox" name="tnc" style="margin-bottom:15px"> I agree to all the Terms and Conditions
-                            </label>
-
-                            <div class="clearfix"></div>
-                            <br />
-
-                            <div class="btn-section">
-                                <button type="submit" class="signupbtn">Sign up</button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="clearfix"></div>
-                    <br />
-
-                    <p class="accounted">
-                        Already have an account? <a href="#">Log in</a>
-                    </p>
-
+                        <div class="signup__form--buttonSection">
+                            <button>Sign up</button>
+                        </div>
+                    </form>
                 </div>
-            </div>
+
+                <div class="signup__form--newUser">
+                    <h5>Already have an account?</h5>
+                    <button>Log in</button>
+                </div>
+            </section>
         </div>
-    </body>
+    </section>
+</body>
+
 </html>
