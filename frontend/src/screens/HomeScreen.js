@@ -8,6 +8,7 @@ import { listLanguages } from '../actions/languageActions';
 export default function HomeScreen(props) {
 
     const dispatch = useDispatch();
+
     const languageList = useSelector((state) => state.languageList);
     const { languages, loading, error } = languageList;
 
@@ -20,29 +21,31 @@ export default function HomeScreen(props) {
     }
 
     return (
-        <div>
+        <div className='body--home'>
 
-            <div className="row">
+            <section class="home--contents">
 
-                <h1>Langages</h1>
-
-                <button type="button" className="primary" onClick={gotoBugs}>
-                    View All Bugs
-                </button>
-            </div>
-
-            {loading ? (
-                <LoadingBox></LoadingBox>
-            ) : error ? (
-                <MessageBox variant="danger">{error}</MessageBox>
-            ) : (
-                <div class="row center">
-
-                    {languages.map((language) => (
-                        <Language key={language._id} language={language} />
-                    ))}
+                <div class="home__contents--header">
+                    <h2>Languages</h2>
                 </div>
-            )}
+
+                <div class="home__contents--buttonSection">
+                    <button onClick={gotoBugs}>View All Bugs</button>
+                </div>
+
+                {loading ? (
+                    <LoadingBox></LoadingBox>
+                ) : error ? (
+                    <MessageBox variant="danger">{error}</MessageBox>
+                ) : (
+                    <div class="home__contents--languages">
+
+                        {languages.map((language) => (
+                            <Language key={language._id} language={language} />
+                        ))}
+                    </div>
+                )}
+            </section>
         </div>
     );
 }

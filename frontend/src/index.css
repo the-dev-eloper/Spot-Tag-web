@@ -41,6 +41,74 @@ input:focus {
   outline: 0;
 }
 
+/* Navbar starts */
+
+.st--navbar {
+  background-color: #192444;
+  color: #FFFFFF;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding:  25px;
+}
+
+.st__navbar--title a {
+  color: #FFFFFF;
+
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 25px;
+}
+
+.st__navbar--options {
+  display: flex;
+  align-items: center;
+}
+
+.st__navbar--optionOne {
+  margin-right: 20px;
+}
+
+.st__navbar--options a {
+  color: #FFFFFF;
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+/* Navbar ends */
+/* Dropdown starts*/
+
+.st--dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.st__dropdown--content {
+  position: absolute;
+  display: none;
+  right: 0;
+  min-width: 192px;
+  padding: 16px;
+  z-index: 1;
+  background-color: #203040;
+  margin: 0;
+  border-radius: 8px;
+}
+
+.st--dropdown:hover .st__dropdown--content {
+  display: block;
+}
+
+.st__dropdown--content li {
+  margin-bottom: 8px;
+}
+
+/* Dropdown ends */
+
 /* Login Screen starts */
 
 .body-login {
@@ -352,4 +420,92 @@ color: #f7403b;
   font-weight: 800;
 }
 
-/* Signup Screen starts */
+/* Signup Screen ends */
+/* Home Screen starts */
+
+.body--home {
+  background-color: #FFFFFF;
+}
+
+section.home--contents {
+  padding: 48px 32px;
+}
+
+.home__contents--header {
+  margin-bottom: 12px;
+}
+
+.home__contents--header h2 {
+  color: #111112;
+
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.19px;
+}
+
+.home__contents--buttonSection {
+  text-align: right;
+
+  margin-bottom: 30px;
+}
+
+.home__contents--buttonSection button {
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+
+  background-color: #192444;
+  color: #FFFFFF;
+
+  padding: 8px 16px;
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.home__contents--languages {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card {
+  border: 1px solid black;
+
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.card--image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card--image img {
+  margin-bottom: 15px;
+}
+
+.card--body {
+  text-align: center;
+}
+
+.card--body h3 {
+  color: #111112;
+
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.19px;
+}
+
+.card--body h4 {
+  color: #111112;
+
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.19px;
+}
+
+/* Home Screen ends */

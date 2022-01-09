@@ -32,98 +32,106 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div>
 
-        {
-          userInfo ? (
-            <header class="row">
-              <div>
-                <Link to="/" className="brand">Spot Tag</Link>
-              </div>
+      {
+        userInfo ? (
+          <nav className="st--navbar">
 
-              <div>
-                {userInfo ? (
-                  <div className="dropdown">
-                    <Link to="#">
-                      {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
-                    </Link>
-                    <ul className="dropdown-content">
-                      <li>
-                        <Link to="/profile">User Profile</Link>
-                      </li>
-                      <li>
-                        <Link to="#signout" onClick={signoutHandler}>
-                          Sign Out
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                ) : (
-                  <Link to="/signin">Sign In</Link>
-                )}
+            <div className="st__navbar--title">
+              <Link to="/" className="brand">Spot-Tag</Link>
+            </div>
+  
+            <div className="st__navbar--options">
+    
+              {userInfo && userInfo.isAdmin && (
+    
+                <div className="st__navbar--optionOne st--dropdown">
+                  <Link to="#admin">
+                    Admin
+                  </Link>
+  
+                  <ul className="st__dropdown--content">
+                    <li>
+                      <Link to="/dashboard">Dashboard</Link>
+                    </li>
+    
+                    <li>
+                      <Link to="/languagelist">Languages</Link>
+                    </li>
+    
+                    <li>
+                      <Link to="/buglist">Bugs</Link>
+                    </li>
+  
+                    <li>
+                      <Link to="/userlist">Users</Link>
+                    </li>
+                  </ul>
+                </div>
+              )}
 
-                {userInfo && userInfo.isAdmin && (
-                  <div className="dropdown">
-                    <Link to="#admin">
-                      Admin <i className="fa fa-caret-down"></i>
-                    </Link>
-                    <ul className="dropdown-content">
-                      <li>
-                        <Link to="/dashboard">Dashboard</Link>
-                      </li>
-                      <li>
-                        <Link to="/languagelist">Languages</Link>
-                      </li>
-                      <li>
-                        <Link to="/buglist">Bugs</Link>
-                      </li>
-                      <li>
-                        <Link to="/userlist">Users</Link>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-              </div>
-            </header>
-          ) : (
-            <header></header>
-          )
-        }
+              {userInfo ? (
 
-        <main>
+                <div className="st--dropdown">
+                  <Link to="#">
+                    {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
+                  </Link>
 
-          <Route path="/signin" component={LoginScreen}></Route>
-          <Route path="/register" component={SignupScreen}></Route>
-          <Route path="/language/:id" component={LanguageScreen} exact></Route>
-          <Route path="/language/:id/edit" component={LanguageEditScreen} exact></Route>
-          <Route path="/bug/:id" component={BugScreen} exact></Route>
-          <Route path="/bug/:id/edit" component={BugEditScreen} exact></Route>
-          <Route path="/user/:id/edit" component={UserEditScreen} exact></Route>
-          <Route path="/bugs" component={AllBugsScreen} exact></Route>
+                  <ul className="st__dropdown--content">
+                    <li>
+                      <Link to="/profile">User Profile</Link>
+                    </li>
 
-          <PrivateRoute
-            path="/profile"
-            component={ProfileScreen}
-          ></PrivateRoute>
+                    <li>
+                      <Link to="#signout" onClick={signoutHandler}>
+                        Sign Out
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <Link to="/signin">Sign In</Link>
+              )}
+            </div>
+          </nav>
+        ) : (
+          <nav></nav>
+        )
+      }
 
-          <AdminRoute
-            path="/languagelist"
-            component={LanguageListScreen}
-          ></AdminRoute>
+      <main>
 
-          <AdminRoute
-            path="/buglist"
-            component={BugListScreen}
-          ></AdminRoute>
+        <Route path="/signin" component={LoginScreen}></Route>
+        <Route path="/register" component={SignupScreen}></Route>
+        <Route path="/language/:id" component={LanguageScreen} exact></Route>
+        <Route path="/language/:id/edit" component={LanguageEditScreen} exact></Route>
+        <Route path="/bug/:id" component={BugScreen} exact></Route>
+        <Route path="/bug/:id/edit" component={BugEditScreen} exact></Route>
+        <Route path="/user/:id/edit" component={UserEditScreen} exact></Route>
+        <Route path="/bugs" component={AllBugsScreen} exact></Route>
 
-          <AdminRoute
-            path="/userlist"
-            component={UserListScreen}
-          ></AdminRoute>
+        <PrivateRoute
+          path="/profile"
+          component={ProfileScreen}
+        ></PrivateRoute>
 
-          <Route path="/" component={HomeScreen} exact></Route>
-        </main>
-      </div>
+        <AdminRoute
+          path="/languagelist"
+          component={LanguageListScreen}
+        ></AdminRoute>
+
+        <AdminRoute
+          path="/buglist"
+          component={BugListScreen}
+        ></AdminRoute>
+
+        <AdminRoute
+          path="/userlist"
+          component={UserListScreen}
+        ></AdminRoute>
+
+        <Route path="/" component={HomeScreen} exact></Route>
+      </main>
     </BrowserRouter>
   );
 }
