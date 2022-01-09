@@ -1,179 +1,115 @@
 <!DOCTYPE html>
 <html>
-    <head>
 
-        <title>Spot tag</title>
-        <link rel="stylesheet" href="HomeScreen.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
+<head>
+    <title>Spot Tag</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
 
-    <body>
+    <link rel="stylesheet" href="HomeScreen.css" />
+</head>
 
-        <div id="mySidenav" class="sidenav">
+<body>
 
-            <p class="logo">Spot-<span>Tag</span></p>
+    <nav class="st--navbar">
 
-            <a href="#" class="icon-a">
-                <i class="fa fa-tasks icons"></i>
-                &nbsp;&nbsp;Languages
-            </a>
-
-            <a href="#" class="icon-a">
-                <i class="fa fa-bug"></i>
-                &nbsp;&nbsp;Bugs
-            </a>
+        <div class="st__navbar--title">
+            <h2>Spot-Tag</h2>
         </div>
 
-        <div id="main">
+        <div class="st__navbar--options">
+            <h4 style="margin-right: 20px;">User Options</h4>
+            <h4>Log in/Register</h4>
+        </div>
+    </nav>
 
-            <div class="head">
+    <section class="home--contents">
 
-                <div class="col-div-6">
-                    <span style="color: white; font-size: 30px; cursor: pointer;" class="nav">Dashboard</span>
+        <div class="home__contents--header">
+            <h2>Languages</h2>
+        </div>
+
+        <div class="home__contents--buttonSection">
+            <button>View All Bugs</button>
+        </div>
+
+        <div class="home__contents--languages">
+
+            <div class="card">
+
+                <div class="card--image">
+                    <img src="./images/JS_main.png" alt="JS" />
                 </div>
 
-                <div class="col-div-6">
-                    <div class="profile">
-                        <img src="./images/user.png" class="pro-img" />
-                        <p>User Name <span>Designation</span></p>
-                    </div>
+                <div class="card--body">
+                    <h3>JavaScript</h3>
+                    <h4>100</h4>
+                </div>
+            </div>
+
+            <div class="card">
+
+                <div class="card--image">
+                    <img src="./images/Python_main.png" alt="Py" />
                 </div>
 
-                <div class="clearfix"></div>
+                <div class="card--body">
+                    <h3>Python</h3>
+                    <h4>100</h4>
+                </div>
             </div>
 
-            <div class="clearfix"></div>
-            <br />
+            <div class="card">
 
-            <div class="col-div-4">
-                
-                <a href="#">
+                <div class="card--image">
+                    <img src="./images/TS_main.png" alt="TS" />
+                </div>
 
-                    <div class="box">
-
-                        <div class="circle-wrap">
-
-                            <div class="inside-circle">
-                                <img src="./images/JS_main.png" alt="logo" class="img-logo" />
-                            </div>
-                        </div>
-
-                        <p>
-                            67
-                            <br/><br />
-                            <span>JavaScript</span>
-                        </p>
-                    </div>
-                </a>
+                <div class="card--body">
+                    <h3>TypeScript</h3>
+                    <h4>100</h4>
+                </div>
             </div>
 
-            <div class="col-div-4">
+            <div class="card">
 
-                <a href="#">
-                    <div class="box">
+                <div class="card--image">
+                    <img src="./images/Dart_main.png" alt="Dart" />
+                </div>
 
-                        <div class="circle-wrap">
-
-                            <div class="inside-circle">
-                                <img src="./images/Py_main.png" alt="logo" class="img-logo" />
-                            </div>        
-                        </div>
-
-                        <p>
-                            67
-                            <br/><br />
-                            <span>Python</span>
-                        </p>
-                    </div>
-                </a>
+                <div class="card--body">
+                    <h3>Dart</h3>
+                    <h4>100</h4>
+                </div>
             </div>
 
-            <div class="col-div-4">
+            <div class="card">
 
-                <a href="#">
-                    <div class="box">
+                <div class="card--image">
+                    <img src="./images/HTML_main.png" alt="HTML" />
+                </div>
 
-                        <div class="circle-wrap">
-
-                            <div class="inside-circle">
-                                <img src="./images/TS_main.png" alt="logo" class="img-logo" />
-                            </div>        
-                        </div>
-
-                        <p>
-                            67
-                            <br/><br />
-                            <span>TypeScript</span>
-                        </p>
-                    </div>
-                </a>
+                <div class="card--body">
+                    <h3>HTML</h3>
+                    <h4>100</h4>
+                </div>
             </div>
 
-            <div class="clearfix"></div>
-            <br/><br/>
+            <div class="card">
 
-            <div class="col-div-4">
+                <div class="card--image">
+                    <img src="./images/CSS_main.png" alt="CSS" />
+                </div>
 
-                <a href="#">
-                    <div class="box">
-
-                        <div class="circle-wrap">
-
-                            <div class="inside-circle">
-                                <img src="./images/Dart_main.png" alt="logo" class="img-logo" />
-                            </div>
-                        </div>
-
-                        <p>
-                            67
-                            <br/><br />
-                            <span>Dart</span>
-                        </p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-div-4">
-
-                <a href="#">
-                    <div class="box">
-
-                        <div class="circle-wrap">
-
-                            <div class="inside-circle">
-                                <img src="./images/HTML_main.png" alt="logo" class="img-logo" />
-                            </div>
-                        </div>
-
-                        <p>
-                            67
-                            <br/><br />
-                            <span>HTML</span>
-                        </p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-div-4">
-
-                <a href="#">
-                    <div class="box">
-
-                        <div class="circle-wrap">
-
-                            <div class="inside-circle">
-                                <img src="./images/CSS_main.png" alt="logo" class="img-logo" />
-                            </div>
-                        </div>
-
-                        <p>
-                            67
-                            <br/><br />
-                            <span>CSS</span>
-                        </p>
-                    </div>
-                </a>
+                <div class="card--body">
+                    <h3>CSS</h3>
+                    <h4>100</h4>
+                </div>
             </div>
         </div>
-    </body>
+    </section>
+</body>
+
 </html>
