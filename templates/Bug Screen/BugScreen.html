@@ -1,97 +1,80 @@
 <!DOCTYPE html>
 <html>
-    <head>
 
-        <title>Spot tag</title>
+<head>
+    <title>Spot Tag</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
 
-        <link rel="stylesheet" href="BugScreen.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    </head>
+    <link rel="stylesheet" href="BugScreen.css" />
+</head>
 
-    <body>
+<body>
 
-        <div id="mySidenav" class="sidenav">
+    <nav class="st--navbar">
 
-            <p class="logo">Spot-<span>Tag</span></p>
-
-            <a href="#" class="icon-a">
-                <i class="fa fa-tasks icons"></i>
-                &nbsp;&nbsp;Languages
-            </a>
-
-            <a href="#" class="icon-a">
-                <i class="fa fa-bug"></i>
-                &nbsp;&nbsp;Bugs
-            </a>
+        <div class="st__navbar--title">
+            <h2>Spot-Tag</h2>
         </div>
 
-        <div id="main">
-
-            <div class="head">
-
-                <div class="col-div-6">
-                    <span style="color: white; font-size: 30px; cursor: pointer;" class="nav">Bugs</span>
-                </div>
-
-                <div class="col-div-6">
-                    <div class="profile">
-                        <img src="./images/user.png" class="pro-img" />
-                        <p>User Name <span>Designation</span></p>
-                    </div>
-                </div>
-
-                <div class="clearfix"></div>
-            </div>
-
-            <div class="clearfix"></div>
-            <br /><br />
-
-            <div class="col-div-12">
-
-                <div class="box-12">
-                    <div class="content-box">
-
-                        <p>Bugs and Solutions</p>
-
-                        <br/>
-
-                        <table class="table">
-                            <tr>
-                                <th>Name</th>
-                                <th>Category</th>
-                                <th>Language</th>
-                                <th>Reason</th>
-                                <th>Testing Tool</th>
-                                <th>Solution</th>
-                                <th>Ref Link</th>
-                                <th>Added By</th>
-                            </tr>
-
-                            <tr>
-                                <td>{bug.name}</td>
-                                <td>{bug.category}</td>
-                                <td>{bug.language}</td>
-                                <td>{bug.reason}</td>
-                                <td>{bug.testingTool}</td>
-                                <td>{bug.solution}</td>
-                                <td>{bug.refLink}</td>
-                                <td>{bug.addedBy}</td>
-                            </tr>
-
-                            <tr>
-                                <td>{bug.name}</td>
-                                <td>{bug.category}</td>
-                                <td>{bug.language}</td>
-                                <td>{bug.reason}</td>
-                                <td>{bug.testingTool}</td>
-                                <td>{bug.solution}</td>
-                                <td>{bug.refLink}</td>
-                                <td>{bug.addedBy}</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
+        <div class="st__navbar--options">
+            <h4 style="margin-right: 20px;">User Options</h4>
+            <h4>Log in/Register</h4>
         </div>
-    </body>
+    </nav>
+
+    <section class="bugs--content">
+
+        <div class="bugs__content--header">
+            <h2>All Bugs</h2>
+        </div>
+
+        <div class="bug__contents--buttonSection">
+            <button>View Languages</button>
+        </div>
+
+        <div class="bug__contents--tableSection">
+
+            <table class="bugsTable">
+                <caption>Bugs and Solutions</caption>
+
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Language</th>
+                    <th>Reason</th>
+                    <th>Testing Tool</th>
+                    <th>Solution</th>
+                    <th>Ref Link</th>
+                    <th>Added By</th>
+                </tr>
+
+                <tr>
+                    <td>Sample Bug Name 1</td>
+                    <td>Sample Bug Category 1</td>
+                    <td>Sample Bug Language 1</td>
+                    <td>Sample Bug Reason 1</td>
+                    <td>Sample Bug TestingTool 1</td>
+                    <td>Sample Bug Solution 1</td>
+                    <td>Sample Bug RefLink 1</td>
+                    <td>Sample Bug AddedBy 1</td>
+                </tr>
+
+                <tr>
+                    <td>Sample Bug Name 1</td>
+                    <td>Sample Bug Category 2</td>
+                    <td>Sample Bug Language 2</td>
+                    <td>Sample Bug Reason 2</td>
+                    <td>Sample Bug TestingTool 2</td>
+                    <td>Sample Bug Solution 2</td>
+                    <td>Sample Bug RefLink 2</td>
+                    <td>Sample Bug AddedBy 2</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</body>
+
 </html>
