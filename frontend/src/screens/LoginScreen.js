@@ -93,7 +93,7 @@ export default function LoginScreen(props) {
                                     </div>
 
                                     <div class="fpWrap">
-                                        <a onClick={() => fp_handler()}>Forgot Password</a>
+                                        <button onClick={() => fp_handler()}>Forgot Password</button>
                                     </div>
                                 </div>
 

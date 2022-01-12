@@ -17,61 +17,75 @@ export default function AllBugsScreen() {
     }, [dispatch])
 
     return (
-        <div class="grid-container">
+        <div class="body--bugs">
 
-            <h1>All Bugs</h1>
+            <section class="bugs--content">
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Language</th>
-                        <th>reason</th>
-                        <th>Testing Tool</th>
-                        <th>Solution</th>
-                        <th>Ref Link</th>
-                        <th>Added By</th>
-                    </tr>
-                </thead>
+                <div class="bugs__content--header">
+                    <h2>All Bugs</h2>
+                </div>
 
-                {
-                    loading ? (
-                        <LoadingBox></LoadingBox>
-                    ) : error ? (
-                        <MessageBox variant="danger">{error}</MessageBox>
-                    ) : (
-                        <tbody>
-                            {
-                                bugs.map((bug) => (
-                                    <tr key={bug._id}>
+                <div class="bug__contents--buttonSection">
+                    <button>View Languages</button>
+                </div>
 
-                                        <td>
-                                            <Link to={`/bug/${bug._id}`}>
-                                                {bug.name}
-                                            </Link>
-                                        </td>
+                <div class="bug__contents--tableSection">
 
-                                        <td>{bug.category}</td>
-                                        <td>{bug.language}</td>
-                                        <td>{bug.reason}</td>
-                                        <td>{bug.testingTool}</td>
-                                        <td>{bug.solution}</td>
+                    <table class="bugsTable">
+                        <caption>Bugs and Solutions</caption>
 
-                                        <td>
-                                            <a href={bug.refLink}>
-                                                click here
-                                            </a>
-                                        </td>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Language</th>
+                                <th>reason</th>
+                                <th>Testing Tool</th>
+                                <th>Solution</th>
+                                <th>Ref Link</th>
+                                <th>Added By</th>
+                            </tr>
+                        </thead>
 
-                                        <td>{bug.addedBy}</td>
-                                    </tr>
-                                ))
-                            }
-                        </tbody>
-                    )
-                }
-            </table>
+                        {
+                            loading ? (
+                                <LoadingBox></LoadingBox>
+                            ) : error ? (
+                                <MessageBox variant="danger">{error}</MessageBox>
+                            ) : (
+                                <tbody>
+                                    {
+                                        bugs.map((bug) => (
+                                            <tr key={bug._id}>
+
+                                                <td>
+                                                    <Link to={`/bug/${bug._id}`}>
+                                                        {bug.name}
+                                                    </Link>
+                                                </td>
+
+                                                <td>{bug.category}</td>
+                                                <td>{bug.language}</td>
+                                                <td>{bug.reason}</td>
+                                                <td>{bug.testingTool}</td>
+                                                <td>{bug.solution}</td>
+
+                                                <td>
+                                                    <a href={bug.refLink}>
+                                                        click here
+                                                    </a>
+                                                </td>
+
+                                                <td>{bug.addedBy}</td>
+                                            </tr>
+                                        ))
+                                    }
+                                </tbody>
+                            )
+                        }
+                    </table>                  
+                </div>
+            </section>
         </div>
     );
 }
