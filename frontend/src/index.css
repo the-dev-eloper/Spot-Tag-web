@@ -543,6 +543,7 @@ section.bugs--content {
 .bug__contents--buttonSection button {
   border: 0;
   border-radius: 4px;
+  cursor: pointer;
 
   background-color: #192444;
   color: #FFFFFF;

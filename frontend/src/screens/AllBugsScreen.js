@@ -7,7 +7,7 @@ import MessageBox from '../components/MessageBox';
 
 import { listBugs } from '../actions/bugActions';
 
-export default function AllBugsScreen() {
+export default function AllBugsScreen(props) {
 
     const dispatch = useDispatch();
 
@@ -16,7 +16,11 @@ export default function AllBugsScreen() {
 
     useEffect(() => {
         dispatch(listBugs());
-    }, [dispatch])
+    }, [dispatch]);
+
+    const gotoLanguages = () => {
+        props.history.push(`/`);
+    }
 
     return (
         <div class="body--bugs">
@@ -28,7 +32,7 @@ export default function AllBugsScreen() {
                 </div>
 
                 <div class="bug__contents--buttonSection">
-                    <button>View Languages</button>
+                    <button onClick={gotoLanguages}>View Languages</button>
                 </div>
 
                 <div class="bug__contents--tableSection">
