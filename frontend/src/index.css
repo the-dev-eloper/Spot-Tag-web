@@ -537,7 +537,6 @@ section.bugs--content {
 
 .bug__contents--buttonSection {
   text-align: right;
-
   margin-bottom: 30px;
 }
 
@@ -559,6 +558,8 @@ section.bugs--content {
   text-align: center;
   border-collapse: collapse;
   width: 100%;
+
+  border:  2px solid #81818140;
 }
 
 .bugsTable caption {
@@ -571,8 +572,13 @@ section.bugs--content {
   margin-bottom: 15px;
 }
 
-.bugsTable td, .bugsTable th {
-  padding: 15px;
-  border-bottom: 1px solid #81818140;
+.bugsTable thead {
+  background-color: #FAFAFA;
 }
 
+.bugsTable th, .bugsTable td {
+  padding: 15px;
+  border: 0.3px solid #81818140;
+}
+
+/* Bugs Screen ends */

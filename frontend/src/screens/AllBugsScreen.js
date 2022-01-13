@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+
 import { listBugs } from '../actions/bugActions';
 
 export default function AllBugsScreen() {
@@ -13,7 +15,7 @@ export default function AllBugsScreen() {
     const { loading, error, bugs } = bugList;
 
     useEffect(() => {
-       dispatch(listBugs());
+        dispatch(listBugs());
     }, [dispatch])
 
     return (
@@ -39,10 +41,10 @@ export default function AllBugsScreen() {
                                 <th>Name</th>
                                 <th>Category</th>
                                 <th>Language</th>
-                                <th>reason</th>
+                                <th>Reason</th>
                                 <th>Testing Tool</th>
                                 <th>Solution</th>
-                                <th>Ref Link</th>
+                                <th>Referral Link</th>
                                 <th>Added By</th>
                             </tr>
                         </thead>
@@ -63,27 +65,24 @@ export default function AllBugsScreen() {
                                                         {bug.name}
                                                     </Link>
                                                 </td>
-
                                                 <td>{bug.category}</td>
                                                 <td>{bug.language}</td>
                                                 <td>{bug.reason}</td>
                                                 <td>{bug.testingTool}</td>
                                                 <td>{bug.solution}</td>
-
                                                 <td>
                                                     <a href={bug.refLink}>
                                                         click here
                                                     </a>
                                                 </td>
-
-                                                <td>{bug.addedBy}</td>
+                                                <td>Admin</td>
                                             </tr>
                                         ))
                                     }
                                 </tbody>
                             )
                         }
-                    </table>                  
+                    </table>
                 </div>
             </section>
         </div>
