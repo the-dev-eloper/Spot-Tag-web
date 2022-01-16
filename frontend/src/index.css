@@ -7,6 +7,7 @@ html,body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: #FFFFFF;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -427,10 +428,6 @@ color: #f7403b;
 /* Signup Screen ends */
 /* Home Screen starts */
 
-.body--home {
-  background-color: #FFFFFF;
-}
-
 section.home--contents {
   padding: 48px 32px;
 }
@@ -514,10 +511,6 @@ section.home--contents {
 
 /* Home Screen ends */
 /* Bugs Screen starts */
-
-.body--bugs {
-  background-color: #FFFFFF;
-}
 
 section.bugs--content {
   padding: 48px 32px;
@@ -674,24 +667,78 @@ section.language--contents {
   letter-spacing: -0.14px;
 }
 
-/* .bugsTable {
-  text-align: center;
-  border-collapse: collapse;
-  width: 100%;
+/* Language Screen ends */
+/* Bug Details Screen starts */
+
+.bugDetails {
+  padding: 48px 32px;
 }
 
-.bugsTable caption {
+.bug__details--header {
+  margin-bottom: 12px;
+}
+
+.bug__details--header h2 {
   color: #111112;
 
-  font-size: 19px;
-  font-weight: 600;
+  font-size: 30px;
+  font-weight: 800;
   letter-spacing: -0.19px;
-
-  margin-bottom: 15px;
 }
 
-.bugsTable td, .bugsTable th {
-  padding: 15px;
+.bug__details--buttonSection {
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+.bug__details--buttonSection button {
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+
+  background-color: #192444;
+  color: #FFFFFF;
+
+  padding: 8px 16px;
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.bug__details--modalSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bugModal {
+  background-color: #FFFFFF;
+  box-shadow: 0px 3px 29px #00000029;
+  border-radius: 20px;
+
+  padding: 40px;
+}
+
+.bugModal--header {
+  margin-bottom: 30px;
+}
+
+.bugModal--header h2 {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 25px;
+}
+
+.bugModal--header h5 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.bugDetails--table td, .bugDetails--table th {
+  padding: 15px 0;
   border-bottom: 1px solid #81818140;
 }
- */
+
+/* Bug Details Screen ends */

@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+
 import { detailsBug } from '../actions/bugActions';
 
 export default function BugScreen(props) {
@@ -14,12 +15,16 @@ export default function BugScreen(props) {
 
     const dispatch = useDispatch();
 
+    const gotoBugs = () => {
+        props.history.push(`/bugs`);
+    }
+
     useEffect(() => {
         dispatch(detailsBug(bugId));
     }, [dispatch, bugId]);
 
     return (
-        <div>
+        <div className='bugDetails--body'>
 
             {
                 loading ? (
@@ -27,74 +32,76 @@ export default function BugScreen(props) {
                 ) : error ? (
                     <MessageBox variant="danger">{error}</MessageBox>
                 ) : (
-                    <div>
+                    <section className="bugDetails">
 
-                        <Link to="/bugs">Back to result</Link>
+                        <div className="bug__details--header">
+                            <h2>Bug Details</h2>
+                        </div>
 
-                        <div className="grid-container">
+                        <div className="bug__details--buttonSection">
+                            <button onClick={gotoBugs}>View All Bugs</button>
+                        </div>
 
-                            <h1>
-                                {bug.name}
-                            </h1>
+                        <div className="bug__details--modalSection">
+                            <div className="bugModal">
 
-                            <div className="col-1">
-                                <ul>
-                                
-                                    <li>
-                                        <b>
-                                            Category: 
-                                        </b>
-                                        {bug.category}
-                                    </li>
+                                <div className="bugModal--header">
+                                    <h2>{bug.name}</h2>
+                                    <h5>{bug.language}</h5>
+                                </div>
 
-                                    <li>
-                                        <b>
-                                            Language: 
-                                        </b>
-                                        {bug.language}
-                                    </li>
+                                <div className="bugDetails--table">
+                                    <table>
 
-                                    <li>
-                                        <b>
-                                            Reason: 
-                                        </b>
-                                        {bug.reason}
-                                    </li>
+                                        <tr>
+                                            <td>
+                                                <h4>Category :</h4>
+                                            </td>
+                                            <td>
+                                                <p>{bug.category}</p>
+                                            </td>
+                                        </tr>
 
-                                    <li>
-                                        <b>
-                                            Testing Tool: 
-                                        </b>
-                                        {bug.testingTool}
-                                    </li>
+                                        <tr>
+                                            <td>
+                                                <h4>Reason :</h4>
+                                            </td>
+                                            <td>
+                                                <p>{bug.reason}</p>
+                                            </td>
+                                        </tr>
 
-                                    <li>
-                                        <b>
-                                            Solution: 
-                                        </b>
-                                        {bug.solution}
-                                    </li>
+                                        <tr>
+                                            <td>
+                                                <h4>Testing Tool :</h4>
+                                            </td>
+                                            <td>
+                                                <p>{bug.testingTool}</p>
+                                            </td>
+                                        </tr>
 
-                                    <li>
-                                        <b>
-                                            Ref Link:
-                                        </b>
+                                        <tr>
+                                            <td>
+                                                <h4>Solution :</h4>
+                                            </td>
+                                            <td>
+                                                <p>{bug.solution}</p>
+                                            </td>
+                                        </tr>
 
-                                        <a href={bug.refLink}>
-                                            Click here
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <b>
-                                            Added By:
-                                        </b>
-                                        {bug.addedBy}
-                                    </li>
-                                </ul>
+                                        <tr>
+                                            <td>
+                                                <h4>Referral Link :</h4>
+                                            </td>
+                                            <td>
+                                                <a href={bug.refLink}>Click here</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
                 )
             }
         </div>
