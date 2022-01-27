@@ -33,71 +33,65 @@ function App() {
   return (
     <BrowserRouter>
 
-      {
-        userInfo ? (
-          <nav className="st--navbar">
+      <nav className="st--navbar">
 
-            <div className="st__navbar--title">
-              <Link to="/" className="brand">Spot-Tag</Link>
+        <div className="st__navbar--title">
+          <Link to="/" className="brand">Spot-Tag</Link>
+        </div>
+
+        <div className="st__navbar--options">
+
+          {userInfo && userInfo.isAdmin && (
+
+            <div className="st__navbar--optionOne st--dropdown">
+              <Link to="#admin">
+                Admin
+              </Link>
+
+              <ul className="st__dropdown--content">
+                <li>
+                  <Link to="/dashboard">Dashboard</Link>
+                </li>
+
+                <li>
+                  <Link to="/languagelist">Languages</Link>
+                </li>
+
+                <li>
+                  <Link to="/buglist">Bugs</Link>
+                </li>
+
+                <li>
+                  <Link to="/userlist">Users</Link>
+                </li>
+              </ul>
             </div>
-  
-            <div className="st__navbar--options">
-    
-              {userInfo && userInfo.isAdmin && (
-    
-                <div className="st__navbar--optionOne st--dropdown">
-                  <Link to="#admin">
-                    Admin
+          )}
+
+          {userInfo ? (
+
+            <div className="st--dropdown">
+              <Link to="#">
+                {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
+              </Link>
+
+              <ul className="st__dropdown--content">
+                <li>
+                  <Link to="/profile">User Profile</Link>
+                </li>
+
+                <li>
+                  <Link to="#signout" onClick={signoutHandler}>
+                    Sign Out
                   </Link>
-  
-                  <ul className="st__dropdown--content">
-                    <li>
-                      <Link to="/dashboard">Dashboard</Link>
-                    </li>
-    
-                    <li>
-                      <Link to="/languagelist">Languages</Link>
-                    </li>
-    
-                    <li>
-                      <Link to="/buglist">Bugs</Link>
-                    </li>
-  
-                    <li>
-                      <Link to="/userlist">Users</Link>
-                    </li>
-                  </ul>
-                </div>
-              )}
-
-              {userInfo ? (
-
-                <div className="st--dropdown">
-                  <Link to="#">
-                    {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
-                  </Link>
-
-                  <ul className="st__dropdown--content">
-                    <li>
-                      <Link to="/profile">User Profile</Link>
-                    </li>
-
-                    <li>
-                      <Link to="#signout" onClick={signoutHandler}>
-                        Sign Out
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              ) : (
-                <Link to="/signin">Sign In</Link>
-              )}
+                </li>
+              </ul>
             </div>
-          </nav>
-        ) : (
-          <nav></nav>
-        )
-      }
+          ) : (
+            <Link to="/signin">Sign In</Link>
+          )}
+        </div>
+      </nav>
 
       <main>
 
