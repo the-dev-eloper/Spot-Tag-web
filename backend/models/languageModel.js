@@ -1,18 +1,48 @@
-import mongoose from 'mongoose';
 
-const languageSchema = new mongoose.Schema(
-    {
-        name: { type: String, required: true, unique: true },
-        image: { type: String, required: true },
-        developer: { type: String, required: true },
-        stableRelease: { type: String, required: true },
-        firstAppeared: { type: String, required: true },
-        bugList: { type: Array, required: true },
+const express = require('express');
+const morgan = require('morgan');
+const mongoose = require('mongoose');
+
+const languageSchema = mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+        unique: true
     },
-    {
-        timestamps: true,
-    }
-);
+    image: {
+        type: String,
+    },
+    developer: {
+        type: String,
+        default: ''
+    },
+    stableRelease: {
+        type: String,
+        default: ''
+    },
+    firstAppeared: {
+        type: String,
+        default: ''
+    },
+    languageParadigm: {
+        type: String,
+        default: ''
+    },
+    bugList: {
+        type: Array
+    },
+    dateCreated: {
+        type: Date,
+        default: Date.now()
+    },
+});
 
-const Language = mongoose.model('Language', languageSchema);
-export default Language;
+languageSchema.virtual('id').get(function () {
+    return this._id.toHexString();
+});
+
+languageSchema.set('toJSON', {
+    virtuals: true
+});
+
+exports.Language = mongoose.model('Language', languageSchema);
