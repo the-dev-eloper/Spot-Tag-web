@@ -16,13 +16,13 @@ languageRouter.get(`/:id`, async (req, res) => {
 });
 
 languageRouter.post(`/`, async (req, res) => {
-
     const language = new Language({
         name: req.body.name,
         image: req.body.image,
         developer: req.body.developer,
         stableRelease: req.body.stableRelease,
         firstAppeared: req.body.firstAppeared,
+        languageParadigm: req.body.languageParadigm,
         bugList: req.body.bugList
     });
 
@@ -36,6 +36,30 @@ languageRouter.post(`/`, async (req, res) => {
             success: false
         })
     }
+});
+
+languageRouter.put(`/:id`, async (req, res) => {
+    const language = await Language.findById(req.params.id);
+    if(!language) return res.status(400).send('Invalid Language');
+
+    const updatedLanguage = await Language.findByIdAndUpdate(
+        req.params.id,
+        {
+            name: req.body.name,
+            image: req.body.image,
+            developer: req.body.developer,
+            stableRelease: req.body.stableRelease,
+            firstAppeared: req.body.firstAppeared,
+            languageParadigm: req.body.languageParadigm,
+            bugList: req.body.bugList
+        }
+    )
+
+    if(!updatedLanguage) {
+        res.status(404).send('Language not Found!');
+    }
+
+    res.send(updatedLanguage);
 });
 
 module.exports = languageRouter;
