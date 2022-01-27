@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 require('dotenv/config');
+const cors = require('cors');
 
 const app = express();
 const api = process.env.API_URL;
@@ -10,6 +11,9 @@ const api = process.env.API_URL;
 // Middleware
 app.use(express.json());
 app.use(morgan('tiny'));
+
+app.use(cors());
+app.options('*', cors());
 
 // Routers
 const languageRouter = require('./routers/languageRouter');

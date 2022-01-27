@@ -1,4 +1,5 @@
 
+const e = require('express');
 const express = require('express');
 const { Language } = require("../models/languageModel");
 
@@ -7,6 +8,11 @@ const languageRouter = express.Router();
 languageRouter.get(`/`, async (req, res) => {
     const languageList = await Language.find({});
     res.send(languageList);
+});
+
+languageRouter.get(`/:id`, async (req, res) => {
+    const language = await Language.findById(req.params.id);
+    res.send(language);
 });
 
 languageRouter.post(`/`, async (req, res) => {
