@@ -24,7 +24,7 @@ bugRouter.post(`/`, async (req, res) => {
         solution: req.body.solution,
         refLink: req.body.refLink,
         addedBy: req.body.addedBy,
-    })
+    });
 
     const createdbug = await bug.save();
 
@@ -36,6 +36,25 @@ bugRouter.post(`/`, async (req, res) => {
             success: false
         })
     }
+});
+
+bugRouter.put(`/:id`, async (req, res) => {
+    const updatedBug = await Bug.findByIdAndUpdate(req.params.id, {
+        name: req.body.name,
+        language: req.body.language,
+        category: req.body.category,
+        reason: req.body.reason,
+        testingTool: req.body.testingTool,
+        solution: req.body.solution,
+        refLink: req.body.refLink,
+        addedBy: req.body.addedBy,
+    });
+
+    if(!updatedBug) {
+        res.status(404).send('Language not Found!');
+    }
+
+    res.send(updatedBug);
 });
 
 module.exports = bugRouter;
