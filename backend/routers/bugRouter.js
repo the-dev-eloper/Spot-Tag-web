@@ -1,104 +1,17 @@
-import express from 'express';
-import expressAsyncHandler from 'express-async-handler';
-import data from '../data.js';
-import Bug from '../models/bugModel.js';
-import { isAdmin, isAuth } from '../utils.js';
+
+const express = require('express');
+const { Bug } = require("../models/bugModel");
 
 const bugRouter = express.Router();
 
-bugRouter.get(
-    '/',
-    expressAsyncHandler(async (req, res) => {
-        const bugs = await Bug.find({});
-        res.send(bugs);
-    })
-);
+bugRouter.get(`/`, async (req, res) => {
+    const bugs = await Bug.find({});
+    res.send(bugs);
+});
 
-bugRouter.get(
-    '/seed',
-    expressAsyncHandler(async (req, res) => {
-        // await Bug.remove({});
-        const createdBugs = await Bug.insertMany(data.bugs);
-        res.send({ createdBugs });
-    })
-);
+bugRouter.get(`/:id`, async (req, res) => {
+    const bug = await Bug.findById(req.params.id);
+    res.send(bug);
+});
 
-bugRouter.get(
-    '/:id',
-    expressAsyncHandler(async (req, res) => {
-        const bug = await Bug.findById(req.params.id);
-        if(bug) {
-            res.send(bug);
-        } else {
-            res.status(404).send({ message: 'Bug Not Found' });
-        }
-    })
-);
-
-bugRouter.post(
-    '/',
-    isAuth,
-    isAdmin,
-    expressAsyncHandler(async (req, res) => {
-        const bug = new Bug({
-            name: 'sample name' + Date.now(),
-            category: 'sample category',
-            language: 'sample language',
-            reason: 'sample reason',
-            testingTool: 'sample testingTool',
-            solution: 'sample solution',
-            refLink: 'sample refLink',
-            addedBy: 'sample addedBy'
-        });
-
-        const createdBug = await bug.save();
-        res.send({ message: 'Bug Created', bug: createdBug });
-    })
-);
-
-bugRouter.put(
-    '/:id',
-    isAuth,
-    isAdmin,
-    expressAsyncHandler(async (req, res) => {
-
-        const bugId = req.params.id;
-        const bug = await Bug.findById(bugId);
-
-        if(bug) {
-            bug.name = req.body.name;
-            bug.category = req.body.category;
-            bug.language = req.body.language;
-            bug.reason = req.body.reason;
-            bug.testingTool = req.body.testingTool;
-            bug.solution = req.body.solution;
-            bug.refLink = req.body.refLink;
-            bug.addedBy = req.body.addedBy;
-
-            const updatedBug = await bug.save();
-            res.send({ message: 'Bug Updated', bug: updatedBug });
-        } else {
-            res.status(404).send({ message: 'Bug Not Found' });
-        }
-    })
-);
-
-bugRouter.delete(
-    '/:id',
-    isAuth,
-    isAdmin,
-    expressAsyncHandler(async (req, res) => {
-
-        const bugId = req.params.id;
-        const bug = await Bug.findById(bugId);
-
-        if(bug) {
-            const deletedBug = await bug.remove();
-            res.send({ message: 'Bug Deleted', bug: deletedBug });
-        } else {
-            res.status(404).send({ message: 'Bug Not Found' });
-        }
-    })
-);
-
-export default bugRouter;
+module.exports = bugRouter;

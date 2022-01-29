@@ -17,8 +17,10 @@ app.options('*', cors());
 
 // Routers
 const languageRouter = require('./routers/languageRouter');
+const bugRouter = require('./routers/bugRouter');
 
 app.use(`${api}/languages`, languageRouter);
+app.use(`${api}/bugs`, bugRouter);
 
 // Database
 mongoose.connect(process.env.MONGODB_URL, {

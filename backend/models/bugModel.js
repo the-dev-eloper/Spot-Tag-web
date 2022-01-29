@@ -1,20 +1,44 @@
-import mongoose from 'mongoose';
+const express = require('express');
+const morgan = require('morgan');
+const mongoose = require('mongoose');
 
-const bugSchema = new mongoose.Schema(
-    {
-        name: { type: String, required: true, },
-        category: { type: String, required: true, },
-        language: { type: String, required: true, },
-        reason: { type: String, required: true,},
-        testingTool: { type: String, required: true, },
-        solution: { type: String, required: true, },
-        refLink: { type: String, required: true, },
-        addedBy: { type: String, required: true, },
+const bugSchema = mongoose.Schema({
+    name: {
+        type: String,
+        required: true
     },
-    {
-        timestamps: true,
-    }
-);
+    category: {
+        type: String,
+        required: true
+    },
+    language: {
+        type: String,
+        required: true
+    },
+    reason: {
+        type: String,
+    },
+    testingTool: {
+        type: String,
+    },
+    solution: {
+        type: String,
+        required: true,
+    },
+    refLink: {
+        type: String,
+    },
+    addedBy: {
+        type: String,
+    },
+});
 
-const Bug = mongoose.model('Bug', bugSchema);
-export default Bug;
+bugSchema.virtual('id').get(function () {
+    return this._id.toHexString();
+});
+
+bugSchema.set('toJSON', {
+    virtuals: true
+});
+
+exports.Bug = mongoose.model('Bug', bugSchema);
