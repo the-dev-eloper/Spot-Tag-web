@@ -54,9 +54,7 @@ languageRouter.put(`/:id`, async (req, res) => {
         }
     )
 
-    if(!updatedLanguage) {
-        res.status(404).send('Language not Found!');
-    }
+    if(!updatedLanguage) return res.status(404).send('Language not Found!');
 
     res.send(updatedLanguage);
 });

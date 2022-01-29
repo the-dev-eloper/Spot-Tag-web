@@ -50,9 +50,7 @@ bugRouter.put(`/:id`, async (req, res) => {
         addedBy: req.body.addedBy,
     });
 
-    if(!updatedBug) {
-        res.status(404).send('Bug not Found!');
-    }
+    if(!updatedBug) return res.status(404).send('Bug not Found!');
 
     res.send(updatedBug);
 });
