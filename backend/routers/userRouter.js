@@ -59,4 +59,21 @@ userRouter.put(`/:id`, async (req, res) => {
     }
 });
 
+userRouter.delete(`/:id`, async (req,res) => {
+    const user = await User.findById(req.params.id);
+    if(!user) return res.status(400).send('Invalid User');
+
+    User.findByIdAndDelete(req.params.id)
+        .then((deletedUser) => {
+            if(deletedUser) {
+                return res.status(201).json({ success: true, message: 'Deleted Successfully' });
+            } else {
+                return res.status(404).json({ success: false, message: 'User not found' });
+            }
+        })
+        .catch((err) => {
+            return res.status(400).json({ success: false, error: err });
+        })
+});
+
 module.exports = userRouter;
