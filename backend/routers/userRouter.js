@@ -1,5 +1,6 @@
 
 const express = require('express');
+const bcrypt = require('bcryptjs');
 const { User } = require('../models/userModel');
 
 const userRouter = express.Router();
@@ -16,7 +17,7 @@ userRouter.post(`/`, async (req, res) => {
         mobile: req.body.mobile,
         country: req.body.country,
         isAdmin: req.body.isAdmin,
-        passwordHash: req.body.passwordHash,
+        passwordHash: bcrypt.hashSync(req.body.password, 10),
     });
 
     const createdUser = await newUser.save();
