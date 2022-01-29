@@ -29,6 +29,10 @@ const userSchema = new mongoose.Schema({
         required: true,
         default: true,
     },
+    dateCreated: {
+        type: Date,
+        default: Date.now()
+    },
 });
 
 userSchema.virtual('id').get(function () {
