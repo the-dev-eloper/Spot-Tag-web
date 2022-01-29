@@ -31,6 +31,10 @@ const bugSchema = mongoose.Schema({
     addedBy: {
         type: String,
     },
+    dateCreated: {
+        type: Date,
+        default: Date.now()
+    }
 });
 
 bugSchema.virtual('id').get(function () {
