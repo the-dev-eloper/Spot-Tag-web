@@ -51,10 +51,27 @@ bugRouter.put(`/:id`, async (req, res) => {
     });
 
     if(!updatedBug) {
-        res.status(404).send('Language not Found!');
+        res.status(404).send('Bug not Found!');
     }
 
     res.send(updatedBug);
+});
+
+bugRouter.delete(`/:id`, async (req, res) => {
+    const bug = await Bug.findById(req.params.id);
+    if(!bug) return res.status(404).send('Bug not Found');
+
+    Bug.findByIdAndDelete(req.params.id)
+        .then((deletedBug) => {
+            if(deletedBug) {
+                return res.status(201).json({ success: true, message: 'Deleted Successfully' })
+            } else {
+                return res.status(404).json({ success: false, message: 'Bug not found' })
+            }
+        })
+        .catch((err) => {
+            return res.status(400).json({ success: false, error: err })
+        })
 });
 
 module.exports = bugRouter;
