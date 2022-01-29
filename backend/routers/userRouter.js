@@ -10,6 +10,16 @@ userRouter.get(`/`, async (req, res) => {
     res.send(userList);
 });
 
+userRouter.get(`/:id`, async (req, res) => {
+    const user = await User.findById(req.params.id).select('-passwordHash');
+
+    if(user) {
+        res.status(200).json(user);
+    } else {
+        res.status(404).json({ success: false, message: 'User not Found!'});
+    }
+});
+
 userRouter.post(`/`, async (req, res) => {
     const newUser = new User({
         name: req.body.name,
