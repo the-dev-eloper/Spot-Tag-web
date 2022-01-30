@@ -1,9 +1,11 @@
 
 const express = require('express');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const { User } = require('../models/userModel');
 
 const userRouter = express.Router();
+const myCodeSecret = process.env.JWT_SECRET;
 
 userRouter.get(`/`, async (req, res) => {
     const userList = await User.find().select('-passwordHash -password');
@@ -74,6 +76,28 @@ userRouter.delete(`/:id`, async (req,res) => {
         .catch((err) => {
             return res.status(400).json({ success: false, error: err });
         })
+});
+
+userRouter.post(`/login`, async (req, res) => {
+    const user = await User.findOne({ email: req.body.email });
+
+    if(!user) {
+        return res.status(404).send('User not found');
+    }
+
+    if(user && bcrypt.compareSync(req.body.password, user.passwordHash)) {
+        const token = jwt.sign(
+            { userId: user.id },
+            myCodeSecret,
+            { expiresIn: '30d' }
+        );
+        res.status(200).send({
+            email: user.email,
+            token: token
+        });
+    } else {
+        res.status(400).send('Incorrect Password');
+    }
 });
 
 module.exports = userRouter;
