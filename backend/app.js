@@ -10,10 +10,12 @@ const api = process.env.API_URL;
 
 // Middlewares
 const authJwt = require('./helpers/jwt');
+const errorHandler = require('./helpers/errorHandler');
 
 app.use(express.json());
 app.use(morgan('tiny'));
 app.use(authJwt());
+app.use(errorHandler);
 
 app.use(cors());
 app.options('*', cors());
