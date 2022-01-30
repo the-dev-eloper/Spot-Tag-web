@@ -91,6 +91,7 @@ userRouter.post(`/login`, async (req, res) => {
             myCodeSecret,
             { expiresIn: '30d' }
         );
+
         res.status(200).send({
             email: user.email,
             token: token
