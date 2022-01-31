@@ -116,6 +116,16 @@ userRouter.post('/register', async (req, res) => {
         return res.status(400).send('the user cannot be created!');
 
     res.send(newUser);
-})
+});
+
+userRouter.get(`/get/count`, async (req, res) => {
+    const userCount = await User.countDocuments({})
+
+    if(!userCount) {
+        res.status(500).json({success: false})
+    }
+
+    res.send({ userCount: userCount });
+});
 
 module.exports = userRouter;
