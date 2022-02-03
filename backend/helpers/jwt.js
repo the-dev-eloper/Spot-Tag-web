@@ -14,9 +14,10 @@ function authJwt() {
             `${api}/users/login`,
             `${api}/users/register`,
             {url: /\/api\/v1\/languages(.*)/ , methods: ['GET', 'OPTIONS'] },
+            {url: /\/public\/uploads(.*)/, methods: ['GET', 'OPTIONS'] },
         ]
     });
-}
+};
 
 async function isRevoked(req, payload, done) {
     if(!payload.isAdmin) {
@@ -24,6 +25,6 @@ async function isRevoked(req, payload, done) {
     }
 
     done();
-}
+};
 
 module.exports = authJwt;
