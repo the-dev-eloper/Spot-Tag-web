@@ -72,15 +72,26 @@ languageRouter.post(`/`, uploadOptions.single('image'), async (req, res) => {
     }
 });
 
-languageRouter.put(`/:id`, async (req, res) => {
+languageRouter.put(`/:id`, uploadOptions.single('image'), async (req, res) => {
     const language = await Language.findById(req.params.id);
     if(!language) return res.status(400).send('Invalid Language');
+
+    const file = req.file;
+    let imagePath;
+
+    if(file) {
+        const fileName = file.filename;
+        const basePath = `${req.protocol}://${req.get('host')}/public/uploads/`;
+        imagePath = `${basePath}${fileName}`;
+    } else {
+        imagePath = language.image;
+    }
 
     const updatedLanguage = await Language.findByIdAndUpdate(
         req.params.id,
         {
             name: req.body.name,
-            image: req.body.image,
+            image: imagePath,
             developer: req.body.developer,
             stableRelease: req.body.stableRelease,
             firstAppeared: req.body.firstAppeared,
