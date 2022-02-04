@@ -37,7 +37,7 @@ export const detailsLanguage = (languageId) => async (dispatch) => {
     });
 
     try {
-        const { data } = await Axios.get(`/api/languages/${languageId}`);
+        const { data } = await Axios.get(`/api/v1/languages/${languageId}`);
         dispatch({ type: LANGUAGE_DETAIL_SUCCESS, payload: data });
     } catch (error) {
         dispatch({

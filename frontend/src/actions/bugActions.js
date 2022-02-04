@@ -22,7 +22,7 @@ export const listBugs = () => async (dispatch) => {
     dispatch({ type: BUG_LIST_REQUEST });
 
     try {
-        const { data } = await Axios.get('/api/bugs');
+        const { data } = await Axios.get('/api/v1/bugs/');
         dispatch({ type: BUG_LIST_SUCCESS, payload: data });
     } catch (error) {
         dispatch({ type: BUG_LIST_FAIL, payload: error.message });
@@ -33,7 +33,7 @@ export const detailsBug = (bugId) => async (dispatch) => {
     dispatch({ type: BUG_DETAIL_REQUEST, payload: bugId });
 
     try {
-        const { data } = await Axios.get(`/api/bugs/${bugId}`);
+        const { data } = await Axios.get(`/api/v1/bugs/${bugId}`);
         dispatch({ type: BUG_DETAIL_SUCCESS, payload: data });
     } catch (error) {
         dispatch({

@@ -14,6 +14,7 @@ function authJwt() {
             `${api}/users/login/`,
             `${api}/users/register`,
             {url: /\/api\/v1\/languages(.*)/ , methods: ['GET', 'OPTIONS'] },
+            {url: /\/api\/v1\/bugs(.*)/ , methods: ['GET', 'OPTIONS'] },
             {url: /\/public\/uploads(.*)/, methods: ['GET', 'OPTIONS'] },
         ]
     });
