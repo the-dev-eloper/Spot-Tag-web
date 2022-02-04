@@ -23,7 +23,7 @@ export const listLanguages = () => async (dispatch) => {
     });
 
     try {
-        const { data } = await Axios.get('/api/languages');
+        const { data } = await Axios.get('/api/v1/languages/');
         dispatch({ type: LANGUAGE_LIST_SUCCESS, payload: data });
     } catch (error) {
         dispatch({ type: LANGUAGE_LIST_FAIL, payload: error.message });
