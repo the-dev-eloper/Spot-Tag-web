@@ -24,14 +24,17 @@ import {
     USER_UPDATE_SUCCESS,
 } from '../constants/userConstants';
 
-export const register = (name, email, password) => async (dispatch) => {
+export const register = (name, email, password, mobile, designation) => async (dispatch) => {
     dispatch({ type: USER_REGISTER_REQUEST, payload: { email, password } });
 
     try {
-        const { data } = await Axios.post('/api/users/register', {
+        const { data } = await Axios.post('/api/v1/users/register', {
             name,
             email,
             password,
+            mobile,
+            designation,
+            isAdmin: false
         });
 
         dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
@@ -53,7 +56,7 @@ export const signin = (email, password) => async (dispatch) => {
     dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
 
     try {
-        const { data } = await Axios.post('/api/users/signin', { email, password });
+        const { data } = await Axios.post('/api/v1/users/login/', { email, password });
 
         dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
         localStorage.setItem('userInfo', JSON.stringify(data));
@@ -75,7 +78,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
     } = getState();
 
     try {
-        const { data } = await Axios.put(`/api/users/profile`, user, {
+        const { data } = await Axios.put(`/api/v1/users/profile`, user, {
             headers: { Authorization: `Bearer ${userInfo.token}` },
         });
 
@@ -108,7 +111,7 @@ export const listUsers = () => async (dispatch, getState) => {
     } = getState();
 
     try {
-        const { data } = await Axios.get('/api/users', {
+        const { data } = await Axios.get('/api/v1/users', {
             headers: {
                 Authorization: `Bearer ${userInfo.token}`
             },
@@ -129,7 +132,7 @@ export const detailsUser = (userId) => async (dispatch, getState) => {
 
     try {
 
-        const { data } = await Axios.get(`/api/users/${userId}`, {
+        const { data } = await Axios.get(`/api/v1/users/${userId}`, {
             headers: { Authorization: `Bearer ${userInfo.token}` },
         });
 
@@ -153,7 +156,7 @@ export const updateuser = (user) => async (dispatch, getState) => {
 
     try {
         const { data } = await Axios.put(
-            `/api/users/${user._id}`,
+            `/api/v1/users/${user._id}`,
             user,
             {
                 headers: {
@@ -178,7 +181,7 @@ export const deleteUser = (userId) => async (dispatch, getState) => {
     } = getState();
 
     try {
-        const { data } = await Axios.delete(`/api/users/${userId}`, {
+        const { data } = await Axios.delete(`/api/v1/users/${userId}`, {
             headers: {
                 Authorization: `Bearer ${userInfo.token}`
             },

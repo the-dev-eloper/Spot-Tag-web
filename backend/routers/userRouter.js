@@ -92,7 +92,10 @@ userRouter.post(`/login`, async (req, res) => {
         );
 
         res.status(200).send({
+            _id: user._id,
+            name: user.name,
             email: user.email,
+            isAdmin: user.isAdmin,
             token: token
         });
     } else {
