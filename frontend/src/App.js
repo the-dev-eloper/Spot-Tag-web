@@ -50,10 +50,6 @@ function App() {
 
               <ul className="st__dropdown--content">
                 <li>
-                  <Link to="/dashboard">Dashboard</Link>
-                </li>
-
-                <li>
                   <Link to="/languagelist">Languages</Link>
                 </li>
 
