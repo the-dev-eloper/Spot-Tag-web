@@ -315,3 +315,78 @@ section.bugs--content {
     padding: 15px;
     border-bottom: 1px solid #81818140;
 }
+
+/* Bug screen ends */
+/* Bug detail screen starts */
+
+.bugDetails {
+    padding: 48px 32px;
+}
+
+.bug__details--header {
+    margin-bottom: 12px;
+}
+
+.bug__details--header h2 {
+    color: #111112;
+
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.19px;
+}
+
+.bug__details--buttonSection {
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.bug__details--buttonSection button {
+    border: 0;
+    border-radius: 4px;
+
+    background-color: #192444;
+    color: #FFFFFF;
+
+    padding: 8px 16px;
+
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+}
+
+.bug__details--modalSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bugModal {
+    background-color: #FFFFFF;
+    box-shadow: 0px 3px 29px #00000029;
+    border-radius: 20px;
+
+    padding: 40px;
+}
+
+.bugModal--header {
+    margin-bottom: 30px;
+}
+
+.bugModal--header h2 {
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 25px;
+}
+
+.bugModal--header h5 {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+.bugsTable td, .bugsTable th {
+    padding: 15px 0;
+    border-bottom: 1px solid #81818140;
+}
+
+/* Bug detail screen ends */
