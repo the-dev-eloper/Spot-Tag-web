@@ -67,7 +67,7 @@ input:focus {
 }
 
 /* Navbar ends */
-/* Home page starts */
+/* Home screen starts */
 
 section.home--contents {
     padding: 48px 32px;
@@ -143,8 +143,8 @@ section.home--contents {
     letter-spacing: -0.19px;
 }
 
-/* Home page ends */
-/* Language page starts */
+/* Home screen ends */
+/* Language screen starts */
 
 section.language--contents {
     padding: 48px 32px;
@@ -256,4 +256,62 @@ section.language--contents {
     border-bottom: 1px solid #81818140;
 }
 
-/* Language page ends */
+/* Language screen ends */
+/* Bug screen starts */
+
+section.bugs--content {
+    padding: 48px 32px;
+}
+
+.bugs__content--header {
+    margin-bottom: 12px;
+}
+
+.bugs__content--header h2 {
+    color: #111112;
+
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.19px;
+}
+
+.bug__contents--buttonSection {
+    text-align: right;
+
+    margin-bottom: 30px;
+}
+
+.bug__contents--buttonSection button {
+    border: 0;
+    border-radius: 4px;
+
+    background-color: #192444;
+    color: #FFFFFF;
+
+    padding: 8px 16px;
+
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+}
+
+.bugsTable {
+    text-align: center;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.bugsTable caption {
+    color: #111112;
+
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.19px;
+
+    margin-bottom: 15px;
+}
+
+.bugsTable td, .bugsTable th {
+    padding: 15px;
+    border-bottom: 1px solid #81818140;
+}
