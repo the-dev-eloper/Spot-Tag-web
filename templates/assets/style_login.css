@@ -39,7 +39,7 @@ input:focus {
     outline: 0;
 }
 
-/* Page starts */
+/* Login page starts */
 
 section.loginPage {
     display: flex;
@@ -53,9 +53,6 @@ section.loginPage {
     background-color: #ffffff;
     border-radius: 25px;
 
-    /* width: 90%; */
-    /* height: 700px; */
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -66,12 +63,6 @@ section.login__content--wrap {
 }
 
 .login__content--heading {
-    /* margin-top: 30px; */
-
-    /* display: flex;
-    justify-content: center;
-    text-align: center; */
-
     margin-bottom: 30px;
 }
 
@@ -190,3 +181,156 @@ section.login__content--wrap {
     font-size: 17px;
     font-weight: 800;
 }
+
+/* Login page ends */
+/* Signup page starts */
+
+section.signupPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 48px;
+}
+
+.centered--signupBox {
+    background-color: #ffffff;
+    border-radius: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section.signup__content--wrap {
+    padding: 48px 24px;
+}
+
+.signup__content--header {
+    margin-bottom: 30px;
+}
+
+.signup__content--header h2 {
+    font-size: 30px;
+    font-weight: 800;
+
+    text-align: center;
+}
+
+.signup__content--header h2 span{
+	color: #f7403b;
+}
+
+.signup__form--inputSection {
+    margin-bottom: 20px;
+}
+
+.signup__form--row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.signupForm--inputWrap label {
+    color: rgba(27, 43, 65, 0.72);
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 27px;
+}
+
+.signupForm--inputWrap input {
+    background: #f1f1f1;
+    color: rgba(24, 39, 58, 0.94);
+
+    border: none;
+    outline: none;
+
+    padding: 8px 15px;
+    margin-bottom: 20px;
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+
+    margin-right: 8px;
+}
+
+.signupForm--inputWrap input::placeholder {
+    color: rgba(28, 48, 74, 0.5);
+
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 22px;
+}
+
+.signup__form--cbInputWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+}
+
+.signup__form--cbInputWrap input {
+    cursor: pointer;
+
+    width: 15px;
+    height: 15px;
+
+    margin-right: 12px;
+}
+
+.signup__form--cbInputWrap span {
+    color: #403F3F;
+
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 19px;
+}
+
+.signup__form--buttonSection {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.signup__form--buttonSection button {
+    width: 100%;
+    border: 0;
+    border-radius: 7px;
+
+    background-color: #0000ff;
+    color: #FFFFFF;
+
+    padding: 10px 0;
+
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 25px;
+}
+
+.signup__form--newUser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup__form--newUser h5 {
+    color: #140F26;;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.signup__form--newUser button {
+    background-color: transparent;
+    color: #0000ff;
+
+    border: none;
+    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+/* Signup page ends */
