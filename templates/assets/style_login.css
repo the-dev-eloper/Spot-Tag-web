@@ -40,61 +40,61 @@ input:focus {
     outline: 0;
 }
 
-/* Screens */
-
-section.loginPage,
-section.signupPage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-top: 48px;
-}
-
-.centered--loginBox,
-.centered--signupBox {
-    background-color: #ffffff;
-    border-radius: 25px;
-
+.row--spacedContents {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-section.login__content--wrap,
-section.signup__content--wrap {
+.row--centeredContents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Screens */
+
+section.block {
+    margin-top: 48px;
+}
+
+.block__elem {
+    background-color: #ffffff;
+    border-radius: 25px;
+}
+
+section.block__elem--mod {
     padding: 48px 24px;
 }
 
-.login__content--heading,
-.signup__content--header {
+.block__elem--head {
     margin-bottom: 30px;
 }
 
-.login__content--heading h2,
-.signup__content--header h2 {
+.block__elem--head h2 {
     font-size: 30px;
     font-weight: 800;
 
     text-align: center;
 }
 
-.login__content--heading h2 span,
-.signup__content--header h2 span {
+.block__elem--head h2 span {
     color: #f7403b;
 }
 
-.signup__form--inputSection {
+.form {
     margin-bottom: 20px;
 }
 
-.signup__form--row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.input--maxWidth {
+    width: 90%;
 }
 
-.signupForm--inputWrap label {
+.input--right {
+    margin-right: 8px;
+}
+
+.form__input--mod label {
     color: rgba(27, 43, 65, 0.72);
 
     font-size: 12px;
@@ -102,42 +102,20 @@ section.signup__content--wrap {
     line-height: 27px;
 }
 
-.login__form--inputWrap input {
-    width: 90%;
-
+.form__input--mod input {
     background: #f1f1f1;
     color: rgba(24, 39, 58, 0.94);
-
     border: none;
     outline: none;
 
     padding: 8px 15px;
-    margin-bottom: 20px;
 
     font-size: 16px;
     font-weight: 500;
     line-height: 22px;
 }
 
-.signupForm--inputWrap input {
-    background: #f1f1f1;
-    color: rgba(24, 39, 58, 0.94);
-
-    border: none;
-    outline: none;
-
-    padding: 8px 15px;
-    margin-bottom: 20px;
-
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 22px;
-
-    margin-right: 8px;
-}
-
-.login__form--inputWrap input::placeholder,
-.signupForm--inputWrap input::placeholder {
+.form__input--mod input::placeholder {
     color: rgba(28, 48, 74, 0.5);
 
     font-size: 13px;
@@ -145,29 +123,12 @@ section.signup__content--wrap {
     line-height: 22px;
 }
 
-.login__form--cbInputWrap {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    margin-bottom: 30px;
-}
-
-.signup__form--cbInputWrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 15px;
-}
-
-.checkboxWrap {
+.form__checkbox--mod {
     display: flex;
     align-items: center;
 }
 
-.checkboxWrap input,
-.signup__form--cbInputWrap input {
+.form__checkbox--mod input {
     cursor: pointer;
 
     width: 15px;
@@ -176,7 +137,7 @@ section.signup__content--wrap {
     margin-right: 8px;
 }
 
-.checkboxWrap span {
+.form__checkbox--mod span {
     color: #403F3F;
 
     font-size: 14px;
@@ -184,15 +145,7 @@ section.signup__content--wrap {
     line-height: 19px;
 }
 
-.signup__form--cbInputWrap span {
-    color: #403F3F;
-
-    font-size: 17px;
-    font-weight: 500;
-    line-height: 19px;
-}
-
-.fpWrap a {
+.form__forgetpassword--mod a {
     color: #403F3F;
 
     font-size: 14px;
@@ -200,14 +153,12 @@ section.signup__content--wrap {
     line-height: 19px;
 }
 
-.login__form--buttonSection,
-.signup__form--buttonSection {
+.form__button--mod {
     text-align: center;
     margin-bottom: 30px;
 }
 
-.login__form--buttonSection button,
-.signup__form--buttonSection button {
+.form__button--mod button {
     width: 100%;
     border: 0;
     border-radius: 7px;
@@ -223,37 +174,13 @@ section.signup__content--wrap {
     line-height: 25px;
 }
 
-.login__form--newUser,
-.signup__form--newUser {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.login__form--newUser h5 {
-    color: #140F26;;
-    font-size: 17px;
-    font-weight: 800;
-}
-
-.signup__form--newUser h5 {
+.block__elem--newUser h5 {
     color: #140F26;;
     font-size: 14px;
     font-weight: 800;
 }
 
-.login__form--newUser button {
-    background-color: transparent;
-    color: #0000ff;
-
-    border: none;
-    cursor: pointer;
-
-    font-size: 17px;
-    font-weight: 800;
-}
-
-.signup__form--newUser button {
+.block__elem--newUser button {
     background-color: transparent;
     color: #0000ff;
 

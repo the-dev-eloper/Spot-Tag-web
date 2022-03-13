@@ -14,51 +14,50 @@
 
 <body>
 
-    <section class="loginPage">
+    <section class="block row--centeredContents">
 
-        <div class="centered--loginBox">
+        <div class="block__elem row--spacedContents">
 
             <img src="./assets/images/Login_image.png" alt="Login" title="Login" />
 
-            <section class="login__content--wrap">
+            <section class="block__elem--mod">
 
-                <div class="login__content--heading">
+                <div class="block__elem--head">
                     <h2>
                         Welcome to Spot -
                         <span>Tag..</span>
                     </h2>
                 </div>
 
-                <div class="login__content--form">
-                    <form>
+                <form>
 
-                        <div class="login__form--inputWrap">
-                            <input type="text" placeholder="Enter Email" name="email" required>
+                    <div class="form form__input--mod">
+                        <input type="text" class="input--maxWidth" placeholder="Enter Email" name="email" required />
+                    </div>
+
+                    <div class="form form__input--mod">
+                        <input type="password" class="input--maxWidth" placeholder="Enter Password" name="psw"
+                            required />
+                    </div>
+
+                    <div class="form form__input--mod row--spacedContents">
+
+                        <div class="form__checkbox--mod">
+                            <input type="checkbox" />
+                            <span>Remember Me</span>
                         </div>
 
-                        <div class="login__form--inputWrap">
-                            <input type="password" placeholder="Enter Password" name="psw" required>
+                        <div class="form__forgetpassword--mod">
+                            <a>Forgot Password</a>
                         </div>
+                    </div>
 
-                        <div class="login__form--cbInputWrap">
+                    <div class="form__button--mod">
+                        <button>Login</button>
+                    </div>
+                </form>
 
-                            <div class="checkboxWrap">
-                                <input type="checkbox" />
-                                <span>Remember Me</span>
-                            </div>
-
-                            <div class="fpWrap">
-                                <a>Forgot Password</a>
-                            </div>
-                        </div>
-
-                        <div class="login__form--buttonSection">
-                            <button>Login</button>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="login__form--newUser">
+                <div class="block__elem--newUser row--centeredContents">
                     <h5>New to Spot-Tag?</h5>
                     <button>Create an account</button>
                 </div>

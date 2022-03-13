@@ -13,14 +13,15 @@
 
 <body>
 
-    <section class="signupPage">
-        <div class="centered--signupBox">
+    <section class="block row--centeredContents">
+
+        <div class="block__elem row--spacedContents">
 
             <img src="./assets/images/Login_image.png" alt="Signup" title="Signup" />
 
-            <section class="signup__content--wrap">
+            <section class="block__elem--mod">
 
-                <div class="signup__content--header">
+                <div class="block__elem--head">
                     <h2>
                         Hello World,<br />
                         Welcome to Spot -
@@ -28,60 +29,63 @@
                     </h2>
                 </div>
 
-                <div class="signup__content--form">
-                    <form>
+                <form>
 
-                        <div class="signup__form--inputSection">
+                    <div class="form">
 
-                            <div class="signup__form--row">
-                                <div class="signupForm--inputWrap">
-                                    <label for="name" class="formLabel">First Name*</label> <br />
-                                    <input type="text" placeholder="Name" name="fname" required />
-                                </div>
-
-                                <div class="signupForm--inputWrap">
-                                    <label for="email" class="formLabel">Email*</label> <br />
-                                    <input type="text" placeholder="Email" name="email" required />
-                                </div>
+                        <div class="row--spacedContents">
+                            <div class="form__input--mod">
+                                <label for="name" class="formLabel">First Name*</label> <br />
+                                <input type="text" class="form input--right" placeholder="Name" name="fname" required />
                             </div>
 
-                            <div class="signup__form--row">
-                                <div class="signupForm--inputWrap">
-                                    <label for="mobile" class="formLabel">Mobile*</label> <br />
-                                    <input type="number" placeholder="Mobile" name="mobile" required />
-                                </div>
-
-                                <div class="signupForm--inputWrap">
-                                    <label for="country" class="formLabel">Country*</label> <br />
-                                    <input type="text" placeholder="Country" name="country" required />
-                                </div>
-                            </div>
-
-                            <div class="signup__form--row">
-                                <div class="signupForm--inputWrap">
-                                    <label for="psw" class="formLabel">New Password*</label> <br />
-                                    <input type="password" placeholder="New Password" name="psw" required />
-                                </div>
-
-                                <div class="signupForm--inputWrap">
-                                    <label for="npsw" class="formLabel">Confirm Password*</label> <br />
-                                    <input type="password" placeholder="Confirm Password" name="npsw" required />
-                                </div>
+                            <div class="form__input--mod">
+                                <label for="email" class="formLabel">Email*</label> <br />
+                                <input type="text" class="form input--right" placeholder="Email" name="email"
+                                    required />
                             </div>
                         </div>
 
-                        <div class="signup__form--cbInputWrap">
-                            <input type="checkbox" />
-                            <span>I agree to all the Terms and Conditions</span>
+                        <div class="row--spacedContents">
+                            <div class="form__input--mod">
+                                <label for="mobile" class="formLabel">Mobile*</label> <br />
+                                <input type="number" class="form input--right" placeholder="Mobile" name="mobile"
+                                    required />
+                            </div>
+
+                            <div class="form__input--mod">
+                                <label for="country" class="formLabel">Country*</label> <br />
+                                <input type="text" class="form input--right" placeholder="Country" name="country"
+                                    required />
+                            </div>
                         </div>
 
-                        <div class="signup__form--buttonSection">
-                            <button>Sign up</button>
-                        </div>
-                    </form>
-                </div>
+                        <div class="row--spacedContents">
+                            <div class="form__input--mod">
+                                <label for="psw" class="formLabel">New Password*</label> <br />
+                                <input type="password" class="form input--right" placeholder="New Password" name="psw"
+                                    required />
+                            </div>
 
-                <div class="signup__form--newUser">
+                            <div class="form__input--mod">
+                                <label for="npsw" class="formLabel">Confirm Password*</label> <br />
+                                <input type="password" class="form input--right" placeholder="Confirm Password"
+                                    name="npsw" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form form__checkbox--mod row--centeredContents">
+                        <input type="checkbox" />
+                        <span>I agree to all the Terms and Conditions</span>
+                    </div>
+
+                    <div class="form__button--mod">
+                        <button>Sign up</button>
+                    </div>
+                </form>
+
+                <div class="block__elem--newUser row--centeredContents">
                     <h5>Already have an account?</h5>
                     <button>Log in</button>
                 </div>
