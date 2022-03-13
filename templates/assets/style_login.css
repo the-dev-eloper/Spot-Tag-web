@@ -1,5 +1,10 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+/* CSS reset */
+div, h1, h2, h3, h4, h5, h6, p, li, ul, ol, input, th, td { 
+    margin:0;
+}
+
+/* Common */
 
 html,body {
     width: 100%;
@@ -11,20 +16,16 @@ html,body {
     overflow: hidden;
 }
 
-h1, h2, h3, h4, h5, h6, html, p {
-    margin:0
-}
-
-a {
-    text-decoration: none !important;
-    cursor: pointer
-} 
-
 html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased
+}
+
+a {
+    text-decoration: none !important;
+    cursor: pointer
 }
 
 input, button {
@@ -39,152 +40,9 @@ input:focus {
     outline: 0;
 }
 
-/* Login page starts */
+/* Screens */
 
-section.loginPage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-top: 48px;
-}
-
-.centered--loginBox {
-    background-color: #ffffff;
-    border-radius: 25px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-section.login__content--wrap {
-    padding: 48px 24px;
-}
-
-.login__content--heading {
-    margin-bottom: 30px;
-}
-
-.login__content--heading h2 {
-    font-size: 30px;
-    font-weight: 800;
-}
-
-.login__content--heading h2 span{
-	color: #f7403b;
-}
-
-.login__form--inputWrap input {
-    width: 90%;
-
-    background: #f1f1f1;
-    color: rgba(24, 39, 58, 0.94);
-
-    border: none;
-    outline: none;
-
-    padding: 8px 15px;
-    margin-bottom: 20px;
-
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 22px;
-}
-
-.login__form--inputWrap input::placeholder {
-    color: rgba(28, 48, 74, 0.5);
-
-    font-size: 13px;
-    font-weight: 300;
-    line-height: 22px;
-}
-
-.login__form--cbInputWrap {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    margin-bottom: 30px;
-}
-
-.checkboxWrap {
-    display: flex;
-    align-items: center;
-}
-
-.checkboxWrap input {
-    cursor: pointer;
-
-    width: 18px;
-    height: 18px;
-
-    margin-right: 8px;
-}
-
-.checkboxWrap span {
-    color: #403F3F;
-
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 19px;
-}
-
-.fpWrap a {
-    color: #403F3F;
-
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 19px;
-}
-
-.login__form--buttonSection {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.login__form--buttonSection button {
-    width: 100%;
-    border: 0;
-    border-radius: 7px;
-
-    background-color: #0000ff;
-    color: #FFFFFF;
-
-    padding: 10px 0;
-
-    font-size: 18px;
-    text-transform: uppercase;
-    font-weight: 700;
-    line-height: 25px;
-}
-
-.login__form--newUser {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.login__form--newUser h5 {
-    color: #140F26;;
-    font-size: 17px;
-    font-weight: 800;
-}
-
-.login__form--newUser button {
-    background-color: transparent;
-    color: #0000ff;
-
-    border: none;
-    cursor: pointer;
-
-    font-size: 17px;
-    font-weight: 800;
-}
-
-/* Login page ends */
-/* Signup page starts */
-
+section.loginPage,
 section.signupPage {
     display: flex;
     align-items: center;
@@ -193,6 +51,7 @@ section.signupPage {
     margin-top: 48px;
 }
 
+.centered--loginBox,
 .centered--signupBox {
     background-color: #ffffff;
     border-radius: 25px;
@@ -202,14 +61,17 @@ section.signupPage {
     justify-content: space-between;
 }
 
+section.login__content--wrap,
 section.signup__content--wrap {
     padding: 48px 24px;
 }
 
+.login__content--heading,
 .signup__content--header {
     margin-bottom: 30px;
 }
 
+.login__content--heading h2,
 .signup__content--header h2 {
     font-size: 30px;
     font-weight: 800;
@@ -217,8 +79,9 @@ section.signup__content--wrap {
     text-align: center;
 }
 
-.signup__content--header h2 span{
-	color: #f7403b;
+.login__content--heading h2 span,
+.signup__content--header h2 span {
+    color: #f7403b;
 }
 
 .signup__form--inputSection {
@@ -239,6 +102,23 @@ section.signup__content--wrap {
     line-height: 27px;
 }
 
+.login__form--inputWrap input {
+    width: 90%;
+
+    background: #f1f1f1;
+    color: rgba(24, 39, 58, 0.94);
+
+    border: none;
+    outline: none;
+
+    padding: 8px 15px;
+    margin-bottom: 20px;
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
 .signupForm--inputWrap input {
     background: #f1f1f1;
     color: rgba(24, 39, 58, 0.94);
@@ -256,12 +136,21 @@ section.signup__content--wrap {
     margin-right: 8px;
 }
 
+.login__form--inputWrap input::placeholder,
 .signupForm--inputWrap input::placeholder {
     color: rgba(28, 48, 74, 0.5);
 
     font-size: 13px;
     font-weight: 300;
     line-height: 22px;
+}
+
+.login__form--cbInputWrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 30px;
 }
 
 .signup__form--cbInputWrap {
@@ -272,13 +161,27 @@ section.signup__content--wrap {
     margin-bottom: 15px;
 }
 
+.checkboxWrap {
+    display: flex;
+    align-items: center;
+}
+
+.checkboxWrap input,
 .signup__form--cbInputWrap input {
     cursor: pointer;
 
     width: 15px;
     height: 15px;
 
-    margin-right: 12px;
+    margin-right: 8px;
+}
+
+.checkboxWrap span {
+    color: #403F3F;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19px;
 }
 
 .signup__form--cbInputWrap span {
@@ -289,11 +192,21 @@ section.signup__content--wrap {
     line-height: 19px;
 }
 
+.fpWrap a {
+    color: #403F3F;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19px;
+}
+
+.login__form--buttonSection,
 .signup__form--buttonSection {
     text-align: center;
     margin-bottom: 30px;
 }
 
+.login__form--buttonSection button,
 .signup__form--buttonSection button {
     width: 100%;
     border: 0;
@@ -310,15 +223,33 @@ section.signup__content--wrap {
     line-height: 25px;
 }
 
+.login__form--newUser,
 .signup__form--newUser {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.login__form--newUser h5 {
+    color: #140F26;;
+    font-size: 17px;
+    font-weight: 800;
+}
+
 .signup__form--newUser h5 {
     color: #140F26;;
     font-size: 14px;
+    font-weight: 800;
+}
+
+.login__form--newUser button {
+    background-color: transparent;
+    color: #0000ff;
+
+    border: none;
+    cursor: pointer;
+
+    font-size: 17px;
     font-weight: 800;
 }
 
@@ -332,5 +263,3 @@ section.signup__content--wrap {
     font-size: 14px;
     font-weight: 800;
 }
-
-/* Signup page ends */
