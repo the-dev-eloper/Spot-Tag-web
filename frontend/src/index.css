@@ -472,23 +472,6 @@ section.home--contents {
   justify-content: space-between;
 }
 
-.card {
-  border: 1px solid black;
-
-  padding: 20px;
-  margin-bottom: 30px;
-}
-
-.card--image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card--image img {
-  margin-bottom: 15px;
-}
-
 .card--body {
   text-align: center;
 }

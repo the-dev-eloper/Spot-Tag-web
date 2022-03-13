@@ -1,21 +1,28 @@
 import React from 'react'
+import 'antd/dist/antd.css';
+
+import { Card } from 'antd';
 
 export default function Language(props) {
 
     const { language } = props;
 
     return (
-        <div key={language._id} className="card">
+        <div key={language._id}>
 
-            <a className="card--image" href={`/language/${language._id}`}>
-                <img src={language.image} alt="language" />
-            </a>
-
-            <div className="card--body">
-                <a href={`/language/${language.name}`}>
-                    <h3>{language.name}</h3>
-                </a>
-            </div>
+            <Card
+                hoverable
+                style={{ padding: 20, marginBottom: 30, marginRight: 8 }}
+                cover={
+                    <img src={language.image} alt="language" />
+                }
+            >
+                <div className="card--body">
+                    <a href={`/language/${language.id}`}>
+                        <h3>{language.name}</h3>
+                    </a>
+                </div>
+            </Card>
         </div>
     );
 }
