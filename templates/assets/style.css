@@ -45,6 +45,20 @@ input:focus {
     justify-content: space-between;
 }
 
+.column--spacedContents {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.block--margin--bottom {
+    margin-bottom: 30px;
+}
+
+.block--padding--even {
+    padding: 20px;
+}
+
 /* Navbar */
 
 .st--navbar {
@@ -74,23 +88,15 @@ input:focus {
 /* Navbar ends */
 /* Screens */
 
-section.home--contents,
-section.language--contents,
-section.bugs--content,
-section.bugDetails {
+section.block {
     padding: 48px 32px;
 }
 
-.home__contents--header,
-.bugs__content--header,
-.bug__details--header {
+.block--head {
     margin-bottom: 12px;
 }
 
-.home__contents--header h2,
-.language__info--nameSection h2,
-.bugs__content--header h2,
-.bug__details--header h2 {
+.block--head h2 {
     color: #111112;
 
     font-size: 30px;
@@ -98,16 +104,50 @@ section.bugDetails {
     letter-spacing: -0.19px;
 }
 
-.home__contents--buttonSection,
-.bug__contents--buttonSection,
-.bug__details--buttonSection {
+.block--head h5 {
+    color: #000000;
+
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.14px;
+}
+
+.block--languageParams {
+    background-color: #FFFFFF;
+    box-shadow: 0px 3px 29px #00000029;
+
+    padding: 20px;
+}
+
+.block--languageParams:nth-child(odd) {
+    margin-bottom: 40px;
+}
+
+.block--languageParams h3 {
+    color: #111112;
+
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.19px;
+
+    margin-bottom: 8px;
+}
+
+.block--languageParams h4 {
+    color: #000000;
+
+    text-align: right;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.14px;
+}
+
+.block__elem--viewButton {
     text-align: right;
     margin-bottom: 30px;
 }
 
-.home__contents--buttonSection button,
-.bug__contents--buttonSection button,
-.bug__details--buttonSection button {
+.block__elem--viewButton button {
     border: 0;
     border-radius: 4px;
 
@@ -121,19 +161,12 @@ section.bugDetails {
     line-height: 19px;
 }
 
-.language__contents--details,
-.language__info--nameSection,
-.bugModal--header {
-    margin-bottom: 30px;
-}
-
-.language__details--logo,
-.language__details--languageInfo {
-    padding: 20px;
-}
-
-.home__contents--languages {
+.block__elem--languages {
     flex-wrap: wrap;
+}
+
+.block__elem--columnMod:nth-child(1) {
+    margin-right: 40px;
 }
 
 .card {
@@ -167,73 +200,15 @@ section.bugDetails {
     letter-spacing: -0.19px;
 }
 
-.language__details--languageInfo {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.language__info--nameSection h5 {
-    color: #000000;
-
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.14px;
-}
-
-.language__info--additional {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.language__additional--cols {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.language__additional--cols:nth-child(1) {
-    margin-right: 40px;
-}
-
-.language_parameters {
-    background-color: #FFFFFF;
-    box-shadow: 0px 3px 29px #00000029;
-
-    padding: 20px;
-}
-
-.language_parameters:nth-child(odd) {
-    margin-bottom: 40px;
-}
-
-.language_parameters h3 {
-    color: #111112;
-
-    font-size: 24px;
-    font-weight: 800;
-    letter-spacing: -0.19px;
-
-    margin-bottom: 8px;
-}
-
-.language_parameters h4 {
-    color: #000000;
-
-    text-align: right;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.14px;
-}
-
-.bugsTable {
+.bugsTable,
+.bugModal--table {
     text-align: center;
     border-collapse: collapse;
     width: 100%;
 }
 
-.bugsTable caption {
+.bugsTable caption,
+.bugModal--table caption {
     color: #111112;
 
     font-size: 19px;
@@ -243,12 +218,13 @@ section.bugDetails {
     margin-bottom: 15px;
 }
 
-.bugsTable td, .bugsTable th {
+.bugsTable td, .bugsTable th,
+.bugModal--table td, .bugModal--table th {
     padding: 15px;
     border-bottom: 1px solid #81818140;
 }
 
-.bug__details--modalSection {
+.block__elem--modal {
     display: flex;
     align-items: center;
     justify-content: center;
