@@ -52,6 +52,14 @@ input:focus {
     justify-content: center;
 }
 
+.block--width-maximum {
+    width: 90%;
+}
+
+.block--margin-right {
+    margin-right: 8px;
+}
+
 /* Screens */
 
 section.block {
@@ -63,22 +71,22 @@ section.block {
     border-radius: 25px;
 }
 
-section.block__elem--mod {
+section.block__elem--inputs {
     padding: 48px 24px;
 }
 
-.block__elem--head {
+.block__inputs--head {
     margin-bottom: 30px;
 }
 
-.block__elem--head h2 {
+.block__inputs--head h2 {
     font-size: 30px;
     font-weight: 800;
 
     text-align: center;
 }
 
-.block__elem--head h2 span {
+.block__inputs--head h2 span {
     color: #f7403b;
 }
 
@@ -86,15 +94,7 @@ section.block__elem--mod {
     margin-bottom: 20px;
 }
 
-.input--maxWidth {
-    width: 90%;
-}
-
-.input--right {
-    margin-right: 8px;
-}
-
-.form__input--mod label {
+.form__input label {
     color: rgba(27, 43, 65, 0.72);
 
     font-size: 12px;
@@ -102,7 +102,7 @@ section.block__elem--mod {
     line-height: 27px;
 }
 
-.form__input--mod input {
+.form__input input {
     background: #f1f1f1;
     color: rgba(24, 39, 58, 0.94);
     border: none;
@@ -115,7 +115,7 @@ section.block__elem--mod {
     line-height: 22px;
 }
 
-.form__input--mod input::placeholder {
+.form__input input::placeholder {
     color: rgba(28, 48, 74, 0.5);
 
     font-size: 13px;
@@ -123,12 +123,12 @@ section.block__elem--mod {
     line-height: 22px;
 }
 
-.form__checkbox--mod {
+.form__checkbox {
     display: flex;
     align-items: center;
 }
 
-.form__checkbox--mod input {
+.form__checkbox input {
     cursor: pointer;
 
     width: 15px;
@@ -137,7 +137,7 @@ section.block__elem--mod {
     margin-right: 8px;
 }
 
-.form__checkbox--mod span {
+.form__checkbox span {
     color: #403F3F;
 
     font-size: 14px;
@@ -145,7 +145,7 @@ section.block__elem--mod {
     line-height: 19px;
 }
 
-.form__forgetpassword--mod a {
+.form__forgetpassword a {
     color: #403F3F;
 
     font-size: 14px;
@@ -153,12 +153,12 @@ section.block__elem--mod {
     line-height: 19px;
 }
 
-.form__button--mod {
+.form__button {
     text-align: center;
     margin-bottom: 30px;
 }
 
-.form__button--mod button {
+.form__button button {
     width: 100%;
     border: 0;
     border-radius: 7px;
@@ -174,13 +174,13 @@ section.block__elem--mod {
     line-height: 25px;
 }
 
-.block__elem--newUser h5 {
+.block--navigation h5 {
     color: #140F26;;
     font-size: 14px;
     font-weight: 800;
 }
 
-.block__elem--newUser button {
+.block--navigation button {
     background-color: transparent;
     color: #0000ff;
 
