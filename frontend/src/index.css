@@ -452,13 +452,8 @@ section.home--contents {
 
 .home__contents--buttonSection button {
   border: 0;
-  border-radius: 4px;
-  cursor: pointer;
-
   background-color: #192444;
   color: #FFFFFF;
-
-  padding: 8px 16px;
 
   font-size: 16px;
   font-weight: 600;

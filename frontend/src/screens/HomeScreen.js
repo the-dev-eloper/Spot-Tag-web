@@ -1,9 +1,14 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+
+import { listLanguages } from '../actions/languageActions';
+
 import Language from '../components/Language'
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { listLanguages } from '../actions/languageActions';
+
+import { Button } from "antd";
+import { BugFilled } from "@ant-design/icons";
 
 export default function HomeScreen(props) {
 
@@ -11,6 +16,8 @@ export default function HomeScreen(props) {
 
     const languageList = useSelector((state) => state.languageList);
     const { languages, loading, error } = languageList;
+
+    const size = 'large';
 
     useEffect(() => {
         dispatch(listLanguages());
@@ -30,7 +37,15 @@ export default function HomeScreen(props) {
                 </div>
 
                 <div class="home__contents--buttonSection">
-                    <button onClick={gotoBugs}>View All Bugs</button>
+                    <Button
+                        type="primary"
+                        shape="round"
+                        icon={ <BugFilled /> }
+                        size={size}
+                        onClick={gotoBugs}
+                    >
+                        View All Bugs
+                    </Button>
                 </div>
 
                 {loading ? (
