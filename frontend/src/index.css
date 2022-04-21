@@ -1,7 +1,12 @@
 
-/* Common */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
+/* CSS Reset */
+div, h1, h2, h3, h4, h5, h6, p, li, ul, ol, input, th, td { 
+  margin:0;
+}
+
+/* Common */
 html,body {
   width: 100%;
   height: 100%;
@@ -11,24 +16,20 @@ html,body {
   font-family: 'Montserrat', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, html, p {
-  margin:0
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased
 }
 
-ul {
+ul, li, ol {
   list-style: none;
 }
 
 a {
   text-decoration: none !important;
   cursor: pointer
-} 
-
-html {
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased
 }
 
 input, button {
@@ -69,10 +70,6 @@ input:focus {
   align-items: center;
 }
 
-.st__navbar--optionOne {
-  margin-right: 20px;
-}
-
 .st__navbar--options a {
   color: #FFFFFF;
 
@@ -81,35 +78,25 @@ input:focus {
   line-height: 22px;
 }
 
+.ant-menu-title-content {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.ant-menu-submenu .ant-menu-submenu-horizontal {
+  margin-right: 10px !important;
+  background: transparent;
+  color: #FFFFFF;
+}
+
+.ant-menu-horizontal {
+  line-height: 0 !important;
+  border: 0;
+  border-bottom: 0 !important;
+}
+
 /* Navbar ends */
-/* Dropdown starts*/
-
-.st--dropdown {
-  display: inline-block;
-  position: relative;
-}
-
-.st__dropdown--content {
-  position: absolute;
-  display: none;
-  right: 0;
-  min-width: 192px;
-  padding: 16px;
-  z-index: 1;
-  background-color: #203040;
-  margin: 0;
-  border-radius: 8px;
-}
-
-.st--dropdown:hover .st__dropdown--content {
-  display: block;
-}
-
-.st__dropdown--content li {
-  margin-bottom: 8px;
-}
-
-/* Dropdown ends */
 /* Login Screen starts */
 
 .body-login {

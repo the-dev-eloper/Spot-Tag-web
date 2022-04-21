@@ -20,11 +20,16 @@ import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import SignupScreen from './screens/SignupScreen';
 
+import { Menu } from "antd";
+
 function App() {
 
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const dispatch = useDispatch();
+
+  const { SubMenu } = Menu;
+  const current = "mail";
 
   const signoutHandler = () => {
     dispatch(signout());
@@ -40,49 +45,41 @@ function App() {
         </div>
 
         <div className="st__navbar--options">
-
           {userInfo && userInfo.isAdmin && (
 
-            <div className="st__navbar--optionOne st--dropdown">
-              <Link to="#admin">
-                Admin
-              </Link>
-
-              <ul className="st__dropdown--content">
-                <li>
-                  <Link to="/languagelist">Languages</Link>
-                </li>
-
-                <li>
-                  <Link to="/buglist">Bugs</Link>
-                </li>
-
-                <li>
-                  <Link to="/userlist">Users</Link>
-                </li>
-              </ul>
-            </div>
+            <Menu
+              selectedKeys={[current]}
+              mode="horizontal"
+              style={{ marginRight: '10', backgroundColor: 'transparent', color: '#FFFFFF' }}
+            >
+              <SubMenu
+                key="SubMenu_1"
+                title="Admin"
+                theme='dark'
+              >
+                <Menu.Item key="languages">Languages</Menu.Item>
+                <Menu.Item key="bugs">Bugs</Menu.Item>
+                <Menu.Item key="users">Users</Menu.Item>
+              </SubMenu>
+            </Menu>
           )}
 
           {userInfo ? (
 
-            <div className="st--dropdown">
-              <Link to="#">
-                {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
-              </Link>
-
-              <ul className="st__dropdown--content">
-                <li>
-                  <Link to="/profile">User Profile</Link>
-                </li>
-
-                <li>
-                  <Link to="#signout" onClick={signoutHandler}>
-                    Sign Out
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            <Menu
+              selectedKeys={[current]}
+              mode="horizontal"
+              style={{ backgroundColor: 'transparent', color: '#FFFFFF' }}
+            >
+              <SubMenu
+                key="SubMenu_2"
+                title={userInfo.name}
+                theme='dark'
+              >
+                <Menu.Item key="setting:1">User Profile</Menu.Item>
+                <Menu.Item key="setting:2">Sign Out</Menu.Item>
+              </SubMenu>
+            </Menu>
           ) : (
             <Link to="/signin">Sign In</Link>
           )}
