@@ -31,6 +31,22 @@ function App() {
   const { SubMenu } = Menu;
   const current = "mail";
 
+  const gotoAdminLanguages = () => {
+    document.location.href = '/languagelist';
+  };
+
+  const gotoAdminBugs = () => {
+    document.location.href = '/buglist';
+  };
+
+  const gotoAdminUsers = () => {
+    document.location.href = '/userlist';
+  };
+
+  const gotoProfile = () => {
+    document.location.href = '/profile';
+  };
+
   const signoutHandler = () => {
     dispatch(signout());
   };
@@ -57,9 +73,9 @@ function App() {
                 title="Admin"
                 theme='dark'
               >
-                <Menu.Item key="languages">Languages</Menu.Item>
-                <Menu.Item key="bugs">Bugs</Menu.Item>
-                <Menu.Item key="users">Users</Menu.Item>
+                <Menu.Item key="languages" onClick={gotoAdminLanguages}>Languages</Menu.Item>
+                <Menu.Item key="bugs" onClick={gotoAdminBugs}>Bugs</Menu.Item>
+                <Menu.Item key="users" onClick={gotoAdminUsers}>Users</Menu.Item>
               </SubMenu>
             </Menu>
           )}
@@ -76,8 +92,8 @@ function App() {
                 title={userInfo.name}
                 theme='dark'
               >
-                <Menu.Item key="setting:1">User Profile</Menu.Item>
-                <Menu.Item key="setting:2">Sign Out</Menu.Item>
+                <Menu.Item key="profile" onClick={gotoProfile}>User Profile</Menu.Item>
+                <Menu.Item key="signout" onClick={signoutHandler}>Sign Out</Menu.Item>
               </SubMenu>
             </Menu>
           ) : (
