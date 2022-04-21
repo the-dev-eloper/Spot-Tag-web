@@ -97,6 +97,67 @@ input:focus {
 }
 
 /* Navbar ends */
+/* Home Screen starts */
+
+section.homeBlock {
+  padding: 48px 32px;
+}
+
+.homeBlock--header {
+  margin-bottom: 12px;
+}
+
+.homeBlock--header h2 {
+  color: #111112;
+
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.19px;
+}
+
+.homeBlock--buttonSection {
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+.homeBlock--buttonSection button {
+  border: 0;
+  background-color: #192444;
+  color: #FFFFFF;
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.homeBlock--languages {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card--body {
+  text-align: center;
+}
+
+.card--body h3 {
+  color: #111112;
+
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.19px;
+}
+
+.card--body h4 {
+  color: #111112;
+
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.19px;
+}
+
+/* Home Screen ends */
 /* Login Screen starts */
 
 .body-login {
@@ -413,68 +474,6 @@ color: #f7403b;
 }
 
 /* Signup Screen ends */
-/* Home Screen starts */
-
-section.home--contents {
-  padding: 48px 32px;
-}
-
-.home__contents--header {
-  margin-bottom: 12px;
-}
-
-.home__contents--header h2 {
-  color: #111112;
-
-  font-size: 30px;
-  font-weight: 800;
-  letter-spacing: -0.19px;
-}
-
-.home__contents--buttonSection {
-  text-align: right;
-
-  margin-bottom: 30px;
-}
-
-.home__contents--buttonSection button {
-  border: 0;
-  background-color: #192444;
-  color: #FFFFFF;
-
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 19px;
-}
-
-.home__contents--languages {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.card--body {
-  text-align: center;
-}
-
-.card--body h3 {
-  color: #111112;
-
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: -0.19px;
-}
-
-.card--body h4 {
-  color: #111112;
-
-  font-size: 19px;
-  font-weight: 500;
-  letter-spacing: -0.19px;
-}
-
-/* Home Screen ends */
 /* Bugs Screen starts */
 
 section.bugs--content {

@@ -17,8 +17,6 @@ export default function HomeScreen(props) {
     const languageList = useSelector((state) => state.languageList);
     const { languages, loading, error } = languageList;
 
-    const size = 'large';
-
     useEffect(() => {
         dispatch(listLanguages());
     }, [dispatch]);
@@ -28,39 +26,36 @@ export default function HomeScreen(props) {
     }
 
     return (
-        <div className='body--home'>
+        <section class="homeBlock">
 
-            <section class="home--contents">
+            <div class="homeBlock--header">
+                <h2>Languages</h2>
+            </div>
 
-                <div class="home__contents--header">
-                    <h2>Languages</h2>
+            <div class="homeBlock--buttonSection">
+                <Button
+                    type="primary"
+                    shape="round"
+                    icon={ <BugFilled /> }
+                    size='large'
+                    onClick={gotoBugs}
+                >
+                    View All Bugs
+                </Button>
+            </div>
+
+            {loading ? (
+                <LoadingBox></LoadingBox>
+            ) : error ? (
+                <MessageBox variant="danger">{error}</MessageBox>
+            ) : (
+                <div class="homeBlock--languages">
+
+                    {languages.map((language) => (
+                        <Language key={language._id} language={language} />
+                    ))}
                 </div>
-
-                <div class="home__contents--buttonSection">
-                    <Button
-                        type="primary"
-                        shape="round"
-                        icon={ <BugFilled /> }
-                        size={size}
-                        onClick={gotoBugs}
-                    >
-                        View All Bugs
-                    </Button>
-                </div>
-
-                {loading ? (
-                    <LoadingBox></LoadingBox>
-                ) : error ? (
-                    <MessageBox variant="danger">{error}</MessageBox>
-                ) : (
-                    <div class="home__contents--languages">
-
-                        {languages.map((language) => (
-                            <Language key={language._id} language={language} />
-                        ))}
-                    </div>
-                )}
-            </section>
-        </div>
+            )}
+        </section>
     );
 }
