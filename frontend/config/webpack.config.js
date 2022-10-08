@@ -71,6 +71,7 @@ const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
+const lessRegex = /\.less$/;
 
 const hasJsxRuntime = (() => {
   if (process.env.DISABLE_NEW_JSX_TRANSFORM === 'true') {
@@ -374,6 +375,21 @@ module.exports = function (webpackEnv) {
                   maxSize: imageInlineSizeLimit,
                 },
               },
+            },
+            {
+              test: lessRegex,
+              use: [
+                { loader: "style-loader" },
+                { loader: "css-loader" },
+                {
+                  loader: "less-loader",
+                  options: {
+                    lessOptions: {
+                      javascriptEnabled: true,
+                    }
+                  }
+                },
+              ],
             },
             {
               test: /\.svg$/,
