@@ -34,7 +34,7 @@ app.use(`${api}/users`, userRouter);
 mongoose.connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: 'spottag-web'
+    dbName: 'spot-tag'
 })
     .then(() => {
         console.log('Database connection is ready..');
