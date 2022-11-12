@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { RootNavigation } from './navigation/RootNavigation';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './themes/global.less';
 
@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <RootNavigation />
+    <App />
   </React.StrictMode>
 );
 
