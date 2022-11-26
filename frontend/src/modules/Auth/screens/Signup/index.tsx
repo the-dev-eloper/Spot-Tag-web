@@ -19,13 +19,11 @@ export const Signup = () => {
     const authStatus = useContext(AuthContext);
 
     const [tnc, setTnc] = useState(false);
-    const [user, setUser] = useState({});
 
     const created = useCallback(() => {
-        console.log(user);
         authStatus.onLogin();
         navigate('/');
-    }, [user, navigate, authStatus]);
+    }, [navigate, authStatus]);
 
     const goToLogin = () => {
         navigate('/');
@@ -62,8 +60,6 @@ export const Signup = () => {
                                 { setSubmitting }: FormikHelpers<Values>
                             ) => {
                                 setTimeout(() => {
-                                    console.log(values);
-                                    setUser(values);
                                     created();
                                     setSubmitting(false);
                                 }, 500);
