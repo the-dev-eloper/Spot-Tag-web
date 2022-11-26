@@ -1,29 +1,44 @@
 
 import './styles.less';
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Button, Image, Typography } from 'antd';
 import { Formik, Field, Form, FormikHelpers } from 'formik';
+import { useNavigate } from 'react-router-dom';
+import { users } from '../../../../data';
+import { AuthContext } from '../../../../navigation/RootNavigation';
 
 interface Values {
     email: string;
     password: string;
-    checked: boolean;
+    rememberme: boolean;
 };
 
 export const Login = () => {
 
-    const [user, setUser] = useState({
-        email: '',
-        password: '',
-        checked: false
-    });
+    const navigate = useNavigate();
+    const authStatus = useContext(AuthContext);
 
     const fp_handler = () => {
         // ToDo: Forgot Password
     };
 
     const goToSignup = () => {
-        // ToDo: Navigate to signup
+        navigate('/signup');
+    };
+
+    const validateUser = (user: any) => {
+        if (users.length > 0) {
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].email === user.email && users[i].password === user.password) {
+                    authStatus.onLogin();
+                    navigate('/');
+                } else {
+                    alert('Please check the credentials');
+                }
+            }
+        } else {
+            alert('Please signup to Spot-Tag!');
+        }
     };
 
     return (
@@ -45,21 +60,14 @@ export const Login = () => {
                             initialValues={{
                                 email: '',
                                 password: '',
-                                checked: false
+                                rememberme: false
                             }}
                             onSubmit={(
                                 values: Values,
                                 { setSubmitting }: FormikHelpers<Values>
                             ) => {
-                                setTimeout(() => {
-                                    setUser({
-                                        email: values.email,
-                                        password: values.password,
-                                        checked: values.checked,
-                                    });
-                                    console.log(user);
-                                    setSubmitting(false);
-                                }, 500);
+                                validateUser({ email: values.email, password: values.password, rememberme: values.rememberme });
+                                setSubmitting(false);
                             }}
                         >
                             <Form>
@@ -81,7 +89,7 @@ export const Login = () => {
 
                                 <div className="row--spacedContents login--marginAdjustment">
                                     <div className="login--checkbox">
-                                        <Field type="checkbox" name="checked" className='login--checkbox__field' />
+                                        <Field type="checkbox" name="rememberme" className='login--checkbox__field' />
                                         <label className='login--checkbox__label'>Remember me</label>
                                     </div>
 
@@ -108,7 +116,6 @@ export const Login = () => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };
